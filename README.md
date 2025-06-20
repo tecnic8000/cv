@@ -27,9 +27,15 @@ Motivated and self-driven junior fullstack developer with hands-on experience in
 - GitHub Actions, Docker (learning Kubernetes)  
 - Linux shell scripting (automation, cronjobs)  
 
-**Other Tools**:  
+**Business Tools**:  
 - Git, GitHub, Postman, Swagger  
 - VS Code, IntelliJ, Figma (for wireframes)  
+- Passionate about automation and simplifying ops
+- Strong foundation in Linux environment & scripting  
+- Eager to learn — consistently upskilling via hands-on projects  
+- Good at debugging, resource optimization, and lean development  
+- Forward-thinking: always evaluating tech for scalability and automation  
+
 
 ---
 
@@ -41,7 +47,7 @@ Motivated and self-driven junior fullstack developer with hands-on experience in
 
 ---
 
-## 💼 Projects
+## Projects & Experience
 
 ### 🚀 **Fullstack Task Manager App**
 **Tech:** React, Spring Boot, MySQL, JWT, AWS EC2  
@@ -63,16 +69,10 @@ Motivated and self-driven junior fullstack developer with hands-on experience in
 
 ## 📈 Strengths
 
-- Passionate about automation and simplifying ops
-- Strong foundation in Linux environment & scripting  
-- Eager to learn — consistently upskilling via hands-on projects  
-- Good at debugging, resource optimization, and lean development  
-- Forward-thinking: always evaluating tech for scalability and automation  
-
 ---
 
-## 🌱 Currently Learning
-
+## Work-In-Progress
+- 
 - Kubernetes, Terraform  
 - Advanced AWS (CloudFormation, ALB, Route53, Secrets Manager)  
 - System design for scalable cloud-native applications  
