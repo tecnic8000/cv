@@ -1,4 +1,3 @@
-# cv
 # Harri | Junior Fullstack Developer 🚀  
 📍 Linux Mint XFCE | 💻 React | ☕ Spring Boot | ☁️ AWS | ⚙️ DevOps Enthusiast
 
