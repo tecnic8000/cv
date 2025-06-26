@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 // import viteLogo from '/vite.svg'
 // import './App.css'
 import "./style/style1.css"
+import { Button } from './components/ui/button';
 
 function App() {
   const [headlines, setHeadlines] = useState<string[]>([]);
@@ -26,6 +27,7 @@ function App() {
           <div key={index}>{headline}</div>
         ))}
       </div>
+      <Button>CLICK ME</Button>
     </>
   )
 }

@@ -21,7 +21,18 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    "types": ["babel__core"]
+    "types": ["babel__core"],
+
+
+    /* Path mapping */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+
+
   },
   "include": ["src"]
 }
