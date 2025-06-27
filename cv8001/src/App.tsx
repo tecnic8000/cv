@@ -11,12 +11,22 @@ function App() {
 
   useEffect(() => {
     fetch('/cv.md')
-      .then(res => res.text())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        return res.text();
+      })
       .then(content => {
+        console.log('Raw content:', content); // Debug: see what we're getting
         const headlineLines = content.split('\n')
-          .filter(line => line.startsWith('##'))
+          .filter(line => line.startsWith('#'))
           .map(line => line.replace(/^#+\s*/, ''));
+        console.log('Extracted headlines:', headlineLines); // Debug: see the result
         setHeadlines(headlineLines);
+      })
+      .catch(error => {
+        console.error('Error fetching cv.md:', error);
       });
   }, []);
 
@@ -31,7 +41,7 @@ function App() {
       <Button>CLICK ME</Button>
       <Checkbox/>
       <br/>
-      <div>{headlines[0]}</div>
+      <div>{headlines[1]}</div>
     </>
   )
 }
