@@ -3,13 +3,13 @@
 
 ---
 
-## 🧑‍💻 About Me
+# About Me
 
 Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead.
 
 ---
 
-## 🛠️ Tech Stack
+# Tech Stack
 
 **Frontend**:  
 - React.js (Hooks, Context, React Router)  
@@ -38,7 +38,7 @@ Motivated and self-driven junior fullstack developer with hands-on experience in
 
 ---
 
-## 📚 Education
+# 📚 Education
 
 **[Your Degree or Bootcamp if any]**  
 *Institution Name* — *Graduation Date (or Expected)*  
@@ -46,7 +46,7 @@ Motivated and self-driven junior fullstack developer with hands-on experience in
 
 ---
 
-## Projects & Experience
+# Projects & Experience
 
 ### 🚀 **Fullstack Task Manager App**
 **Tech:** React, Spring Boot, MySQL, JWT, AWS EC2  

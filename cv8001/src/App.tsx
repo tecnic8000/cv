@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 // import './App.css'
 import "./style/style1.css"
 import { Button } from './components/ui/button';
+import { Checkbox } from "@/components/ui/checkbox"
 
 function App() {
   const [headlines, setHeadlines] = useState<string[]>([]);
@@ -28,6 +29,9 @@ function App() {
         ))}
       </div>
       <Button>CLICK ME</Button>
+      <Checkbox/>
+      <br/>
+      <div>{headlines[0]}</div>
     </>
   )
 }

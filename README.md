@@ -1,2 +1,2 @@
-# ca
-
+# TODOS
+- move cv.md back to backend1 so go can breaks it down, distributes across cv8001, cv8002, ...
