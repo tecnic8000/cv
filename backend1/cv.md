@@ -54,7 +54,10 @@ __tech stack__
 
 
 ## experience
+*VN*
 __kinh nghiệm làm việc__
+
+*EN*
 _800A_
 **Tech:** React, Spring Boot, MySQL, JWT, AWS EC2
 - Built a secure task management system with user authentication & CRUD tasks.  
@@ -68,8 +71,10 @@ _CI/CD Pipeline for React-SpringBoot App_
 **Tech:** GitHub Actions, Docker, AWS  
 - Developed a minimal CI/CD pipeline using GitHub Actions.  
 - Automated Docker image build + deployment to AWS EC2 with rollback fallback.
+*FR*
 
 ## projects
+*VN*
 __dự án phát triển__
 - Cấu trúc dữ liệu và Thuật toán (DSA)
 - Xây dựng Android app uber clone với Kotlin
@@ -77,6 +82,13 @@ __dự án phát triển__
 - Học an ninh mạng (Cybersecurity Blue Team Level 1)
 - Thử nghiệm tự host Home-server, chạy bằng pin mặt trời 
 - Viết công cụ chuyển giao dữ liệu vào Unreal Engine 5 (python)
+*EN*
+- Machine Learning Pytorch, OpenCV
+- Kubernetes, Terraform  
+- Building Home Server (Nextcloud) 
+- Building uber-clone with Kotlin Android
+
+*FR*
 
 # ART
 ## about
