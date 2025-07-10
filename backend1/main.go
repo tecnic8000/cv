@@ -29,13 +29,6 @@ func setupRouter() *gin.Engine {
 	})
 	return r
 }
-type CVstack struct {
-	language string 
-	frontend string
-	backend string
-	cloud string
-}
-
 type CV struct {
 	About 	string 	`json:"about"`
 	Contact 	string 	`json:"contact"`
@@ -44,6 +37,20 @@ type CV struct {
 	Projects 	string 	`json:"projects"`
 	Education string	`json:"education"` 
 	Certificate string	`json:"certificate"`
+}
+type profile struct{
+	About string `json:"about"`
+	Skill string `json:"skill"`
+	Experience string `json:"experience"`
+	Project string `json:"project"`
+
+}
+type CV2 struct {
+	Contact string `json:"contact"`
+	Certificate string `json:"certificate"`
+	Education string `json:"education"`
+	Dev profile `json:"dev"`
+	Art profile `json:"art"`
 }
 
 func getCV(path string) (CV,error) {
