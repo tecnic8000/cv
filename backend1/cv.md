@@ -23,24 +23,24 @@ Bachelor of Communication (Media Production)
 
 # DEV
 ## ABOUT
-*VN*
+### VN
 __mục tiêu nghề nghiệp__
 Với 2 năm kinh nghiệm trong freelance triển khai trực tiếp 5 dự án, tôi mong muốn vào vị trí Developer để có thể áp dụng kiến thức, kinh nghiệm lập trình và quản trị hệ thống. Mục tiêu trong 3 năm tới của tôi tiếp tục cải thiện an ninh mạng, chất lượng sản phẩm. 
-*EN*
+### EN
 __profile__
 Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead.
-*FR*
+### FR
 __bio__
 bio---0
-*JP*
+### JP
 __bioJP__
 bio---1
 
 ## SKILL
+### VN
 __chuyên môn kỹ thuật__
+### EN
 __tech stack__
-__FR__
-__JP__
 _language_
 - Javascipt/Typescript, HTML, CSS
 - Java, Python, Go, Shell
@@ -57,12 +57,14 @@ _backend_
 - Auth: Basic, OAuth2
 _cloud_ 
 - Deploy: Render, Vercel, AWS
+### FR
+### JP
 
 ## EXPERIENCE
-*VN*
+### VN
 __kinh nghiệm làm việc__
 
-*EN*
+### EN
 _800A_
 **Tech:** React, Spring Boot, MySQL, JWT, AWS EC2
 - Built a secure task management system with user authentication & CRUD tasks.  
@@ -76,11 +78,12 @@ _CI/CD Pipeline for React-SpringBoot App_
 **Tech:** GitHub Actions, Docker, AWS  
 - Developed a minimal CI/CD pipeline using GitHub Actions.  
 - Automated Docker image build + deployment to AWS EC2 with rollback fallback.
-*FR*
+### FR
 French experience
+### JP
 
 ## PROJECT
-*VN*
+### VN
 __hoạt động phát triển__
 - Cấu trúc dữ liệu và Thuật toán (DSA)
 - Xây dựng Android app uber clone với Kotlin
@@ -88,26 +91,26 @@ __hoạt động phát triển__
 - Học an ninh mạng (Cybersecurity Blue Team Level 1)
 - Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời 
 - Viết công cụ chuyển giao dữ liệu vào Unreal Engine 5 (python)
-*EN*
+### EN
 __career development__
 - Machine Learning Pytorch, OpenCV
 - Kubernetes, Terraform  
 - Building Home Server (Nextcloud) 
 - Building uber-clone with Kotlin Android
-*FR*
+### FR
 French project--0
-*JP*
+### JP
 Japan project--0
 
 # ART
 ## ABOUT
-*VN*
-*EN*
-*FR*
-*JP*
+### VN
+### EN
+### FR
+### JP
 
 ## SKILL
-*VN*
+### VN
 - Modelling, Rigging và Animation.
 - Lập trình workflow với maxscript, MELscript và Python.
 - Prototype với UE5 Blueprint cho truyền thông tương tác (interactive media).
@@ -115,14 +118,14 @@ Japan project--0
 - Hướng dẫn và hỗ trợ thành viên trong nhóm làm việc, đảm bảo lượng việc theo ngày/tuần.
 - Quản lý tài nguyên và workflow - digital asset management.
 - Tối ưu 3D animation lên FrontEnd web với ThreeJS.
-*EN*
+### EN
 [[empty999
-*FR*
+### FR
 [[empty999
-*JP*
+### JP
 
 ## EXPERIENCE
-*VN*
+### VN
 __kinh nghiệm làm việc__
 _3D Generalist_
 `Tecnic Studio Bình Thạnh, TP. HCM. Th1 2024 - Hiện tại`
@@ -151,25 +154,25 @@ _Motion Graphic Designer_
 - Tư vấn, đề xuất chủ đề và nội dung trong budget giới hạnÓ
 - Tạo dựng và hoạt hoạ infographic cho trẻ emÓ
 - Thiết kế quảng cáo dịch vụ cho các client địa phương.
-*EN*
+### EN
 __experience__
 [[empty999
-*FR*
+### FR
 __experience__
 [[empty999
-*JP*
+### JP
 __idk__
 [[empty999
 
 ## PROJECT
-*VN*
+### VN
 __hoạt động phát triển__
 [[empty999
-*EN*
+### EN
 [[empty999
-*FR*
+### FR
 [[empty999
-*JP*
+### JP
 [[empty999
 
 # DRAFT---NOT FOR USE
@@ -177,20 +180,11 @@ __hoạt động phát triển__
 objective: global state Redux, ContextAPI
 threeJS animation player for product, coffee
 threeJS real estate tour
-
 threeJS houseplant almaniac with api (con mèo cam - not for sale)
 simple financial statement webapp for small business owner
-
-threeJS saigon tour + airbnb
-ported godot shooter game
-
-experience
-- responsive mobile design with Tailwind
-
 year 2:
 simple unreal game
 deeper AWS/Azure integration
 raspberry server
-
 year 3:
 kubernette security
