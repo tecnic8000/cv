@@ -28,12 +28,6 @@ interface CVData {
   dev: Profile,
   art: Profile, 
 }
-
-// function Scene() {
-//   const gltf = useLoader(GLTFLoader, './public/asset.gltf')
-//   return <primitive object={gltf.scene} />
-// }
-
 function Model({ url }: { url: string }) {
   const { scene, animations } = useGLTF(url)
   const modelRef = useRef<THREE.Group>(null)
@@ -44,7 +38,7 @@ function Model({ url }: { url: string }) {
     mixerRef.current = new THREE.AnimationMixer(scene)
     animations.forEach((clip) => {
       const action = mixerRef.current!.clipAction(clip)
-      action.setLoop(THREE.LoopRepeat, Infinity) // Loop infinitely
+      action.setLoop(THREE.LoopRepeat, Infinity)
       action.play()
     })
   }
@@ -55,6 +49,13 @@ function Model({ url }: { url: string }) {
       mixerRef.current.update(delta)
     }
   })
+
+  // OPTIONAL: Force a basic material for testing
+  // scene.traverse((child: any) => {
+  //   if (child.isMesh) {
+  //     child.material = new THREE.MeshStandardMaterial({ color: 'orange' })
+  //   }
+  // })
 
   return <primitive ref={modelRef} object={scene} />
 }
@@ -104,14 +105,10 @@ function App() {
     <>
       <div className='bg-blue-700'>cv8001</div>
       <br/>
-      {/* <Scene /> */}
+      
       {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
       {/* <canvas id="c"></canvas> */}
-      <GLBAnimation 
-        modelUrl="./public/asset.gltf"
-        width={500}
-        height={500}
-      />
+      <GLBAnimation modelUrl="/web1.glb" />
       {/* <div className="contact1">{data?.contact}</div>
       {/* <Button>CLICK ME</Button>
       <Checkbox/> */}
