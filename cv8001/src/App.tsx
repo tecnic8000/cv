@@ -1,32 +1,13 @@
 import "./style/style1.css"
 import { Button } from './components/ui/button';
 import { Checkbox } from "@/components/ui/checkbox"
-import { useEffect, useState } from "react";
+import { motion } from "motion/react"
+import { useEffect, useState, useRef } from "react";
 import * as THREE from 'three';
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
+import { Canvas, useFrame, useLoader } from '@react-three/fiber';
+import { useGLTF, OrbitControls, Environment } from '@react-three/drei';
 
-function ThreeJS(){
-  const scene1 = new THREE.Scene();
-  const light1 = new THREE.HemisphereLight(0xffffff, 0x080820, 7);
-  const camera1 = new THREE.PerspectiveCamera(30, window.innerWidth / window.innerHeight, 0.1, 100)
-  const render1 = new THREE.WebGLRenderer({antialias: true});
-  
-  render1.setSize(window.innerWidth, window.innerHeight)
-  render1.setClearColor(0x001d9e);
-  render1.setPixelRatio(1.0);
-  scene1.add(light1);
-  camera1.position.set(5,12,10);
-
-  const loader1 = new GLTFLoader().setPath("assets/");
-  loader1.load("web1.glb", (gltf) => {
-    const mesh1 = gltf.scene
-    scene1.add(mesh1)
-    
-    const mixer1 = new THREE.AnimationMixer(mesh1);
-    // gltf.animations.
-  })
-  return render1
-}
 
 interface Language {
   vn: string,
@@ -48,6 +29,61 @@ interface CVData {
   art: Profile, 
 }
 
+// function Scene() {
+//   const gltf = useLoader(GLTFLoader, './public/asset.gltf')
+//   return <primitive object={gltf.scene} />
+// }
+
+function Model({ url }: { url: string }) {
+  const { scene, animations } = useGLTF(url)
+  const modelRef = useRef<THREE.Group>(null)
+  const mixerRef = useRef<THREE.AnimationMixer | null>(null)
+
+  // Set up animation mixer
+  if (animations.length > 0 && !mixerRef.current) {
+    mixerRef.current = new THREE.AnimationMixer(scene)
+    animations.forEach((clip) => {
+      const action = mixerRef.current!.clipAction(clip)
+      action.setLoop(THREE.LoopRepeat, Infinity) // Loop infinitely
+      action.play()
+    })
+  }
+
+  // Update animation mixer on each frame
+  useFrame((state, delta) => {
+    if (mixerRef.current) {
+      mixerRef.current.update(delta)
+    }
+  })
+
+  return <primitive ref={modelRef} object={scene} />
+}
+
+function GLBAnimation({ 
+  modelUrl, 
+  width = 400, 
+  height = 400 
+}: { 
+  modelUrl: string
+  width?: number
+  height?: number
+}) {
+  return (
+    
+    <div style={{ width, height }}>
+      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        
+        <Model url={modelUrl} />
+        
+        <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
+        <Environment preset="city" />
+      </Canvas>
+    </div>
+  )
+}
+
 function App() {
 
   const LOCAL_URL:string = "http://localhost:8011/cv"
@@ -67,10 +103,16 @@ function App() {
   return (
     <>
       <div className='bg-blue-700'>cv8001</div>
-
-      <canvas id="c"></canvas>
-      
-      {/* <div className="contact1">{data?.contact}</div> */}
+      <br/>
+      {/* <Scene /> */}
+      {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
+      {/* <canvas id="c"></canvas> */}
+      <GLBAnimation 
+        modelUrl="./public/asset.gltf"
+        width={500}
+        height={500}
+      />
+      {/* <div className="contact1">{data?.contact}</div>
       {/* <Button>CLICK ME</Button>
       <Checkbox/> */}
     </>

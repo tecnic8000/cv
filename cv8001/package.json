@@ -12,6 +12,8 @@
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.3.2",
     "@radix-ui/react-slot": "^1.2.3",
+    "@react-three/drei": "^10.5.0",
+    "@react-three/fiber": "^9.2.0",
     "@tailwindcss/vite": "^4.1.10",
     "@types/three": "^0.178.1",
     "class-variance-authority": "^0.7.1",
