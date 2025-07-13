@@ -1,12 +1,14 @@
 import "./style/style1.css"
-import { Button } from './components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Checkbox } from "@/components/ui/checkbox"
+import { Card } from "@/components/ui/card"
 import { motion } from "motion/react"
 import { useEffect, useState, useRef } from "react";
 import * as THREE from 'three';
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment } from '@react-three/drei';
+import { Car } from "lucide-react";
 
 
 interface Language {
@@ -109,6 +111,10 @@ function App() {
       {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
       {/* <GLBAnimation modelUrl="/web1.glb" /> */}
       {/* <div className="contact1">{data?.contact}</div> */}
+      <Card className="w-[300px] h-[300px]">
+        <h1 className="text-2xl font-bold">Card Title</h1>
+        <p className="text-gray-600">This is a simple card component.</p>
+      </Card>
       <Button>CLICK ME</Button>
       <Checkbox/> 
     </>
