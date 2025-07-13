@@ -107,11 +107,10 @@ function App() {
       <br/>
       
       {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
-      {/* <canvas id="c"></canvas> */}
-      <GLBAnimation modelUrl="/web1.glb" />
-      {/* <div className="contact1">{data?.contact}</div>
-      {/* <Button>CLICK ME</Button>
-      <Checkbox/> */}
+      {/* <GLBAnimation modelUrl="/web1.glb" /> */}
+      {/* <div className="contact1">{data?.contact}</div> */}
+      <Button>CLICK ME</Button>
+      <Checkbox/> 
     </>
   )
 }

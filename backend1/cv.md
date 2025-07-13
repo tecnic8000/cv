@@ -42,8 +42,8 @@ __chuyên môn kỹ thuật__
 ### EN
 __tech stack__
 _language_
-- Javascipt/Typescript, HTML, CSS
-- Java, Python, Go, Shell
+- Javascipt/Typescript, HTML/HTMX, CSS, jQuery, Bootstrap, MUI
+- Java, Python, Go, Kotlin, Shell
 _frontend_  
 - React (Redux, Axios, Shadcn, Motion, Three)
 - NextJS
