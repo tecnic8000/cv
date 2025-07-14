@@ -13,6 +13,7 @@ Gia-Dinh, Hochimin-shi, Vietnam
 0903788216
 tranhoangtd@gmail.com
 (Github)[]
+(LinkedIn)[]
 (Artstation)[]
 (Behance)[]
 
@@ -47,31 +48,42 @@ bio---0
 bio---1
 
 ## SKILL:chuyên môn kỹ thuật|tech stack|expertise technique|技術的な専門知識
-### VN
-empty--01-VN
-### EN
-__language__
-- CSS, Bootstrap, Tailwind, MUI
-- Javascipt/Typescript, HTML/HTMX, jQuery
-- Java, Python, Go, Kotlin, Shell
-__frontend__  
-- React (Redux, Axios, Shadcn, Motion, Three)
-- NextJS
-- Svelte, HMTX
-__backend__  
-- Springboot (REST APIs, JPA, Spring Security)  
-- Django (django rest framework, graphQL)
-- Gin 
-- Database: MySQL, PostgreSQL, SQLite, MongoDB
-- Tool: Git, Github Action, Docker, Postman
+__Language__
+CSS, Bootstrap, Tailwind, MUI
+Javascipt/Typescript, HTML/HTMX, jQuery
+Java, Python, Go, Kotlin, Shell
+__Frontend__  
+React (Redux, Axios, Shadcn, Motion, Three)
+Svelte + HMTX
+__Backend__  
+NextJS + Supabase
+Springboot (JPA/Hibernate, Spring Security)  
+Django (django rest framework, graphQL)
+Gin (auth, gRPC)
+NodeJS, ExpressJS
+Kafka, RabbitMQ, gRPC, Websocket
+__Database__
+MySQL, PostgreSQL, SQLite
+MongoDB
+__Testing__
+Jest, Junit
+Postman
 - Auth: Basic, OAuth2
-__cloud__
-- Deploy: Render, Vercel, AWS
-__tool__
-Docker
+__CI/CD__
+Git, GitLab
+Github, Github Action
+AWS EC2, S3, RDS
+Deploy: Render, Vercel, AWS
+__Security__
 Debian Server
-### FR
-### JP
+SSH
+JWT
+HTTPS
+Firewall compliance
+IAM compliance
+__Engine__
+Godot
+Unreal
 
 ## EXPERIENCE:Kinh nghiệm Làm Việc|Experience|Expérience|経験
 ### VN
@@ -107,6 +119,15 @@ French experience
 - Kubernetes, Terraform  
 - Building Home Server (Nextcloud) 
 - Building uber-clone with Kotlin Android
+- CS50x - HavardX
+- Google Software Engineering Certificate (Coursera)
+- AWS Solutions Architect
+- AWS Certified DevOps Engineer - Professional
+- CompTIA Security+
+- Certified Kubernetes Administrator
+- AWS Certified Machine Learning
+- Oracle Certified Professional: Java SE Developer
+- ROS Developer Certificate (Robot Operation System - The Construct)
 ### FR
 French project--0
 ### JP

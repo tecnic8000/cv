@@ -28,7 +28,7 @@ interface Description {
 }
 interface Profile {
   about: Description,
-  skill: Description,
+  skill: string[],
   experience: Description,
   project: Description;
 }
@@ -59,8 +59,8 @@ interface DisplayCV {
   art: {
     about: string,
     skill: string[],
-    experience: string[],
-    project: string[],
+    experience: Description,
+    project: Description,
   }
 }
 
@@ -148,16 +148,15 @@ function App() {
         dev: cv.dev,
         art: {
           about: cv.art.about.vn,
-          skill: [],
-          experience:[],
-          project:[],
+          skill: cv.dev.skill,
+          experience:cv.dev.experience,
+          project:cv.dev.project,
         }
 
       }
       displayCV.interest.titleDesc = displayCV.interest.titleDesc.split("|")[0]
-      // displayCV.interest = displayCV.interest.vn.split("\n")
       displayCV.dev.about.titleDesc = displayCV.dev.about.titleDesc.split("|")[0]
-      displayCV.dev.skill.titleDesc = displayCV.dev.skill.titleDesc.split("|")[0]
+      displayCV.dev.skill[0] = displayCV.dev.skill[0].split("|")[0]
       displayCV.dev.experience.titleDesc = displayCV.dev.experience.titleDesc.split("|")[0]
       displayCV.dev.project.titleDesc = displayCV.dev.project.titleDesc.split("|")[0]
 
@@ -185,9 +184,9 @@ function App() {
           {displayCV.dev.about[langMode]}
         </CardContent>
       </Card>
-      <Card className="w-[300px] h-[300px]">
-        <CardHeader>{displayCV.dev.skill.titleDesc}</CardHeader>
-        <CardContent>{displayCV.dev.skill[langMode]}</CardContent>
+      <Card className="w-[300px] h-[300px] bg-orange-400">
+        <CardHeader>{displayCV.dev.skill[0]}</CardHeader>
+        <CardContent bg-blue-200>{displayCV.dev.skill[1]}</CardContent>
       </Card>
       <Card className="w-[300px] h-[300px]">
         <CardHeader>{displayCV.dev.experience.titleDesc}</CardHeader>

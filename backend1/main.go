@@ -36,7 +36,7 @@ type description struct {
 }
 type profile struct {
 	About      description `json:"about"`
-	Skill      description `json:"skill"`
+	Skill      [2]string `json:"skill"`
 	Experience description `json:"experience"`
 	Project    description `json:"project"`
 }
@@ -131,18 +131,6 @@ func getCV(path string) (CV, error) {
 				case "JP":
 					cv.Dev.About.JP = builder.String()
 				}
-			case "SKILL":
-				cv.Dev.Skill.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Dev.Skill.VN = builder.String()
-				case "EN":
-					cv.Dev.Skill.EN = builder.String()
-				case "FR":
-					cv.Dev.Skill.FR = builder.String()
-				case "JP":
-					cv.Dev.Skill.JP = builder.String()
-				}
 			case "EXPERIENCE":
 				cv.Dev.Experience.TitleDesc = title
 				switch description {
@@ -181,18 +169,6 @@ func getCV(path string) (CV, error) {
 					cv.Art.About.FR = builder.String()
 				case "JP":
 					cv.Art.About.JP = builder.String()
-				}
-			case "SKILL":
-				cv.Art.Skill.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Art.Skill.VN = builder.String()
-				case "EN":
-					cv.Art.Skill.EN = builder.String()
-				case "FR":
-					cv.Art.Skill.FR = builder.String()
-				case "JP":
-					cv.Art.Skill.JP = builder.String()
 				}
 			case "EXPERIENCE":
 				cv.Art.Experience.TitleDesc = title
@@ -274,8 +250,6 @@ func getCV(path string) (CV, error) {
 				title = strings.TrimSpace(sectionLine[idx+1:])
 				if section == "CONTACT"{
 					cv.Contact.TitleContact = title
-				} else if section == "CERTIFICATE" {
-					// cv.Certificate[0] = title
 				}
 			} else {
 				section = sectionLine
@@ -292,6 +266,9 @@ func getCV(path string) (CV, error) {
 			if idx := strings.Index(subsectionLine, ":"); idx != -1 {
 				subsection = strings.TrimSpace(subsectionLine[:idx])
 				title = strings.TrimSpace(subsectionLine[idx+1:])
+				if subsection == "SKILL" {
+					cv.Dev.Skill = [2]string{title, "TEST1"}
+				}
 			} else {
 				subsection = subsectionLine
 			}
