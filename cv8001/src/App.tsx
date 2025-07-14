@@ -1,7 +1,14 @@
 import "./style/style1.css"
 import { Button } from '@/components/ui/button';
-import { Checkbox } from "@/components/ui/checkbox"
-import { Card } from "@/components/ui/card"
+import { 
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardFooter
+
+} from "@/components/ui/card"
 import { motion } from "motion/react"
 import { useEffect, useState, useRef } from "react";
 import * as THREE from 'three';
@@ -51,14 +58,6 @@ function Model({ url }: { url: string }) {
       mixerRef.current.update(delta)
     }
   })
-
-  // OPTIONAL: Force a basic material for testing
-  // scene.traverse((child: any) => {
-  //   if (child.isMesh) {
-  //     child.material = new THREE.MeshStandardMaterial({ color: 'orange' })
-  //   }
-  // })
-
   return <primitive ref={modelRef} object={scene} />
 }
 
@@ -72,7 +71,6 @@ function GLBAnimation({
   height?: number
 }) {
   return (
-    
     <div style={{ width, height }}>
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
@@ -92,7 +90,8 @@ function App() {
   const LOCAL_URL:string = "http://localhost:8011/cv"
   const REAL_URL = "https://"
   const [data, setData]= useState< CVData| null >(null)
- 
+  const [langMode, setLangMode] = useState<"vn" | "en" | "fr" | "jp">("vn");
+
   useEffect(()=>{
     async function getCV() {
       const res = await fetch(LOCAL_URL)
@@ -102,7 +101,18 @@ function App() {
     }
     getCV();
   },[])
+
   // console.log(data)
+  // CV PROCESSING
+  if (!data) return <div>Loading...</div>
+
+  // Extract all __word__ patterns from data.contact
+  const contactMatches = data.contact.match(/__([^_]+)__/g) || [];
+  // Remove the double underscores
+  console.log(contactMatches)
+  const contactArray = contactMatches.map(str => str.replace(/__/g, ''));
+  console.log(contactArray); // ["trần minh hoàng", "tran minh hoang"]
+  
   return (
     <>
       <div className='bg-blue-700'>cv8001</div>
@@ -112,11 +122,17 @@ function App() {
       {/* <GLBAnimation modelUrl="/web1.glb" /> */}
       {/* <div className="contact1">{data?.contact}</div> */}
       <Card className="w-[300px] h-[300px]">
-        <h1 className="text-2xl font-bold">Card Title</h1>
-        <p className="text-gray-600">This is a simple card component.</p>
+        <CardHeader>
+          <CardTitle>{data?.contact}</CardTitle>
+          <CardDescription>Card Description</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>This is a simple card component.</p>
+        </CardContent>
+        <CardFooter>
+          <Button>Action</Button>
+        </CardFooter>
       </Card>
-      <Button>CLICK ME</Button>
-      <Checkbox/> 
     </>
   )
 }

@@ -1,7 +1,7 @@
 # BACKEND1 [Gin] (http://localhost:8011/ping)
 
 # cv8000 legacy 2020
-# cv8001 [React] (http://localhost:5171/)
+# cv8001 [React] (http://localhost:5171)
 
 # cv8002 HTMX + Svelte
 __liveReload__?

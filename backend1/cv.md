@@ -1,30 +1,51 @@
 # CONTACT
-__trần minh hoàng__
-__tran minh hoang__
-tranhoangtd@gmail.com
+## name
+Trần Minh Hoàng
+Hoang Minh Tran
+Hoang Minh Tran
+Tran Minh Hoang
+## address
+Gia Định, TP.HCM, Vietnam
+Gia Dinh, Ho Chi Minh City, Vietnam
+Gia-Dinh, Ho-Chi-Minh-Ville, Vietnam
+Gia-Dinh, Hochimin-shi, Vietnam
+## link
 0903788216
-_Gia Định, TP.HCM_
-_Gia Dinh, Ho Chi Minh City_
+tranhoangtd@gmail.com
 (Github)[]
 (Artstation)[]
 (Behance)[]
 
 # CERTIFICATE
-__chứng chỉ__
-__certificates__
+__Chứng Chỉ__
+__Certificate__
+__Certificat__
+__証明書__
 - AWS Something
 - another Cert
 
 # EDUCATION 
-__học vấn__
-__education__
+__Học vấn__
+__Education__
+__Éducation__
+__教育__
 University of Technology Sydney
 Bachelor of Communication (Media Production)
+
+# INTEREST
+### VN
+### EN
+- godot development
+- unreal animation
+- solar-powered agriculture AI
+- gardening robots
+### FR
+### JP
 
 # DEV
 ## ABOUT
 ### VN
-__mục tiêu nghề nghiệp__
+__Mục tiêu nghề nghiệp__
 Với 2 năm kinh nghiệm trong freelance triển khai trực tiếp 5 dự án, tôi mong muốn vào vị trí Developer để có thể áp dụng kiến thức, kinh nghiệm lập trình và quản trị hệ thống. Mục tiêu trong 3 năm tới của tôi tiếp tục cải thiện an ninh mạng, chất lượng sản phẩm. 
 ### EN
 __profile__

@@ -6,8 +6,8 @@ import (
 	"os"
 	"strings"
 
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
 func setupRouter() *gin.Engine {
@@ -39,12 +39,18 @@ type profile struct {
 	Experience language `json:"experience"`
 	Project    language `json:"project"`
 }
+type contactDetail struct {
+	Name    string `json:"name"`
+	Address string `json:"address"`
+	Link    string `json:"link"`
+}
 type CV struct {
-	Contact     string  `json:"contact"`
-	Certificate string  `json:"certificate"`
-	Education   string  `json:"education"`
-	Dev         profile `json:"dev"`
-	Art         profile `json:"art"`
+	Contact     contactDetail `json:"contact"`
+	Certificate string        `json:"certificate"`
+	Education   string        `json:"education"`
+	Interest    language      `json:"interest"`
+	Dev         profile       `json:"dev"`
+	Art         profile       `json:"art"`
 }
 
 func getCV(path string) (CV, error) {
@@ -61,7 +67,28 @@ func getCV(path string) (CV, error) {
 	builder := strings.Builder{}
 
 	setBody := func() {
-		if section == "DEV" {
+		if section == "CONTACT" {
+			val := strings.TrimRight(builder.String(), "\n")
+			switch subsection {
+			case "name":
+				cv.Contact.Name = val
+			case "address":
+				cv.Contact.Address = val
+			case "link":
+				cv.Contact.Link = val
+			}
+		} else if section == "INTEREST" {
+			switch language {
+			case "VN":
+				cv.Interest.VN = builder.String()
+			case "EN":
+				cv.Interest.EN = builder.String()
+			case "FR":
+				cv.Interest.FR = builder.String()
+			case "JP":
+				cv.Interest.JP = builder.String()
+			}
+		} else if section == "DEV" {
 			switch subsection {
 			case "ABOUT":
 				switch language {
@@ -165,8 +192,6 @@ func getCV(path string) (CV, error) {
 			language = ""
 		}
 		switch section {
-		case "CONTACT":
-			cv.Contact = builder.String()
 		case "CERTIFICATE":
 			cv.Certificate = builder.String()
 		case "EDUCATION":
@@ -179,12 +204,17 @@ func getCV(path string) (CV, error) {
 	for scanner.Scan() {
 		line := scanner.Text()
 		if strings.HasPrefix(line, "# ") {
+			if section == "CONTACT" {
+				setBody()
+			}
 			if section != "" {
 				setSection()
 			}
 			section = strings.TrimSpace(line[2:])
 		} else if strings.HasPrefix(line, "## ") {
-			if language != "" {
+			if section == "CONTACT" {
+				setBody()
+			} else if language != "" {
 				setBody()
 				language = ""
 			}
@@ -197,6 +227,9 @@ func getCV(path string) (CV, error) {
 		} else if section != "" {
 			builder.WriteString(line + "\n")
 		}
+	}
+	if section == "CONTACT" && builder.Len() > 0 {
+		setBody()
 	}
 	if section != "" {
 		setSection()
