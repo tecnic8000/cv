@@ -16,27 +16,54 @@ import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { Canvas, useFrame, useLoader } from '@react-three/fiber';
 import { useGLTF, OrbitControls, Environment } from '@react-three/drei';
 import { Car } from "lucide-react";
+import { string } from "three/tsl";
 
 
-interface Language {
+interface Description {
+  titleDesc: string,
   vn: string,
   en: string,
   fr: string,
   jp: string,
 }
 interface Profile {
-  about: Language,
-  skill: Language,
-  experience: Language,
-  project: Language;
+  about: Description,
+  skill: Description,
+  experience: Description,
+  project: Description;
+}
+interface contactDetail {
+  titleContact: string,
+  name: string[],
+  address: string[],
+  link: string[],
 }
 interface CVData {
-  contact: string,
-  certificate: string,
-  education: string,
+  contact: contactDetail,
+  certificate: string[],
+  education: string[],
+  interest: Description,
   dev: Profile,
   art: Profile, 
 }
+interface DisplayCV {
+  contact: {
+    name: string;
+    address: string;
+    link: string[];
+  }
+  certificate: string[],
+  education: string[],
+  interest: any,
+  dev: any
+  art: {
+    about: string,
+    skill: string[],
+    experience: string[],
+    project: string[],
+  }
+}
+
 function Model({ url }: { url: string }) {
   const { scene, animations } = useGLTF(url)
   const modelRef = useRef<THREE.Group>(null)
@@ -89,50 +116,130 @@ function App() {
 
   const LOCAL_URL:string = "http://localhost:8011/cv"
   const REAL_URL = "https://"
-  const [data, setData]= useState< CVData| null >(null)
+  const [cv, setCv]= useState< CVData| null >(null)
   const [langMode, setLangMode] = useState<"vn" | "en" | "fr" | "jp">("vn");
-
+  let displayCV: DisplayCV;
   useEffect(()=>{
     async function getCV() {
       const res = await fetch(LOCAL_URL)
       if (!res.ok) throw Error("ERR--API FAILED--001")
-      const data  = await res.json();
-      setData(data)
+      const cv  = await res.json();
+      setCv(cv)
     }
     getCV();
+
   },[])
 
-  // console.log(data)
+  console.log(cv)
   // CV PROCESSING
-  if (!data) return <div>Loading...</div>
-
-  // Extract all __word__ patterns from data.contact
-  const contactMatches = data.contact.match(/__([^_]+)__/g) || [];
-  // Remove the double underscores
-  console.log(contactMatches)
-  const contactArray = contactMatches.map(str => str.replace(/__/g, ''));
-  console.log(contactArray); // ["trần minh hoàng", "tran minh hoang"]
+  if (!cv) return <div>Loading...</div>
   
+  switch (langMode) {
+    case "vn": 
+      displayCV = {
+        contact: {
+          name: cv.contact.name[0],
+          address: cv.contact.address[0],
+          link: cv.contact.link,
+        },
+        certificate: [cv.certificate[0].split("|")[0], ...cv.certificate.slice(1)],
+        education: [cv.education[0].split("|")[0],...cv.education.slice(1)],
+        interest: cv.interest,
+        dev: cv.dev,
+        art: {
+          about: cv.art.about.vn,
+          skill: [],
+          experience:[],
+          project:[],
+        }
+
+      }
+      displayCV.interest.titleDesc = displayCV.interest.titleDesc.split("|")[0]
+      // displayCV.interest = displayCV.interest.vn.split("\n")
+      displayCV.dev.about.titleDesc = displayCV.dev.about.titleDesc.split("|")[0]
+      displayCV.dev.skill.titleDesc = displayCV.dev.skill.titleDesc.split("|")[0]
+      displayCV.dev.experience.titleDesc = displayCV.dev.experience.titleDesc.split("|")[0]
+      displayCV.dev.project.titleDesc = displayCV.dev.project.titleDesc.split("|")[0]
+
+      break;
+    case "en": return "ENG"
+    case "fr": return "FRA"
+    case "jp": return "JPA"
+  }
+  
+  console.log(displayCV)
   return (
     <>
-      <div className='bg-blue-700'>cv8001</div>
+      <div className='bg-blue-700'>{displayCV.contact.name}</div>
       <br/>
       
       {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
       {/* <GLBAnimation modelUrl="/web1.glb" /> */}
       {/* <div className="contact1">{data?.contact}</div> */}
-      <Card className="w-[300px] h-[300px]">
+
+      <Card className="w-[300px] h-[400px]">
         <CardHeader>
-          <CardTitle>{data?.contact}</CardTitle>
-          <CardDescription>Card Description</CardDescription>
+          {displayCV.dev.about.titleDesc}
         </CardHeader>
         <CardContent>
-          <p>This is a simple card component.</p>
+          {displayCV.dev.about[langMode]}
+        </CardContent>
+      </Card>
+      <Card className="w-[300px] h-[300px]">
+        <CardHeader>{displayCV.dev.skill.titleDesc}</CardHeader>
+        <CardContent>{displayCV.dev.skill[langMode]}</CardContent>
+      </Card>
+      <Card className="w-[300px] h-[300px]">
+        <CardHeader>{displayCV.dev.experience.titleDesc}</CardHeader>
+        <CardContent>{displayCV.dev.experience[langMode]}</CardContent>
+      </Card>
+      <Card className="w-[300px] h-[500px]">
+        <CardHeader>{displayCV.dev.project.titleDesc}</CardHeader>
+        <CardContent>{displayCV.dev.project[langMode]}</CardContent>
+      </Card>
+
+      <Card className="w-[300px] h-[300px]">
+        <CardHeader>
+          <CardTitle>{displayCV.contact.name}</CardTitle>
+          <CardDescription>{displayCV.contact.address}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <p>{displayCV.contact.link}</p>
         </CardContent>
         <CardFooter>
           <Button>Action</Button>
         </CardFooter>
       </Card>
+
+      <Card className="w-[300px] h-[200px]">
+        <CardHeader>
+          <CardTitle>{displayCV.certificate[0]}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {displayCV.certificate.slice(1).map((item, index) => (<CardDescription key={index+1}>{item}</CardDescription>))}
+        </CardContent>
+      </Card>
+
+      <Card className="w-[300px] h-[200px]">
+        <CardHeader>
+          <CardTitle>{displayCV.education[0]}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {displayCV.education[1].split("_")[0]}<br/>
+          {displayCV.education[1].split("_")[1]}<br/>
+          {displayCV.education[1].split("_")[2]}<br/>
+        </CardContent>
+      </Card>
+
+      <Card className="w-[300px] h-[200px]">
+        <CardHeader>
+          <CardTitle>{displayCV.interest.titleDesc}</CardTitle>
+        </CardHeader> 
+        <CardContent>
+          {displayCV.interest[langMode]}
+        </CardContent>
+      </Card>
+
     </>
   )
 }

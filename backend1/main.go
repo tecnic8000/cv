@@ -27,28 +27,30 @@ func setupRouter() *gin.Engine {
 	return r
 }
 
-type language struct {
-	VN string `json:"vn"`
-	EN string `json:"en"`
-	FR string `json:"fr"`
-	JP string `json:"jp"`
+type description struct {
+	TitleDesc string `json:"titleDesc"`
+	VN    string `json:"vn"`
+	EN    string `json:"en"`
+	FR    string `json:"fr"`
+	JP    string `json:"jp"`
 }
 type profile struct {
-	About      language `json:"about"`
-	Skill      language `json:"skill"`
-	Experience language `json:"experience"`
-	Project    language `json:"project"`
+	About      description `json:"about"`
+	Skill      description `json:"skill"`
+	Experience description `json:"experience"`
+	Project    description `json:"project"`
 }
 type contactDetail struct {
-	Name    string `json:"name"`
-	Address string `json:"address"`
-	Link    string `json:"link"`
+	TitleContact string `json:"TitleContact"`
+	Name    []string `json:"name"`
+	Address []string `json:"address"`
+	Link    []string `json:"link"`
 }
 type CV struct {
 	Contact     contactDetail `json:"contact"`
-	Certificate string        `json:"certificate"`
-	Education   string        `json:"education"`
-	Interest    language      `json:"interest"`
+	Certificate []string      `json:"certificate"`
+	Education   []string      `json:"education"`
+	Interest    description   `json:"interest"`
 	Dev         profile       `json:"dev"`
 	Art         profile       `json:"art"`
 }
@@ -63,22 +65,49 @@ func getCV(path string) (CV, error) {
 	cv := CV{}
 	section := ""
 	subsection := ""
-	language := ""
+	title := ""
+	description := ""
 	builder := strings.Builder{}
 
 	setBody := func() {
 		if section == "CONTACT" {
 			val := strings.TrimRight(builder.String(), "\n")
+
 			switch subsection {
 			case "name":
-				cv.Contact.Name = val
+				lines := strings.Split(val, "\n")
+				var names []string
+				for _, l := range lines {
+					l = strings.TrimSpace(l)
+					if l != "" {
+						names = append(names, l)
+					}
+				}
+				cv.Contact.Name = names
 			case "address":
-				cv.Contact.Address = val
+				lines := strings.Split(val, "\n")
+				var addresses []string
+				for _, l := range lines {
+					l = strings.TrimSpace(l)
+					if l != "" {
+						addresses = append(addresses, l)
+					}
+				}
+				cv.Contact.Address = addresses
 			case "link":
-				cv.Contact.Link = val
+				lines := strings.Split(val, "\n")
+				var links []string
+				for _, l := range lines {
+					l = strings.TrimSpace(l)
+					if l != "" {
+						links = append(links, l)
+					}
+				}
+				cv.Contact.Link = links
 			}
 		} else if section == "INTEREST" {
-			switch language {
+			cv.Interest.TitleDesc = title
+			switch description {
 			case "VN":
 				cv.Interest.VN = builder.String()
 			case "EN":
@@ -91,7 +120,8 @@ func getCV(path string) (CV, error) {
 		} else if section == "DEV" {
 			switch subsection {
 			case "ABOUT":
-				switch language {
+				cv.Dev.About.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Dev.About.VN = builder.String()
 				case "EN":
@@ -102,7 +132,8 @@ func getCV(path string) (CV, error) {
 					cv.Dev.About.JP = builder.String()
 				}
 			case "SKILL":
-				switch language {
+				cv.Dev.Skill.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Dev.Skill.VN = builder.String()
 				case "EN":
@@ -113,7 +144,8 @@ func getCV(path string) (CV, error) {
 					cv.Dev.Skill.JP = builder.String()
 				}
 			case "EXPERIENCE":
-				switch language {
+				cv.Dev.Experience.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Dev.Experience.VN = builder.String()
 				case "EN":
@@ -124,7 +156,8 @@ func getCV(path string) (CV, error) {
 					cv.Dev.Experience.JP = builder.String()
 				}
 			case "PROJECT":
-				switch language {
+				cv.Dev.Project.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Dev.Project.VN = builder.String()
 				case "EN":
@@ -138,7 +171,8 @@ func getCV(path string) (CV, error) {
 		} else if section == "ART" {
 			switch subsection {
 			case "ABOUT":
-				switch language {
+				cv.Art.About.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Art.About.VN = builder.String()
 				case "EN":
@@ -149,7 +183,8 @@ func getCV(path string) (CV, error) {
 					cv.Art.About.JP = builder.String()
 				}
 			case "SKILL":
-				switch language {
+				cv.Art.Skill.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Art.Skill.VN = builder.String()
 				case "EN":
@@ -160,7 +195,8 @@ func getCV(path string) (CV, error) {
 					cv.Art.Skill.JP = builder.String()
 				}
 			case "EXPERIENCE":
-				switch language {
+				cv.Art.Experience.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Art.Experience.VN = builder.String()
 				case "EN":
@@ -171,7 +207,8 @@ func getCV(path string) (CV, error) {
 					cv.Art.Experience.JP = builder.String()
 				}
 			case "PROJECT":
-				switch language {
+				cv.Art.Project.TitleDesc = title
+				switch description {
 				case "VN":
 					cv.Art.Project.VN = builder.String()
 				case "EN":
@@ -187,15 +224,35 @@ func getCV(path string) (CV, error) {
 	}
 
 	setSection := func() {
-		if language != "" {
+		if description != "" {
 			setBody()
-			language = ""
+			description = ""
 		}
 		switch section {
 		case "CERTIFICATE":
-			cv.Certificate = builder.String()
+			lines := strings.Split(builder.String(), "\n")
+			var arr []string
+			for _, l := range lines {
+				l = strings.TrimSpace(l)
+				if l != "" {
+					arr = append(arr, l)
+				}
+			}
+			if len(arr) > 0 {
+				cv.Certificate = append([]string{title}, arr...)
+			}
 		case "EDUCATION":
-			cv.Education = builder.String()
+			lines := strings.Split(builder.String(), "\n")
+			var arr []string
+			for _, l := range lines {
+				l = strings.TrimSpace(l)
+				if l != "" {
+					arr = append(arr, l)
+				}
+			}
+			if len(arr) > 0 {
+				cv.Education = append([]string{title}, arr...)
+			}
 		}
 		builder.Reset()
 	}
@@ -210,20 +267,39 @@ func getCV(path string) (CV, error) {
 			if section != "" {
 				setSection()
 			}
-			section = strings.TrimSpace(line[2:])
+			// Extract section between "# " and ":" if present
+			sectionLine := strings.TrimSpace(line[2:])
+			if idx := strings.Index(sectionLine, ":"); idx != -1 {
+				section = strings.TrimSpace(sectionLine[:idx])
+				title = strings.TrimSpace(sectionLine[idx+1:])
+				if section == "CONTACT"{
+					cv.Contact.TitleContact = title
+				} else if section == "CERTIFICATE" {
+					// cv.Certificate[0] = title
+				}
+			} else {
+				section = sectionLine
+			}
 		} else if strings.HasPrefix(line, "## ") {
 			if section == "CONTACT" {
 				setBody()
-			} else if language != "" {
+			} else if description != "" {
 				setBody()
-				language = ""
+				description = ""
 			}
-			subsection = strings.TrimSpace(line[3:])
+			// Extract subsection between "## " and ":" if present
+			subsectionLine := strings.TrimSpace(line[3:])
+			if idx := strings.Index(subsectionLine, ":"); idx != -1 {
+				subsection = strings.TrimSpace(subsectionLine[:idx])
+				title = strings.TrimSpace(subsectionLine[idx+1:])
+			} else {
+				subsection = subsectionLine
+			}
 		} else if strings.HasPrefix(line, "### ") {
-			if language != "" {
+			if description != "" {
 				setBody()
 			}
-			language = strings.TrimSpace(line[4:])
+			description = strings.TrimSpace(line[4:])
 		} else if section != "" {
 			builder.WriteString(line + "\n")
 		}
@@ -242,22 +318,3 @@ func main() {
 	r.Run(":8011") // port in 0.0.0.0:8011
 
 }
-
-// EXPECTED OUTPUT upon GET /cv
-// cv = {
-// 	"contact":"",
-// 	"certificate": "",
-// 	"education": "",
-// 	"DEV": {
-// 		"profile":"",
-// 		"skill":"",
-// 		"experience":"",
-// 		"project":"",
-// 	}
-// 	"ART": {
-// 		"profile":"",
-// 		"skill":"",
-// 		"experience":"",
-// 		"project":"",
-// 	}
-// }

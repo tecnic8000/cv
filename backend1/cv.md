@@ -1,4 +1,4 @@
-# CONTACT
+# CONTACT:Liên hệ|Message Me|Contact|接触
 ## name
 Trần Minh Hoàng
 Hoang Minh Tran
@@ -16,86 +16,77 @@ tranhoangtd@gmail.com
 (Artstation)[]
 (Behance)[]
 
-# CERTIFICATE
-__Chứng Chỉ__
-__Certificate__
-__Certificat__
-__証明書__
-- AWS Something
-- another Cert
+# CERTIFICATE:Chứng Chỉ|Certificate|Certificat|証明書
+AWS Something
+another Cert
 
-# EDUCATION 
-__Học vấn__
-__Education__
-__Éducation__
-__教育__
-University of Technology Sydney
-Bachelor of Communication (Media Production)
+# EDUCATION:Học vấn|Education|Éducation|教育
+University of Technology Sydney_Bachelor of Communication (Media Production)_2019
 
-# INTEREST
+# INTEREST:Chủ đề quan tâm|Interest|Intérêt|興味
 ### VN
+chu de 1
+chu de 2
 ### EN
-- godot development
-- unreal animation
-- solar-powered agriculture AI
-- gardening robots
+godot development
+unreal animation
+solar-powered agriculture AI
+gardening robots
 ### FR
 ### JP
 
 # DEV
-## ABOUT
+## ABOUT:Mục tiêu nghề nghiệp|Objective|Objectifs de carrière|キャリア目標
 ### VN
-__Mục tiêu nghề nghiệp__
 Với 2 năm kinh nghiệm trong freelance triển khai trực tiếp 5 dự án, tôi mong muốn vào vị trí Developer để có thể áp dụng kiến thức, kinh nghiệm lập trình và quản trị hệ thống. Mục tiêu trong 3 năm tới của tôi tiếp tục cải thiện an ninh mạng, chất lượng sản phẩm. 
 ### EN
-__profile__
 Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead.
 ### FR
-__bio__
 bio---0
 ### JP
-__bioJP__
 bio---1
 
-## SKILL
+## SKILL:chuyên môn kỹ thuật|tech stack|expertise technique|技術的な専門知識
 ### VN
-__chuyên môn kỹ thuật__
+empty--01-VN
 ### EN
-__tech stack__
-_language_
-- Javascipt/Typescript, HTML/HTMX, CSS, jQuery, Bootstrap, MUI
+__language__
+- CSS, Bootstrap, Tailwind, MUI
+- Javascipt/Typescript, HTML/HTMX, jQuery
 - Java, Python, Go, Kotlin, Shell
-_frontend_  
+__frontend__  
 - React (Redux, Axios, Shadcn, Motion, Three)
 - NextJS
 - Svelte, HMTX
-_backend_  
+__backend__  
 - Springboot (REST APIs, JPA, Spring Security)  
 - Django (django rest framework, graphQL)
 - Gin 
 - Database: MySQL, PostgreSQL, SQLite, MongoDB
 - Tool: Git, Github Action, Docker, Postman
 - Auth: Basic, OAuth2
-_cloud_ 
+__cloud__
 - Deploy: Render, Vercel, AWS
+__tool__
+Docker
+Debian Server
 ### FR
 ### JP
 
-## EXPERIENCE
+## EXPERIENCE:Kinh nghiệm Làm Việc|Experience|Expérience|経験
 ### VN
-__kinh nghiệm làm việc__
-
+temp-01
 ### EN
-_800A_
-**Tech:** React, Spring Boot, MySQL, JWT, AWS EC2
+__JOBTITLE1_COMPANY1_Locale1_TIMELINE1__
+- React, Spring Boot, MySQL, JWT, AWS EC2
 - Built a secure task management system with user authentication & CRUD tasks.  
 - Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
 - Implemented JWT-based authentication and custom error handling.
-_800C_
+__JOBTITLE1_COMPANY1_Locale5_TIMELINE3__
 **Tech:** Python, Flask, GPT API, Webhook Integration  
 - Designed a prototype to suggest job listings using GPT APIs.  
 - Integrated Telegram Bot for receiving real-time job recommendations.
-_CI/CD Pipeline for React-SpringBoot App_
+__JOBTITLE3_COMPANY6_Locale4_TIMELINE2__
 **Tech:** GitHub Actions, Docker, AWS  
 - Developed a minimal CI/CD pipeline using GitHub Actions.  
 - Automated Docker image build + deployment to AWS EC2 with rollback fallback.
@@ -103,9 +94,8 @@ _CI/CD Pipeline for React-SpringBoot App_
 French experience
 ### JP
 
-## PROJECT
+## PROJECT:Hoạt động phát triển|Career Development|Projets|プロジェクト
 ### VN
-__hoạt động phát triển__
 - Cấu trúc dữ liệu và Thuật toán (DSA)
 - Xây dựng Android app uber clone với Kotlin
 - Thử nghiệm Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiiệp
@@ -113,7 +103,6 @@ __hoạt động phát triển__
 - Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời 
 - Viết công cụ chuyển giao dữ liệu vào Unreal Engine 5 (python)
 ### EN
-__career development__
 - Machine Learning Pytorch, OpenCV
 - Kubernetes, Terraform  
 - Building Home Server (Nextcloud) 
@@ -124,13 +113,13 @@ French project--0
 Japan project--0
 
 # ART
-## ABOUT
+## ABOUT:Mục tiêu nghề nghiệp|Objective|Objectifs de carrière|キャリア目標
 ### VN
 ### EN
 ### FR
 ### JP
 
-## SKILL
+## SKILL:chuyên môn kỹ thuật|tech stack|expertise technique|技術的な専門知識
 ### VN
 - Modelling, Rigging và Animation.
 - Lập trình workflow với maxscript, MELscript và Python.
@@ -145,7 +134,7 @@ Japan project--0
 [[empty999
 ### JP
 
-## EXPERIENCE
+## EXPERIENCE:Kinh nghiệm Làm Việc|Experience|Expérience|経験
 ### VN
 __kinh nghiệm làm việc__
 _3D Generalist_
@@ -185,7 +174,7 @@ __experience__
 __idk__
 [[empty999
 
-## PROJECT
+## PROJECT:Hoạt động phát triển|Career Development|Projets|プロジェクト
 ### VN
 __hoạt động phát triển__
 [[empty999
