@@ -108,26 +108,26 @@ French experience
 
 ## PROJECT:Hoạt động phát triển|Career Development|Projets|プロジェクト
 ### VN
-- Cấu trúc dữ liệu và Thuật toán (DSA)
-- Xây dựng Android app uber clone với Kotlin
-- Thử nghiệm Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiiệp
-- Học an ninh mạng (Cybersecurity Blue Team Level 1)
-- Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời 
-- Viết công cụ chuyển giao dữ liệu vào Unreal Engine 5 (python)
+Cấu trúc dữ liệu và Thuật toán (DSA)
+Xây dựng Android app uber clone với Kotlin
+Thử nghiệm Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiiệp
+Học an ninh mạng (Cybersecurity Blue Team Level 1)
+Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời 
+Viết công cụ chuyển giao dữ liệu vào Unreal Engine 5 (python)
 ### EN
-- Machine Learning Pytorch, OpenCV
-- Kubernetes, Terraform  
-- Building Home Server (Nextcloud) 
-- Building uber-clone with Kotlin Android
-- CS50x - HavardX
-- Google Software Engineering Certificate (Coursera)
-- AWS Solutions Architect
-- AWS Certified DevOps Engineer - Professional
-- CompTIA Security+
-- Certified Kubernetes Administrator
-- AWS Certified Machine Learning
-- Oracle Certified Professional: Java SE Developer
-- ROS Developer Certificate (Robot Operation System - The Construct)
+Machine Learning Pytorch, OpenCV
+Kubernetes, Terraform  
+Building Home Server (Nextcloud) 
+Building uber-clone with Kotlin Android
+CS50x - HavardX
+Google Software Engineering Certificate (Coursera)
+AWS Solutions Architect
+AWS Certified DevOps Engineer - Professional
+CompTIA Security+
+Certified Kubernetes Administrator
+AWS Certified Machine Learning
+Oracle Certified Professional: Java SE Developer
+ROS Developer Certificate (Robot Operation System - The Construct)
 ### FR
 French project--0
 ### JP

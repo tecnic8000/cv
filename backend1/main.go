@@ -70,6 +70,7 @@ func getCV(path string) (CV, error) {
 	builder := strings.Builder{}
 
 	setBody := func() {
+		content := strings.TrimRight(builder.String(), "\n")
 		if section == "CONTACT" {
 			val := strings.TrimRight(builder.String(), "\n")
 
@@ -131,6 +132,8 @@ func getCV(path string) (CV, error) {
 				case "JP":
 					cv.Dev.About.JP = builder.String()
 				}
+			case "SKILL":
+				cv.Dev.Skill[1] = content
 			case "EXPERIENCE":
 				cv.Dev.Experience.TitleDesc = title
 				switch description {
@@ -170,6 +173,8 @@ func getCV(path string) (CV, error) {
 				case "JP":
 					cv.Art.About.JP = builder.String()
 				}
+			case "SKILL":
+				cv.Art.Skill[1] = content
 			case "EXPERIENCE":
 				cv.Art.Experience.TitleDesc = title
 				switch description {
@@ -260,14 +265,20 @@ func getCV(path string) (CV, error) {
 			} else if description != "" {
 				setBody()
 				description = ""
+			} else if subsection != "" {
+				setBody()
 			}
+			description = ""
 			// Extract subsection between "## " and ":" if present
 			subsectionLine := strings.TrimSpace(line[3:])
 			if idx := strings.Index(subsectionLine, ":"); idx != -1 {
 				subsection = strings.TrimSpace(subsectionLine[:idx])
 				title = strings.TrimSpace(subsectionLine[idx+1:])
+				// item := builder.String()
 				if subsection == "SKILL" {
-					cv.Dev.Skill = [2]string{title, "TEST1"}
+					cv.Dev.Skill[0]=title
+				} else if subsection == "ART"{
+					cv.Art.Skill[0]=title
 				}
 			} else {
 				subsection = subsectionLine
