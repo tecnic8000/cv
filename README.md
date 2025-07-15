@@ -6,6 +6,6 @@
 # cv8002 HTMX + Svelte
 __liveReload__?
 
-# TODO
+# ISSUE
 frontend to check if go server(backend1) is available, if yes: fetch it, if not: fetch github link to cv.md in backend1
 ?-why does cv8001 fetches api twice?hmmm

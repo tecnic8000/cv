@@ -51,7 +51,7 @@ bio---1
 __Language__
 CSS, Bootstrap, Tailwind, MUI
 Javascipt/Typescript, HTML/HTMX, jQuery
-Java, Python, Go, Kotlin, Shell
+Java, Python, Go, Kotlin, Bash, C/C++
 __Frontend__  
 React (Redux, Axios, Shadcn, Motion, Three)
 Svelte + HMTX
@@ -87,7 +87,19 @@ Unreal
 
 ## EXPERIENCE:Kinh nghiệm Làm Việc|Experience|Expérience|経験
 ### VN
-temp-01
+__JOB1_Cty TNHH Hai Thanh_Binh Duong_20XX-20XX__
+- React, Spring Boot, MySQL, JWT, AWS EC2
+- Built a secure task management system with user authentication & CRUD tasks.  
+- Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
+- Implemented JWT-based authentication and custom error handling.
+__JOBTITLE1_COMPANY1_Locale5_TIMELINE3__
+**Tech:** Python, Flask, GPT API, Webhook Integration  
+- Designed a prototype to suggest job listings using GPT APIs.  
+- Integrated Telegram Bot for receiving real-time job recommendations.
+__JOBTITLE3_COMPANY6_Locale4_TIMELINE2__
+**Tech:** GitHub Actions, Docker, AWS  
+- Developed a minimal CI/CD pipeline using GitHub Actions.  
+- Automated Docker image build + deployment to AWS EC2 with rollback fallback.
 ### EN
 __JOBTITLE1_COMPANY1_Locale1_TIMELINE1__
 - React, Spring Boot, MySQL, JWT, AWS EC2
@@ -119,15 +131,7 @@ Machine Learning Pytorch, OpenCV
 Kubernetes, Terraform  
 Building Home Server (Nextcloud) 
 Building uber-clone with Kotlin Android
-CS50x - HavardX
-Google Software Engineering Certificate (Coursera)
-AWS Solutions Architect
-AWS Certified DevOps Engineer - Professional
-CompTIA Security+
-Certified Kubernetes Administrator
-AWS Certified Machine Learning
-Oracle Certified Professional: Java SE Developer
-ROS Developer Certificate (Robot Operation System - The Construct)
+
 ### FR
 French project--0
 ### JP
@@ -207,7 +211,6 @@ __hoạt động phát triển__
 [[empty999
 
 # DRAFT---NOT FOR USE
-
 objective: global state Redux, ContextAPI
 threeJS animation player for product, coffee
 threeJS real estate tour
@@ -219,3 +222,16 @@ deeper AWS/Azure integration
 raspberry server
 year 3:
 kubernette security
+__certi__
+CS50x - HavardX
+Google Software Engineering Certificate (Coursera)
+AWS Solutions Architect
+AWS Certified DevOps Engineer - Professional
+CompTIA Security+
+Certified Kubernetes Administrator
+AWS Certified Machine Learning
+Oracle Certified Professional: Java SE Developer
+ROS Developer Certificate (Robot Operation System - The Construct)
+[sampe1](https://www.mintresume.com/resumes/senior-backend-engineer)
+[sample2](https://www.topcv.vn/tong-hop-cv-tham-khao-cho-lap-trinh-vien)
+[sample3](https://www.beamjobs.com/resumes/full-stack-developer-resume-examples)

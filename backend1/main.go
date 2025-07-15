@@ -268,7 +268,6 @@ func getCV(path string) (CV, error) {
 			} else if subsection != "" {
 				setBody()
 			}
-			description = ""
 			// Extract subsection between "## " and ":" if present
 			subsectionLine := strings.TrimSpace(line[3:])
 			if idx := strings.Index(subsectionLine, ":"); idx != -1 {
