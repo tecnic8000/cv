@@ -64,7 +64,7 @@ NodeJS, ExpressJS
 Kafka, RabbitMQ, gRPC, Websocket
 __Database__
 MySQL, PostgreSQL, SQLite
-MongoDB
+MongoDB, Redis
 __CI/CD__
 Git, GitLab
 Github, Github Action
