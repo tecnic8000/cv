@@ -57,6 +57,7 @@ function Model({ url }: { url: string }) {
   useFrame((state, delta) => {
     if (mixerRef.current) {
       mixerRef.current.update(delta);
+      state.get() // dummy to turn off warning
     }
   });
   return <primitive ref={modelRef} object={scene} />;
@@ -112,6 +113,7 @@ function CVdisplay({URL}:{URL:string}){
       setCv(cv);
       console.log(cv);
     }
+    setJobMode("dev")
     getCV();
   }, [URL]);
   console.log(langMode, langParam, titleIndex);
@@ -217,7 +219,7 @@ function CVdisplay({URL}:{URL:string}){
               
               <CardTitle className="mt-3">{cv.education[0].split("|")[titleIndex]}</CardTitle>
               <CardDescription>
-                {cv.education[1].split("_")[1]}&nbsp;
+                {cv.education[1].split("_")[1]} &nbsp;
                 {cv.education[1].split("_")[2]}<br />
                 {cv.education[1].split("_")[0]}
                 <br />
@@ -285,20 +287,26 @@ function CVdisplay({URL}:{URL:string}){
             <Button>Action</Button>
           </CardFooter>
         </Card>
+
+      </div>
+
+      <div className="hidden">
+
+      <GLBAnimation modelUrl="web1.glb" ></GLBAnimation>
       </div>
     </>
   );
 }
 
 function App() {
-  const URL_LOCAL: string = "http://localhost:8011/cv";
-  // const URL_CV: string = "https://";
+  // const URL_LOCAL: string = "http://localhost:8011/cv";
+  const URL_RENDER: string = "https://cv-0ulu.onrender.com/cv";
  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/:langParam" element={<CVdisplay URL={URL_LOCAL} /> }/>
-        <Route path="/" element={<CVdisplay URL={URL_LOCAL} /> }/>
+        <Route path="/:langParam" element={<CVdisplay URL={URL_RENDER} /> }/>
+        <Route path="/" element={<CVdisplay URL={URL_RENDER} /> }/>
       </Routes>
     </BrowserRouter>
   );

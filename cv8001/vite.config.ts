@@ -18,5 +18,12 @@ export default defineConfig({
 
   server: {
     port: 5171,
+  },
+
+  build: {
+    target: "esnext",
+    minify: "esbuild",
+    outDir: "dist",
+    sourcemap: false, // turn off for better security and smaller size
   }
 })
