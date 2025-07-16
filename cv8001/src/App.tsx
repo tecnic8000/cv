@@ -1,15 +1,9 @@
 import "./style/style1.css";
+import { BrowserRouter, Routes, Route, useParams} from "react-router-dom"
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { motion } from "motion/react";
+// import { motion } from "motion/react";
 import { useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -29,7 +23,7 @@ interface Profile {
   project: Description;
 }
 interface contactDetail {
-  titleContact: string;
+  TitleContact: string;
   name: string[];
   address: string[];
   link: string[];
@@ -42,23 +36,7 @@ interface CVData {
   dev: Profile;
   art: Profile;
 }
-interface DisplayCV {
-  contact: {
-    name: string;
-    address: string;
-    link: string[];
-  };
-  certificate: string[];
-  education: string[];
-  interest: any;
-  dev: any;
-  art: {
-    about: string;
-    skill: string[];
-    experience: Description;
-    project: Description;
-  };
-}
+
 
 function Model({ url }: { url: string }) {
   const { scene, animations } = useGLTF(url);
@@ -108,77 +86,61 @@ function GLBAnimation({
   );
 }
 
-function App() {
-  const LOCAL_URL: string = "http://localhost:8011/cv";
-  const REAL_URL = "https://";
+function CVdisplay({URL}:{URL:string}){
   const [cv, setCv] = useState<CVData | null>(null);
   const [langMode, setLangMode] = useState<"vn" | "en" | "fr" | "jp">("vn");
-  let displayCV: DisplayCV;
+  const [jobMode, setJobMode] = useState <"dev" | "art" >("dev");
+  const [titleIndex, setTitleIndex] = useState<number>(0);
+  const { langParam } = useParams();
+  useEffect(()=>{
+    switch (langParam){
+      case "en": setLangMode("en"); break; 
+      case "fr": setLangMode("fr"); break;
+      case "jp": setLangMode("jp"); break;
+    }    
+    switch (langMode){
+      case "en": setTitleIndex(1); break;
+      case "fr": setTitleIndex(2); break;
+      case "jp": setTitleIndex(3); break;
+    }
+  },[langMode, langParam])
   useEffect(() => {
     async function getCV() {
-      const res = await fetch(LOCAL_URL);
+      const res = await fetch(URL);
       if (!res.ok) throw Error("ERR--API FAILED--001");
       const cv = await res.json();
       setCv(cv);
+      console.log(cv);
     }
     getCV();
-  }, []);
+  }, [URL]);
+  console.log(langMode, langParam, titleIndex);
+  if (!cv) return <div>LOADING...</div>
 
-  console.log(cv);
-  // CV PROCESSING
-  if (!cv) return <div>Loading...</div>;
-
-  switch (langMode) {
-    case "vn":
-      displayCV = {
-        contact: {
-          name: cv.contact.name[0],
-          address: cv.contact.address[0],
-          link: cv.contact.link,
-        },
-        certificate: [
-          cv.certificate[0].split("|")[0],
-          ...cv.certificate.slice(1),
-        ],
-        education: [cv.education[0].split("|")[0], ...cv.education.slice(1)],
-        interest: cv.interest,
-        dev: cv.dev,
-        art: {
-          about: cv.art.about[langMode],
-          skill: cv.dev.skill,
-          experience: cv.dev.experience,
-          project: cv.dev.project,
-        },
-      };
-      displayCV.interest.titleDesc = displayCV.interest.titleDesc.split("|")[0];
-      displayCV.dev.about.titleDesc =
-        displayCV.dev.about.titleDesc.split("|")[0];
-      displayCV.dev.skill[0] = displayCV.dev.skill[0].split("|")[0];
-      displayCV.dev.experience.titleDesc =
-        displayCV.dev.experience.titleDesc.split("|")[0];
-      displayCV.dev.project.titleDesc =
-        displayCV.dev.project.titleDesc.split("|")[0];
-      break;
-    case "en":
-      return "ENG";
-    case "fr":
-      return "FRA";
-    case "jp":
-      return "JPA";
-  }
-
-  console.log(displayCV);
+  const expArr:string[] = Array
+    .from(cv[jobMode].experience[langMode]
+    .matchAll(/(__[^_]+(?:_[^_]+)*__[\s\S]*?)(?=__[^_]+(?:_[^_]+)*__|$)/g))
+    .map(m => m[1].trim())
+  const skillArr:string[] = Array
+    .from(cv[jobMode].skill[1]
+    .matchAll(/(__[^_]+(?:_[^_]+)*__[\s\S]*?)(?=__[^_]+(?:_[^_]+)*__|$)/g))
+    .map(m => m[1].trim())
+  
+  
   return (
     <>
-      {/* <div className="bg-blue-700">statusbarGETAPIfetch</div> */}
-      <div className="p-4 flex bg-yellow-00 justify-center">
-        <div className="bg-blue-00 grid grid-cols-1 md:grid-cols-2 gap-4">
+      {/* <div className="bg-orange-500 fixed top-0 w-full z-90">CONTACT</div> */}
+      {/* <br /> */}
+      <div className="p-4 flex bg-blue-500 justify-center">
+        {/* <div className="bg-blue-00 grid grid-cols-1 md:grid-cols-2 gap-4"> */}
+        <div className="bg-blue-500 grid grid-cols-1 md:grid-cols-2 gap-5 [grid-auto-flow:dense]">
           {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
           {/* <GLBAnimation modelUrl="/web1.glb" /> */}
           {/* <div className="contact1">{data?.contact}</div> */}
 
-          <Card className="w-[300px] h-[500px]">
-            <CardContent>
+          <Card className="w-[300px] h-[400px]">
+            <CardContent></CardContent>
+            <CardHeader className="">
               <Avatar>
                 <AvatarImage
                   src="https://github.com/shadcn.png"
@@ -186,77 +148,159 @@ function App() {
                 />
                 <AvatarFallback>CVAvatar</AvatarFallback>
               </Avatar>
-            </CardContent>
-            <CardHeader>
-              {displayCV.contact.name}
-              <br />
-              {displayCV.dev.about.titleDesc}
+              {cv.contact.name[titleIndex]}
             </CardHeader>
-            <CardContent>{displayCV.dev.about[langMode]}</CardContent>
+            <CardContent>
+              <CardHeader>
+                {cv[jobMode].about.titleDesc.split("|")[titleIndex]}
+              </CardHeader>
+              <CardDescription>{cv[jobMode].about[langMode]}</CardDescription>
+            </CardContent>
           </Card>
 
           <Card className="w-[300px] ">
-            <CardHeader>{displayCV.dev.experience.titleDesc}</CardHeader>
-            <CardContent>{displayCV.dev.experience[langMode]}</CardContent>
-          </Card>
-
-          <Card className="w-[300px] h-[800px]">
-            <CardHeader>{displayCV.dev.skill[0]}</CardHeader>
-            <CardContent>{displayCV.dev.skill[1]}</CardContent>
-          </Card>
-
-          <Card className="w-[300px] h-[200px]">
             <CardHeader>
-              <CardTitle>{displayCV.certificate[0]}</CardTitle>
+              {cv[jobMode].experience.titleDesc.split("|")[titleIndex]}
             </CardHeader>
-            <CardContent>
-              {displayCV.certificate.slice(1).map((item, index) => (
+            {expArr.map((item, index) => (
+              <CardContent key={index}>
+                <CardTitle>
+                  {item
+                    .split("__")
+                    .filter(Boolean)[0]
+                    .split("_")
+                    .map((n, i) => (
+                      <p key={i}>{n}</p>
+                    ))}
+                </CardTitle>
+                <CardDescription>
+                  {item
+                    .split("__")
+                    .filter(Boolean)[1]
+                    .split("\n")
+                    .filter(Boolean)
+                    .map((n, i) => (
+                      <p key={i}>- {n}</p>
+                    ))}
+                </CardDescription>
+              </CardContent>
+            ))}
+          </Card>
+
+          <Card className="w-[300px] md:relative md:-mt-100">
+            <CardHeader>
+              {cv[jobMode].skill[0].split("|")[titleIndex]}
+            </CardHeader>
+            {skillArr.map((item, index) => (
+              <CardContent key={index}>
+                <CardTitle>{item.split("__").filter(Boolean)[0]}</CardTitle>
+                <CardDescription>
+                  {item
+                    .split("__")
+                    .filter(Boolean)[1]
+                    .split("\n")
+                    .filter(Boolean)
+                    .map((n, i) => (
+                      <p key={i}>- {n}</p>
+                    ))}
+                </CardDescription>
+              </CardContent>
+            ))}
+          </Card>
+
+          <Card className="w-[300px] h-[240px]">
+            <CardHeader>
+              <CardTitle>{cv.certificate[0].split("|")[titleIndex]}</CardTitle>
+              {cv.certificate.slice(1).map((item, index) => (
                 <CardDescription key={index + 1}>{item}</CardDescription>
               ))}
-            </CardContent>
+              
+              <CardTitle className="mt-3">{cv.education[0].split("|")[titleIndex]}</CardTitle>
+              <CardDescription>
+                {cv.education[1].split("_")[1]}&nbsp;
+                {cv.education[1].split("_")[2]}<br />
+                {cv.education[1].split("_")[0]}
+                <br />
+              </CardDescription>
+            </CardHeader>
           </Card>
 
-          <Card className="w-[300px] h-[200px]">
+          <Card className="w-[300px]">
             <CardHeader>
-              <CardTitle>{displayCV.education[0]}</CardTitle>
+              <CardTitle>
+                {cv.contact.TitleContact.split("|")[titleIndex]}
+                <br />
+                <br />
+                {cv.contact.name[titleIndex]}
+              </CardTitle>
+              <CardDescription>
+                {cv.contact.address[titleIndex]}
+              </CardDescription>
             </CardHeader>
-            <CardContent>
-              {displayCV.education[1].split("_")[0]}
-              <br />
-              {displayCV.education[1].split("_")[1]}
-              <br />
-              {displayCV.education[1].split("_")[2]}
-              <br />
-            </CardContent>
+            <div className="bg-amber-00 grid-cols-2 space-y-4 ml-10 -mt-3">
+              <div className="space-x-4">
+                <Button className="w-20"> &#9993; MAIL </Button>
+                <Button className="w-20"> &#128222; CALL </Button>
+              </div>
+              {jobMode == "dev" ? (
+                <div className="space-x-4">
+                  <Button className="w-20">GITHUB</Button>
+                  <Button className="w-20">LINKEDIN</Button>
+                </div>
+              ) : (
+                <>
+                  <Button className="w-20">ARTSTATION</Button>
+                  <Button className="w-20">BEHANCE</Button>
+                </>
+              )}
+            </div>
           </Card>
 
-          <Card className="w-[300px] h-[300px]">
-            <CardHeader>
-              <CardTitle>{displayCV.contact.name}</CardTitle>
-              <CardDescription>{displayCV.contact.address}</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>{displayCV.contact.link}</p>
-            </CardContent>
-            <CardFooter>
-              <Button>Action</Button>
-            </CardFooter>
-          </Card>
-          
           <Card className="w-[300px] h-[500px] hidden">
-            <CardHeader>{displayCV.dev.project.titleDesc}</CardHeader>
-            <CardContent>{displayCV.dev.project[langMode]}</CardContent>
+            <CardHeader>
+              {cv[jobMode].project.titleDesc.split("|")[titleIndex]}
+            </CardHeader>
+            <CardContent>{cv[jobMode].project[langMode]}</CardContent>
           </Card>
 
           <Card className="w-[300px] h-[200px] hidden">
             <CardHeader>
-              <CardTitle>{displayCV.interest.titleDesc}</CardTitle>
+              <CardTitle>
+                {cv.interest.titleDesc.split("|")[titleIndex]}
+              </CardTitle>
             </CardHeader>
-            <CardContent>{displayCV.interest[langMode]}</CardContent>
+            <CardContent>{cv.interest[langMode]}</CardContent>
           </Card>
         </div>
+
+        <Card className="w-[300px] hidden">
+          <CardHeader>
+            <CardTitle>{cv.contact.name[titleIndex]}</CardTitle>
+            <CardDescription>{cv.contact.address[titleIndex]}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p>{cv.contact.link}</p>
+          </CardContent>
+          <CardFooter>
+            <Button>Action</Button>
+          </CardFooter>
+        </Card>
       </div>
     </>
+  );
+}
+
+function App() {
+  const URL_LOCAL: string = "http://localhost:8011/cv";
+  // const URL_CV: string = "https://";
+ 
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/:langParam" element={<CVdisplay URL={URL_LOCAL} /> }/>
+        <Route path="/" element={<CVdisplay URL={URL_LOCAL} /> }/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;

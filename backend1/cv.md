@@ -12,16 +12,16 @@ Gia-Dinh, Hochimin-shi, Vietnam
 ## link
 0903788216
 tranhoangtd@gmail.com
-(Github)[]
-(LinkedIn)[]
-(Artstation)[]
-(Behance)[]
+github.com/tecnic8000
+linkedin.com/minhhoangtran
+artstation.com/minhhoangtran
+behance.net/minhhoangtran
 
 # CERTIFICATE:Chứng Chỉ|Certificate|Certificat|証明書
 AWS Something
 another Cert
 
-# EDUCATION:Học vấn|Education|Éducation|教育
+# EDUCATION:Học Vấn|Education|Éducation|教育
 University of Technology Sydney_Bachelor of Communication (Media Production)_2019
 
 # INTEREST:Chủ đề quan tâm|Interest|Intérêt|興味
@@ -47,73 +47,56 @@ bio---0
 ### JP
 bio---1
 
-## SKILL:chuyên môn kỹ thuật|tech stack|expertise technique|技術的な専門知識
+## SKILL:Chuyên môn Kỹ thuật|Tech Stack|Expertise Technique|技術的な専門知識
 __Language__
 CSS, Bootstrap, Tailwind, MUI
 Javascipt/Typescript, HTML/HTMX, jQuery
 Java, Python, Go, Kotlin, Bash, C/C++
-__Frontend__  
+__Frontend__
 React (Redux, Axios, Shadcn, Motion, Three)
 Svelte + HMTX
-__Backend__  
+__Backend__
 NextJS + Supabase
 Springboot (JPA/Hibernate, Spring Security)  
 Django (django rest framework, graphQL)
-Gin (auth, gRPC)
+Gin (auth)
 NodeJS, ExpressJS
 Kafka, RabbitMQ, gRPC, Websocket
 __Database__
 MySQL, PostgreSQL, SQLite
 MongoDB
-__Testing__
-Jest, Junit
-Postman
-- Auth: Basic, OAuth2
 __CI/CD__
 Git, GitLab
 Github, Github Action
 AWS EC2, S3, RDS
 Deploy: Render, Vercel, AWS
-__Security__
-Debian Server
-SSH
-JWT
-HTTPS
-Firewall compliance
-IAM compliance
-__Engine__
-Godot
-Unreal
+
 
 ## EXPERIENCE:Kinh nghiệm Làm Việc|Experience|Expérience|経験
 ### VN
 __JOB1_Cty TNHH Hai Thanh_Binh Duong_20XX-20XX__
-- React, Spring Boot, MySQL, JWT, AWS EC2
-- Built a secure task management system with user authentication & CRUD tasks.  
-- Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
-- Implemented JWT-based authentication and custom error handling.
+React, Spring Boot, MySQL, JWT, AWS EC2
+Built a secure task management system with user authentication & CRUD tasks.  
+Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
+Implemented JWT-based authentication and custom error handling.
 __JOBTITLE1_COMPANY1_Locale5_TIMELINE3__
-**Tech:** Python, Flask, GPT API, Webhook Integration  
-- Designed a prototype to suggest job listings using GPT APIs.  
-- Integrated Telegram Bot for receiving real-time job recommendations.
+Designed a prototype to suggest job listings using GPT APIs.  
+Integrated Telegram Bot for receiving real-time job recommendations.
 __JOBTITLE3_COMPANY6_Locale4_TIMELINE2__
-**Tech:** GitHub Actions, Docker, AWS  
-- Developed a minimal CI/CD pipeline using GitHub Actions.  
-- Automated Docker image build + deployment to AWS EC2 with rollback fallback.
+Developed a minimal CI/CD pipeline using GitHub Actions.  
+Automated Docker image build + deployment to AWS EC2 with rollback fallback.
 ### EN
 __JOBTITLE1_COMPANY1_Locale1_TIMELINE1__
-- React, Spring Boot, MySQL, JWT, AWS EC2
-- Built a secure task management system with user authentication & CRUD tasks.  
-- Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
-- Implemented JWT-based authentication and custom error handling.
+React, Spring Boot, MySQL, JWT, AWS EC2
+Built a secure task management system with user authentication & CRUD tasks.  
+Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
+Implemented JWT-based authentication and custom error handling.
 __JOBTITLE1_COMPANY1_Locale5_TIMELINE3__
-**Tech:** Python, Flask, GPT API, Webhook Integration  
-- Designed a prototype to suggest job listings using GPT APIs.  
-- Integrated Telegram Bot for receiving real-time job recommendations.
+Designed a prototype to suggest job listings using GPT APIs.  
+Integrated Telegram Bot for receiving real-time job recommendations.
 __JOBTITLE3_COMPANY6_Locale4_TIMELINE2__
-**Tech:** GitHub Actions, Docker, AWS  
-- Developed a minimal CI/CD pipeline using GitHub Actions.  
-- Automated Docker image build + deployment to AWS EC2 with rollback fallback.
+Developed a minimal CI/CD pipeline using GitHub Actions.  
+Automated Docker image build + deployment to AWS EC2 with rollback fallback.
 ### FR
 French experience
 ### JP
@@ -146,13 +129,13 @@ Japan project--0
 
 ## SKILL:chuyên môn kỹ thuật|tech stack|expertise technique|技術的な専門知識
 ### VN
-- Modelling, Rigging và Animation.
-- Lập trình workflow với maxscript, MELscript và Python.
-- Prototype với UE5 Blueprint cho truyền thông tương tác (interactive media).
-- Thảo luận nhóm cách tiếp cận và triển khai các vấn đề Pre-production.
-- Hướng dẫn và hỗ trợ thành viên trong nhóm làm việc, đảm bảo lượng việc theo ngày/tuần.
-- Quản lý tài nguyên và workflow - digital asset management.
-- Tối ưu 3D animation lên FrontEnd web với ThreeJS.
+Modelling, Rigging và Animation.
+Lập trình workflow với maxscript, MELscript và Python.
+Prototype với UE5 Blueprint cho truyền thông tương tác (interactive media).
+Thảo luận nhóm cách tiếp cận và triển khai các vấn đề Pre-production.
+Hướng dẫn và hỗ trợ thành viên trong nhóm làm việc, đảm bảo lượng việc theo ngày/tuần.
+Quản lý tài nguyên và workflow - digital asset management.
+Tối ưu 3D animation lên FrontEnd web với ThreeJS.
 ### EN
 [[empty999
 ### FR
@@ -164,31 +147,31 @@ Japan project--0
 __kinh nghiệm làm việc__
 _3D Generalist_
 `Tecnic Studio Bình Thạnh, TP. HCM. Th1 2024 - Hiện tại`
-- Thiết kế, tạo dựng procedural và texture PBR/vật lý các asset cho môi trường cho Unreal Engine 5.
-- Thiết kế nội thất theo bản vẽ xây dựng.
-- Thiết kế sản phẩm cho in ấn 3D print.
-- Model, rig và hoạt hoạ nhân vật.
-- Dựng ánh sáng, Niagara FX và render pass.
-- Tạo dựng 3D sản phẩm, chất liệu sản phẩm cho web qua ThreeJS.
-- Sáng tạo concept cho các chiến dịch marketing.
-- Trợ giúp trong quản lý lịch trình, tiến độ dự án, tài nguyên và đăng tải media theo yêu cầu Project Lead.
+Thiết kế, tạo dựng procedural và texture PBR/vật lý các asset cho môi trường cho Unreal Engine 5.
+Thiết kế nội thất theo bản vẽ xây dựng.
+Thiết kế sản phẩm cho in ấn 3D print.
+Model, rig và hoạt hoạ nhân vật.
+Dựng ánh sáng, Niagara FX và render pass.
+Tạo dựng 3D sản phẩm, chất liệu sản phẩm cho web qua ThreeJS.
+Sáng tạo concept cho các chiến dịch marketing.
+Trợ giúp trong quản lý lịch trình, tiến độ dự án, tài nguyên và đăng tải media theo yêu cầu Project Lead.
 _2D/3D Motion Graphic Designer_
 `Jio Health Clinic Quận 1, TP. HCM. Th1 2022 - Th8 2023`
-- Quay và edit nội dung tư vấn livestream y tế.
-- Cắt dựng quảng cáo cho các gói sản phẩm dịch vụ.
-- Hoạt hoạ infographic chủ để sức khoẻ, lower third các thông tin tư vấn, chú thích.
-- Hỗ trợ đội content creator xây dựng nội dung phù hợp với budget và kỹ thuật.
+Quay và edit nội dung tư vấn livestream y tế.
+Cắt dựng quảng cáo cho các gói sản phẩm dịch vụ.
+Hoạt hoạ infographic chủ để sức khoẻ, lower third các thông tin tư vấn, chú thích.
+Hỗ trợ đội content creator xây dựng nội dung phù hợp với budget và kỹ thuật.
 _3D Model/Animator_
 `Beez Post-Production Quận 3, TP. HCM. Th5 - Th10 2020`
-- Thiết kế sản phẩm, vật dụng gia dùng 3D cho TVC.
-- Đảm nhiệm hoạt hoạ, mô phỏng sử dụng sản phẩm.
-- Hội thảo, xây dựng nội dung quảng cáo cho vào cảnh quay.
-- Đảm bảo linh hoạt khung thời gian với sản phẩm và khách hàng.
+Thiết kế sản phẩm, vật dụng gia dùng 3D cho TVC.
+Đảm nhiệm hoạt hoạ, mô phỏng sử dụng sản phẩm.
+Hội thảo, xây dựng nội dung quảng cáo cho vào cảnh quay.
+Đảm bảo linh hoạt khung thời gian với sản phẩm và khách hàng.
 _Motion Graphic Designer_
 `Hazen Agency Sydney, Australia. Tháng 1 - Tháng 5 2019`
-- Tư vấn, đề xuất chủ đề và nội dung trong budget giới hạnÓ
-- Tạo dựng và hoạt hoạ infographic cho trẻ emÓ
-- Thiết kế quảng cáo dịch vụ cho các client địa phương.
+Tư vấn, đề xuất chủ đề và nội dung trong budget giới hạnÓ
+Tạo dựng và hoạt hoạ infographic cho trẻ emÓ
+Thiết kế quảng cáo dịch vụ cho các client địa phương.
 ### EN
 __experience__
 [[empty999
@@ -232,6 +215,21 @@ Certified Kubernetes Administrator
 AWS Certified Machine Learning
 Oracle Certified Professional: Java SE Developer
 ROS Developer Certificate (Robot Operation System - The Construct)
+__SKILL__
+__Testing__
+Jest, Junit
+Postman
+Auth: Basic, OAuth2
+__Security__
+Debian Server
+SSH
+JWT
+HTTPS
+Firewall compliance
+IAM compliance
+__Engine__
+Godot
+Unreal
 [sampe1](https://www.mintresume.com/resumes/senior-backend-engineer)
 [sample2](https://www.topcv.vn/tong-hop-cv-tham-khao-cho-lap-trinh-vien)
 [sample3](https://www.beamjobs.com/resumes/full-stack-developer-resume-examples)
