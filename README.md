@@ -1,7 +1,14 @@
-# BACKEND1 [Gin] (http://localhost:8011/ping)
+# BACKEND1 [Gin] ()
+__env__
+local: http://localhost:8011/ping
+prod:
 
 # cv8000 legacy 2020
-# cv8001 [React] (http://localhost:5171)
+
+# cv8001 stylized
+__env__
+local: http://localhost:5171
+prod: https://cvfe1.onrender.com/ 
 
 # cv8002 HTMX + Svelte
 __liveReload__?

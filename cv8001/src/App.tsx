@@ -37,7 +37,6 @@ interface CVData {
   art: Profile;
 }
 
-
 function Model({ url }: { url: string }) {
   const { scene, animations } = useGLTF(url);
   const modelRef = useRef<THREE.Group>(null);
@@ -77,9 +76,7 @@ function GLBAnimation({
       <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[10, 10, 5]} intensity={1} />
-
         <Model url={modelUrl} />
-
         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
         <Environment preset="city" />
       </Canvas>
@@ -299,14 +296,13 @@ function CVdisplay({URL}:{URL:string}){
 }
 
 function App() {
-  // const URL_LOCAL: string = "http://localhost:8011/cv";
-  const URL_RENDER: string = "https://cv-0ulu.onrender.com/cv";
+  const URL_ENV = import.meta.env.VITE_CV_URL
  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/:langParam" element={<CVdisplay URL={URL_RENDER} /> }/>
-        <Route path="/" element={<CVdisplay URL={URL_RENDER} /> }/>
+        <Route path="/:langParam" element={<CVdisplay URL={URL_ENV} /> }/>
+        <Route path="/" element={<CVdisplay URL={URL_ENV} /> }/>
       </Routes>
     </BrowserRouter>
   );

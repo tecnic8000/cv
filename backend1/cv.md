@@ -51,26 +51,24 @@ bio---1
 __Language__
 CSS, Bootstrap, Tailwind, MUI
 Javascipt/Typescript, HTML/HTMX, jQuery
-Java, Python, Go, Kotlin, Bash, C/C++
+Java, Python, Go, Kotlin, Elixir, Bash, C/C++
 __Frontend__
 React (Redux, Axios, Shadcn, Motion, Three)
 Svelte + HMTX
 __Backend__
 NextJS + Supabase
-Springboot (JPA/Hibernate, Spring Security)  
-Django (django rest framework, graphQL)
-Gin (auth)
-NodeJS, ExpressJS
-Kafka, RabbitMQ, gRPC, Websocket
+ExpressJS, Springboot, Django, Gin, Phoenix
 __Database__
 MySQL, PostgreSQL, SQLite
 MongoDB, Redis
+__Communication__
+HTTPS/TCP, Rest, GraphQL
+Kafka, RabbitMQ, gRPC, Websocket
 __CI/CD__
 Git, GitLab
 Github, Github Action
 AWS EC2, S3, RDS
 Deploy: Render, Vercel, AWS
-
 
 ## EXPERIENCE:Kinh nghiệm Làm Việc|Experience|Expérience|経験
 ### VN
@@ -114,7 +112,6 @@ Machine Learning Pytorch, OpenCV
 Kubernetes, Terraform  
 Building Home Server (Nextcloud) 
 Building uber-clone with Kotlin Android
-
 ### FR
 French project--0
 ### JP
@@ -220,6 +217,7 @@ __Testing__
 Jest, Junit
 Postman
 Auth: Basic, OAuth2
+__Network__
 __Security__
 Debian Server
 SSH
