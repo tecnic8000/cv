@@ -1,4 +1,5 @@
 import "./style/style1.css";
+import { config } from "./config"
 import { BrowserRouter, Routes, Route, useParams} from "react-router-dom"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
@@ -296,13 +297,12 @@ function CVdisplay({URL}:{URL:string}){
 }
 
 function App() {
-  const URL_ENV = import.meta.env.VITE_CV_URL
  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/:langParam" element={<CVdisplay URL={URL_ENV} /> }/>
-        <Route path="/" element={<CVdisplay URL={URL_ENV} /> }/>
+        <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/>
+        <Route path="/" element={<CVdisplay URL={config.cvURL} /> }/>
       </Routes>
     </BrowserRouter>
   );
