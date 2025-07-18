@@ -5,7 +5,7 @@ Hoang Minh Tran
 Hoang Minh Tran
 Tran Minh Hoang
 ## address
-Gia Định, TP.HCM, Vietnam
+Gia Định, TP.HCM, Việt Nam
 Gia Dinh, Ho Chi Minh City, Vietnam
 Gia-Dinh, Ho-Chi-Minh-Ville, Vietnam
 Gia-Dinh, Hochimin-shi, Vietnam
@@ -60,7 +60,7 @@ NextJS + Supabase
 ExpressJS, Springboot, Django, Gin, Phoenix
 __Database__
 MySQL, PostgreSQL, SQLite
-MongoDB, Redis
+MongoDB, Redis, H2
 __Communication__
 HTTPS/TCP, Rest, GraphQL
 Kafka, RabbitMQ, gRPC, Websocket

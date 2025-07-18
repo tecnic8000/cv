@@ -303,6 +303,7 @@ function App() {
       <Routes>
         <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/>
         <Route path="/" element={<CVdisplay URL={config.cvURL} /> }/>
+        <Route path="/bland" element={<CVdisplay URL={config.cvURL} /> }/>
       </Routes>
     </BrowserRouter>
   );
