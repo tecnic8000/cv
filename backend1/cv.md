@@ -65,10 +65,11 @@ __Communication__
 HTTPS/TCP, Rest, GraphQL
 Kafka, RabbitMQ, gRPC, Websocket
 __CI/CD__
+Testing: Jest, Junit, ExUnit, Phoenix.ConnTest, LiveViewTest, StreamData
 Git, GitLab
 Github, Github Action
-AWS EC2, S3, RDS
-Deploy: Render, Vercel, AWS
+AWS EC2, S3, RDS, Hetzner VPS
+Deploy: Render, Vercel, Netlify, AWS
 
 ## EXPERIENCE:Kinh nghiệm Làm Việc|Experience|Expérience|経験
 ### VN
@@ -213,8 +214,6 @@ AWS Certified Machine Learning
 Oracle Certified Professional: Java SE Developer
 ROS Developer Certificate (Robot Operation System - The Construct)
 __SKILL__
-__Testing__
-Jest, Junit
 Postman
 Auth: Basic, OAuth2
 __Network__
