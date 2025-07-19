@@ -91,6 +91,7 @@ function CVdisplay({URL}:{URL:string}){
   const [jobMode, setJobMode] = useState <"dev" | "art" >("dev");
   const [titleIndex, setTitleIndex] = useState<number>(0);
   const { langParam } = useParams();
+  
   useEffect(()=>{
     switch (langParam){
       case "en": setLangMode("en"); break; 
@@ -116,7 +117,6 @@ function CVdisplay({URL}:{URL:string}){
   }, [URL]);
   console.log(langMode, langParam, titleIndex);
   if (!cv) return <div>LOADING...</div>
-
   const expArr:string[] = Array
     .from(cv[jobMode].experience[langMode]
     .matchAll(/(__[^_]+(?:_[^_]+)*__[\s\S]*?)(?=__[^_]+(?:_[^_]+)*__|$)/g))
@@ -125,175 +125,258 @@ function CVdisplay({URL}:{URL:string}){
     .from(cv[jobMode].skill[1]
     .matchAll(/(__[^_]+(?:_[^_]+)*__[\s\S]*?)(?=__[^_]+(?:_[^_]+)*__|$)/g))
     .map(m => m[1].trim())
-  
-  
-  return (
-    <>
-      {/* <div className="bg-orange-500 fixed top-0 w-full z-90">CONTACT</div> */}
-      {/* <br /> */}
-      <div className="p-4 flex bg-blue-500 justify-center">
-        {/* <div className="bg-blue-00 grid grid-cols-1 md:grid-cols-2 gap-4"> */}
-        <div className="bg-blue-500 grid grid-cols-1 md:grid-cols-2 gap-5 [grid-auto-flow:dense]">
-          {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
-          {/* <GLBAnimation modelUrl="/web1.glb" /> */}
-          {/* <div className="contact1">{data?.contact}</div> */}
 
-          <Card className="w-[300px] h-[400px]">
-            <CardContent></CardContent>
-            <CardHeader className="">
-              <Avatar>
-                <AvatarImage
-                  src="https://github.com/shadcn.png"
-                  alt="@shadcn"
-                />
-                <AvatarFallback>CVAvatar</AvatarFallback>
-              </Avatar>
-              {cv.contact.name[titleIndex]}
-            </CardHeader>
-            <CardContent>
-              <CardHeader>
-                {cv[jobMode].about.titleDesc.split("|")[titleIndex]}
-              </CardHeader>
-              <CardDescription>{cv[jobMode].about[langMode]}</CardDescription>
+ if (langParam == "2") {
+return (
+  <>
+    <div className="bg-blue-500 p-4 flex justify-center">
+      <Card className="w-[90vw] ">
+        <CardHeader>
+          {cv.contact.name[titleIndex]}
+          <CardDescription>{cv.contact.address[titleIndex]}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <CardDescription>{cv[jobMode].about[langMode]}</CardDescription>
+          <br />
+          <CardTitle>
+            {cv[jobMode].experience.titleDesc.split("|")[titleIndex]}
+          </CardTitle>
+          <br />
+          {expArr.map((item, index) => (
+            <CardContent key={index}>
+              <CardTitle>
+                {item
+                  .split("__")
+                  .filter(Boolean)[0]
+                  .split("_")
+                  .map((n, i) => (
+                    <p key={i}>{n}</p>
+                  ))}
+              </CardTitle>
+              <CardDescription>
+                {item
+                  .split("__")
+                  .filter(Boolean)[1]
+                  .split("\n")
+                  .filter(Boolean)
+                  .map((n, i) => (
+                    <p key={i}>- {n}</p>
+                  ))}
+              </CardDescription>
             </CardContent>
-          </Card>
-
-          <Card className="w-[300px] ">
-            <CardHeader>
-              {cv[jobMode].experience.titleDesc.split("|")[titleIndex]}
-            </CardHeader>
-            {expArr.map((item, index) => (
-              <CardContent key={index}>
-                <CardTitle>
-                  {item
-                    .split("__")
-                    .filter(Boolean)[0]
-                    .split("_")
-                    .map((n, i) => (
-                      <p key={i}>{n}</p>
-                    ))}
-                </CardTitle>
-                <CardDescription>
-                  {item
-                    .split("__")
-                    .filter(Boolean)[1]
-                    .split("\n")
-                    .filter(Boolean)
-                    .map((n, i) => (
-                      <p key={i}>- {n}</p>
-                    ))}
-                </CardDescription>
-              </CardContent>
-            ))}
-          </Card>
-
-          <Card className="w-[300px] md:relative md:-mt-100">
-            <CardHeader>
-              {cv[jobMode].skill[0].split("|")[titleIndex]}
-            </CardHeader>
-            {skillArr.map((item, index) => (
-              <CardContent key={index}>
-                <CardTitle>{item.split("__").filter(Boolean)[0]}</CardTitle>
-                <CardDescription>
-                  {item
-                    .split("__")
-                    .filter(Boolean)[1]
-                    .split("\n")
-                    .filter(Boolean)
-                    .map((n, i) => (
-                      <p key={i}>- {n}</p>
-                    ))}
-                </CardDescription>
-              </CardContent>
-            ))}
-          </Card>
-
-          <Card className="w-[300px] h-[240px]">
-            <CardHeader>
-              <CardTitle>{cv.certificate[0].split("|")[titleIndex]}</CardTitle>
-              {cv.certificate.slice(1).map((item, index) => (
-                <CardDescription key={index + 1}>{item}</CardDescription>
-              ))}
-              
-              <CardTitle className="mt-3">{cv.education[0].split("|")[titleIndex]}</CardTitle>
-              <CardDescription>
-                {cv.education[1].split("_")[1]} &nbsp;
-                {cv.education[1].split("_")[2]}<br />
-                {cv.education[1].split("_")[0]}
-                <br />
-              </CardDescription>
-            </CardHeader>
-          </Card>
-
-          <Card className="w-[300px]">
-            <CardHeader>
+          ))}
+          <br />
+          <CardTitle>{cv[jobMode].skill[0].split("|")[titleIndex]}</CardTitle>
+          <br />
+          {skillArr.map((item, index) => (
+            <CardContent key={index}>
               <CardTitle>
-                {cv.contact.TitleContact.split("|")[titleIndex]}
-                <br />
-                <br />
-                {cv.contact.name[titleIndex]}
+                {item
+                  .split("__")
+                  .filter(Boolean)[0]
+                  .split("_")
+                  .map((n, i) => (
+                    <p key={i}>{n}</p>
+                  ))}
               </CardTitle>
               <CardDescription>
-                {cv.contact.address[titleIndex]}
+                {item
+                  .split("__")
+                  .filter(Boolean)[1]
+                  .split("\n")
+                  .filter(Boolean)
+                  .map((n, i) => (
+                    <p key={i}>- {n}</p>
+                  ))}
               </CardDescription>
-            </CardHeader>
-            <div className="bg-amber-00 grid-cols-2 space-y-4 ml-10 -mt-3">
-              <div className="space-x-4">
-                <Button className="w-20"> &#9993; MAIL </Button>
-                <Button className="w-20"> &#128222; CALL </Button>
-              </div>
-              {jobMode == "dev" ? (
-                <div className="space-x-4">
-                  <Button className="w-20">GITHUB</Button>
-                  <Button className="w-20">LINKEDIN</Button>
-                </div>
-              ) : (
-                <>
-                  <Button className="w-20">ARTSTATION</Button>
-                  <Button className="w-20">BEHANCE</Button>
-                </>
-              )}
-            </div>
-          </Card>
+            </CardContent>
+          ))}
+          <br />
+          <CardTitle>{cv.certificate[0].split("|")[titleIndex]}</CardTitle>
+          <br />
+          {cv.certificate.slice(1).map((item, index) => (
+            <CardDescription key={index + 1}>{item}</CardDescription>
+          ))}
+          <br/>
 
-          <Card className="w-[300px] h-[500px] hidden">
-            <CardHeader>
-              {cv[jobMode].project.titleDesc.split("|")[titleIndex]}
-            </CardHeader>
-            <CardContent>{cv[jobMode].project[langMode]}</CardContent>
-          </Card>
+          <CardTitle>{cv.education[0].split("|")[titleIndex]}</CardTitle><br/>
+          <CardDescription>{cv.education[1].replace(/_/g, " ")}</CardDescription>
+        </CardContent>
+        <br />
+      </Card>
+    </div>
+  </>
+);
 
-          <Card className="w-[300px] h-[200px] hidden">
-            <CardHeader>
-              <CardTitle>
-                {cv.interest.titleDesc.split("|")[titleIndex]}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>{cv.interest[langMode]}</CardContent>
-          </Card>
-        </div>
+ } else
+   return (
+     <>
+       {/* <div className="bg-orange-500 fixed top-0 w-full z-90">CONTACT</div> */}
+       {/* <br /> */}
+       <div className="p-4 flex bg-blue-500 justify-center">
+         {/* <div className="bg-blue-00 grid grid-cols-1 md:grid-cols-2 gap-4"> */}
+         <div className="bg-blue-500 grid grid-cols-1 md:grid-cols-2 gap-5 [grid-auto-flow:dense]">
+           {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} /> */}
+           {/* <GLBAnimation modelUrl="/web1.glb" /> */}
+           {/* <div className="contact1">{data?.contact}</div> */}
 
-        <Card className="w-[300px] hidden">
-          <CardHeader>
-            <CardTitle>{cv.contact.name[titleIndex]}</CardTitle>
-            <CardDescription>{cv.contact.address[titleIndex]}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <p>{cv.contact.link}</p>
-          </CardContent>
-          <CardFooter>
-            <Button>Action</Button>
-          </CardFooter>
-        </Card>
+           <Card className="w-[300px] h-[400px]">
+             <CardContent></CardContent>
+             <CardHeader className="">
+               <Avatar>
+                 <AvatarImage
+                   src="https://github.com/shadcn.png"
+                   alt="@shadcn"
+                 />
+                 <AvatarFallback>CVAvatar</AvatarFallback>
+               </Avatar>
+               {cv.contact.name[titleIndex]}
+             </CardHeader>
+             <CardContent>
+               <CardHeader>
+                 {cv[jobMode].about.titleDesc.split("|")[titleIndex]}
+               </CardHeader>
+               <CardDescription>{cv[jobMode].about[langMode]}</CardDescription>
+             </CardContent>
+           </Card>
 
-      </div>
+           <Card className="w-[300px] ">
+             <CardHeader>
+               {cv[jobMode].experience.titleDesc.split("|")[titleIndex]}
+             </CardHeader>
+             {expArr.map((item, index) => (
+               <CardContent key={index}>
+                 <CardTitle>
+                   {item
+                     .split("__")
+                     .filter(Boolean)[0]
+                     .split("_")
+                     .map((n, i) => (
+                       <p key={i}>{n}</p>
+                     ))}
+                 </CardTitle>
+                 <CardDescription>
+                   {item
+                     .split("__")
+                     .filter(Boolean)[1]
+                     .split("\n")
+                     .filter(Boolean)
+                     .map((n, i) => (
+                       <p key={i}>- {n}</p>
+                     ))}
+                 </CardDescription>
+               </CardContent>
+             ))}
+           </Card>
 
-      <div className="hidden">
+           <Card className="w-[300px] md:relative md:-mt-100">
+             <CardHeader>
+               {cv[jobMode].skill[0].split("|")[titleIndex]}
+             </CardHeader>
+             {skillArr.map((item, index) => (
+               <CardContent key={index}>
+                 <CardTitle>{item.split("__").filter(Boolean)[0]}</CardTitle>
+                 <CardDescription>
+                   {item
+                     .split("__")
+                     .filter(Boolean)[1]
+                     .split("\n")
+                     .filter(Boolean)
+                     .map((n, i) => (
+                       <p key={i}>- {n}</p>
+                     ))}
+                 </CardDescription>
+               </CardContent>
+             ))}
+           </Card>
 
-      <GLBAnimation modelUrl="web1.glb" ></GLBAnimation>
-      </div>
-    </>
-  );
+           <Card className="w-[300px] h-[240px]">
+             <CardHeader>
+               <CardTitle>{cv.certificate[0].split("|")[titleIndex]}</CardTitle>
+               {cv.certificate.slice(1).map((item, index) => (
+                 <CardDescription key={index + 1}>{item}</CardDescription>
+               ))}
+
+               <CardTitle className="mt-3">
+                 {cv.education[0].split("|")[titleIndex]}
+               </CardTitle>
+               <CardDescription>
+                 {cv.education[1].split("_")[1]} &nbsp;
+                 {cv.education[1].split("_")[2]}
+                 <br />
+                 {cv.education[1].split("_")[0]}
+                 <br />
+               </CardDescription>
+             </CardHeader>
+           </Card>
+
+           <Card className="w-[300px]">
+             <CardHeader>
+               <CardTitle>
+                 {cv.contact.TitleContact.split("|")[titleIndex]}
+                 <br />
+                 <br />
+                 {cv.contact.name[titleIndex]}
+               </CardTitle>
+               <CardDescription>
+                 {cv.contact.address[titleIndex]}
+               </CardDescription>
+             </CardHeader>
+             <div className="bg-amber-00 grid-cols-2 space-y-4 ml-10 -mt-3">
+               <div className="space-x-4">
+                 <Button className="w-20"> &#9993; MAIL </Button>
+                 <Button className="w-20"> &#128222; CALL </Button>
+               </div>
+               {jobMode == "dev" ? (
+                 <div className="space-x-4">
+                   <Button className="w-20">GITHUB</Button>
+                   <Button className="w-20">LINKEDIN</Button>
+                 </div>
+               ) : (
+                 <>
+                   <Button className="w-20">ARTSTATION</Button>
+                   <Button className="w-20">BEHANCE</Button>
+                 </>
+               )}
+             </div>
+           </Card>
+
+           <Card className="w-[300px] h-[500px] hidden">
+             <CardHeader>
+               {cv[jobMode].project.titleDesc.split("|")[titleIndex]}
+             </CardHeader>
+             <CardContent>{cv[jobMode].project[langMode]}</CardContent>
+           </Card>
+
+           <Card className="w-[300px] h-[200px] hidden">
+             <CardHeader>
+               <CardTitle>
+                 {cv.interest.titleDesc.split("|")[titleIndex]}
+               </CardTitle>
+             </CardHeader>
+             <CardContent>{cv.interest[langMode]}</CardContent>
+           </Card>
+         </div>
+
+         <Card className="w-[300px] hidden">
+           <CardHeader>
+             <CardTitle>{cv.contact.name[titleIndex]}</CardTitle>
+             <CardDescription>{cv.contact.address[titleIndex]}</CardDescription>
+           </CardHeader>
+           <CardContent>
+             <p>{cv.contact.link}</p>
+           </CardContent>
+           <CardFooter>
+             <Button>Action</Button>
+           </CardFooter>
+         </Card>
+       </div>
+
+       <div className="hidden">
+         <GLBAnimation modelUrl="web1.glb"></GLBAnimation>
+       </div>
+     </>
+   );
 }
 
 function App() {
@@ -303,7 +386,7 @@ function App() {
       <Routes>
         <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/>
         <Route path="/" element={<CVdisplay URL={config.cvURL} /> }/>
-        <Route path="/bland" element={<CVdisplay URL={config.cvURL} /> }/>
+        <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/>
       </Routes>
     </BrowserRouter>
   );
