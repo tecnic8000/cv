@@ -1,4 +1,4 @@
-import "./style/style1.css";
+import "./style1.css";
 import { config } from "./config"
 import { BrowserRouter, Routes, Route, useParams} from "react-router-dom"
 import { Button } from "@/components/ui/button";
