@@ -12,7 +12,7 @@ import (
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
-	r.Use(cors.Default()) orderDetail// should change for production security
+	r.Use(cors.Default())// should change for production security
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
 	})

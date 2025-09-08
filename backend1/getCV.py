@@ -1,7 +1,7 @@
 # File: extract_cv.py
 
-input_path = "/home/syslord1/note1.md"
-output_path = "/home/syslord1/REPO1/cv/backend1/cv2.md"
+input_path = "/home/syslord1/REPO1/note1.md"
+output_path = "/home/syslord1/REPO1/cv/backend1/cv.md"
 
 with open(input_path, "r", encoding="utf-8") as f:
     text = f.read()
