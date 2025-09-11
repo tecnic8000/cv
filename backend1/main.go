@@ -1,9 +1,10 @@
 package main
 
 import (
-	"bufio"
+	"fmt"
 	"net/http"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/gin-contrib/cors"
@@ -12,7 +13,7 @@ import (
 
 func setupRouter() *gin.Engine {
 	r := gin.Default()
-	r.Use(cors.Default())// should change for production security
+	r.Use(cors.Default()) // should change for production security
 	r.GET("/ping", func(c *gin.Context) {
 		c.String(http.StatusOK, "pong")
 	})
@@ -27,277 +28,124 @@ func setupRouter() *gin.Engine {
 	return r
 }
 
-type description struct {
-	TitleDesc string `json:"titleDesc"`
-	VN    string `json:"vn"`
-	EN    string `json:"en"`
-	FR    string `json:"fr"`
-	JP    string `json:"jp"`
-}
 type profile struct {
-	About      description `json:"about"`
-	Skill      [2]string `json:"skill"`
-	Experience description `json:"experience"`
-	Project    description `json:"project"`
-}
-type contactDetail struct {
-	TitleContact string `json:"TitleContact"`
-	Name    []string `json:"name"`
-	Address []string `json:"address"`
-	Link    []string `json:"link"`
+	About      map[string]string `json:"about"`
+	Skill      map[string]string `json:"skill"`
+	Experience map[string]string `json:"experience"`
+	Project    map[string]string `json:"project"`
 }
 type CV struct {
-	Contact     contactDetail `json:"contact"`
-	Certificate []string      `json:"certificate"`
-	Education   []string      `json:"education"`
-	Interest    description   `json:"interest"`
-	Dev         profile       `json:"dev"`
-	Art         profile       `json:"art"`
+	Contact     map[string]string `json:"contact"`
+	Education   map[string]string `json:"education"`
+	Interest    map[string]string `json:"interest"`
+	Certificate []string          `json:"certificate"`
+	Dev         profile           `json:"dev"`
+	Art         profile           `json:"art"`
 }
 
 func getCV(path string) (CV, error) {
-	file, err := os.Open(path)
+	file, err := os.ReadFile(path)
 	if err != nil {
 		return CV{}, err
 	}
-	defer file.Close()
 
 	cv := CV{}
-	section := ""
-	subsection := ""
-	title := ""
-	description := ""
-	builder := strings.Builder{}
+	cv.Contact = make(map[string]string)
+	cv.Education = make(map[string]string)
+	cv.Interest = make(map[string]string)
+	cv.Dev.About = make(map[string]string)
+	cv.Dev.Experience = make(map[string]string)
+	cv.Dev.Project = make(map[string]string)
+	cv.Dev.Skill = make(map[string]string)
 
-	setBody := func() {
-		content := strings.TrimRight(builder.String(), "\n")
-		if section == "CONTACT" {
-			val := strings.TrimRight(builder.String(), "\n")
+	content := string(file)
+	sections := regexp.MustCompile(`(?m)^## `).Split(content, -1)
 
-			switch subsection {
-			case "name":
-				lines := strings.Split(val, "\n")
-				var names []string
-				for _, l := range lines {
-					l = strings.TrimSpace(l)
-					if l != "" {
-						names = append(names, l)
+	// fmt.Printf("sampleLog2 %s\n", sections)
+	for _, section := range sections[1:] {
+		lines := strings.Split(section, "$")
+		// fmt.Printf("test2 %s\n", section)
+		switch {
+		case strings.HasPrefix(lines[0], "Contact"):
+			cv.Contact["header"] = lines[0]
+			re := regexp.MustCompile(`(__[^_]+__)([^_]+)`)
+			matches := re.FindAllStringSubmatch(lines[1], -1)
+			for _, m := range matches {
+				key := strings.Trim(m[1], "_")
+				val := m[2]
+				cv.Contact[key] = val
+			}
+		case strings.HasPrefix(lines[0], "Education"):
+			cv.Education["header"] = lines[0]
+			re := regexp.MustCompile(`(\[[^\]]+\])([^\[]+)`)
+			matches := re.FindAllStringSubmatch(lines[1], -1)
+			for _, m := range matches {
+				key := strings.Trim(m[1], "[]")
+				val := m[2]
+				cv.Education[key] = val
+			}
+		case strings.HasPrefix(lines[0], "Interest"):
+			cv.Interest["header"] = lines[0]
+			re := regexp.MustCompile(`(\[[^\]]+\])([^\[]+)`)
+			matches := re.FindAllStringSubmatch(lines[1], -1)
+			for _, m := range matches {
+				key := strings.Trim(m[1], "[]")
+				val := m[2]
+				cv.Interest[key] = val
+			}
+		case strings.HasPrefix(lines[0], "Certificate"):
+			cv.Certificate = append(cv.Certificate, lines[0])
+			cv.Certificate = append(cv.Certificate, lines[1])
+		case strings.HasPrefix(lines[0], "DEV"):
+			body := strings.Split(section, "^\n")
+			bodyDev := regexp.MustCompile(`(?m)^### `).Split(body[1],-1)
+			for _, bodyDev := range bodyDev[1:]{
+				subsection := strings.Split(bodyDev, "?")
+				switch {
+				case strings.HasPrefix(subsection[0], "ABOUT"):
+					cv.Dev.About["subH"] = subsection[0]
+					re := regexp.MustCompile(`(\[[^\]]+\])([^\[]+)`)
+					matches := re.FindAllStringSubmatch(subsection[1], -1)
+					for _, m := range matches {
+						key := strings.Trim(m[1], "[]")
+						val := m[2]
+						cv.Dev.About[key] = val
+					}
+				case strings.HasPrefix(subsection[0], "EXPERIENCE"):
+					cv.Dev.Experience["subH"] = subsection[0]
+					re := regexp.MustCompile(`(\[[^\]]+\])([^\[]+)`)
+					matches := re.FindAllStringSubmatch(subsection[1], -1)
+					for _, m := range matches {
+						key := strings.Trim(m[1], "[]")
+						val := m[2]
+						cv.Dev.Experience[key] = val
+					}
+				case strings.HasPrefix(subsection[0], "PROJECT"):
+					cv.Dev.Project["subH"] = subsection[0]
+					re := regexp.MustCompile(`(\[[^\]]+\])([^\[]+)`)
+					matches := re.FindAllStringSubmatch(subsection[1], -1)
+					for _, m := range matches {
+						key := strings.Trim(m[1], "[]")
+						val := m[2]
+						cv.Dev.Project[key] = val
+					}
+				case strings.HasPrefix(subsection[0], "SKILL"):
+					cv.Dev.Skill["subH"] = subsection[0]
+					re := regexp.MustCompile(`(__[^_]+__)([^_]+)`)
+					matches := re.FindAllStringSubmatch(subsection[1], -1)
+					for _, m := range matches {
+						key := strings.Trim(m[1], "_")
+						val := m[2]
+						cv.Dev.Skill[key] = val
 					}
 				}
-				cv.Contact.Name = names
-			case "address":
-				lines := strings.Split(val, "\n")
-				var addresses []string
-				for _, l := range lines {
-					l = strings.TrimSpace(l)
-					if l != "" {
-						addresses = append(addresses, l)
-					}
-				}
-				cv.Contact.Address = addresses
-			case "link":
-				lines := strings.Split(val, "\n")
-				var links []string
-				for _, l := range lines {
-					l = strings.TrimSpace(l)
-					if l != "" {
-						links = append(links, l)
-					}
-				}
-				cv.Contact.Link = links
 			}
-		} else if section == "INTEREST" {
-			cv.Interest.TitleDesc = title
-			switch description {
-			case "VN":
-				cv.Interest.VN = builder.String()
-			case "EN":
-				cv.Interest.EN = builder.String()
-			case "FR":
-				cv.Interest.FR = builder.String()
-			case "JP":
-				cv.Interest.JP = builder.String()
-			}
-		} else if section == "DEV" {
-			switch subsection {
-			case "ABOUT":
-				cv.Dev.About.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Dev.About.VN = builder.String()
-				case "EN":
-					cv.Dev.About.EN = builder.String()
-				case "FR":
-					cv.Dev.About.FR = builder.String()
-				case "JP":
-					cv.Dev.About.JP = builder.String()
-				}
-			case "SKILL":
-				cv.Dev.Skill[1] = content
-			case "EXPERIENCE":
-				cv.Dev.Experience.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Dev.Experience.VN = builder.String()
-				case "EN":
-					cv.Dev.Experience.EN = builder.String()
-				case "FR":
-					cv.Dev.Experience.FR = builder.String()
-				case "JP":
-					cv.Dev.Experience.JP = builder.String()
-				}
-			case "PROJECT":
-				cv.Dev.Project.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Dev.Project.VN = builder.String()
-				case "EN":
-					cv.Dev.Project.EN = builder.String()
-				case "FR":
-					cv.Dev.Project.FR = builder.String()
-				case "JP":
-					cv.Dev.Project.JP = builder.String()
-				}
-			}
-		} else if section == "ART" {
-			switch subsection {
-			case "ABOUT":
-				cv.Art.About.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Art.About.VN = builder.String()
-				case "EN":
-					cv.Art.About.EN = builder.String()
-				case "FR":
-					cv.Art.About.FR = builder.String()
-				case "JP":
-					cv.Art.About.JP = builder.String()
-				}
-			case "SKILL":
-				cv.Art.Skill[1] = content
-			case "EXPERIENCE":
-				cv.Art.Experience.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Art.Experience.VN = builder.String()
-				case "EN":
-					cv.Art.Experience.EN = builder.String()
-				case "FR":
-					cv.Art.Experience.FR = builder.String()
-				case "JP":
-					cv.Art.Experience.JP = builder.String()
-				}
-			case "PROJECT":
-				cv.Art.Project.TitleDesc = title
-				switch description {
-				case "VN":
-					cv.Art.Project.VN = builder.String()
-				case "EN":
-					cv.Art.Project.EN = builder.String()
-				case "FR":
-					cv.Art.Project.FR = builder.String()
-				case "JP":
-					cv.Art.Project.JP = builder.String()
-				}
-			}
+		case strings.HasPrefix(lines[0], "ART"):
+			fmt.Print("ART part")
 		}
-		builder.Reset()
 	}
 
-	setSection := func() {
-		if description != "" {
-			setBody()
-			description = ""
-		}
-		switch section {
-		case "CERTIFICATE":
-			lines := strings.Split(builder.String(), "\n")
-			var arr []string
-			for _, l := range lines {
-				l = strings.TrimSpace(l)
-				if l != "" {
-					arr = append(arr, l)
-				}
-			}
-			if len(arr) > 0 {
-				cv.Certificate = append([]string{title}, arr...)
-			}
-		case "EDUCATION":
-			lines := strings.Split(builder.String(), "\n")
-			var arr []string
-			for _, l := range lines {
-				l = strings.TrimSpace(l)
-				if l != "" {
-					arr = append(arr, l)
-				}
-			}
-			if len(arr) > 0 {
-				cv.Education = append([]string{title}, arr...)
-			}
-		}
-		builder.Reset()
-	}
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-		if strings.HasPrefix(line, "# ") {
-			if section == "CONTACT" {
-				setBody()
-			}
-			if section != "" {
-				setSection()
-			}
-			// Extract section between "# " and ":" if present
-			sectionLine := strings.TrimSpace(line[2:])
-			if idx := strings.Index(sectionLine, ":"); idx != -1 {
-				section = strings.TrimSpace(sectionLine[:idx])
-				title = strings.TrimSpace(sectionLine[idx+1:])
-				if section == "CONTACT"{
-					cv.Contact.TitleContact = title
-				}
-			} else {
-				section = sectionLine
-			}
-		} else if strings.HasPrefix(line, "## ") {
-			if section == "CONTACT" {
-				setBody()
-			} else if description != "" {
-				setBody()
-				description = ""
-			} else if subsection != "" {
-				setBody()
-			}
-			// Extract subsection between "## " and ":" if present
-			subsectionLine := strings.TrimSpace(line[3:])
-			if idx := strings.Index(subsectionLine, ":"); idx != -1 {
-				subsection = strings.TrimSpace(subsectionLine[:idx])
-				title = strings.TrimSpace(subsectionLine[idx+1:])
-				// item := builder.String()
-				if subsection == "SKILL" {
-					cv.Dev.Skill[0]=title
-				} else if subsection == "ART"{
-					cv.Art.Skill[0]=title
-				}
-			} else {
-				subsection = subsectionLine
-			}
-		} else if strings.HasPrefix(line, "### ") {
-			if description != "" {
-				setBody()
-			}
-			description = strings.TrimSpace(line[4:])
-		} else if section != "" {
-			builder.WriteString(line + "\n")
-		}
-	}
-	if section == "CONTACT" && builder.Len() > 0 {
-		setBody()
-	}
-	if section != "" {
-		setSection()
-	}
-	return cv, scanner.Err()
+	return cv, nil
 }
 
 func main() {
