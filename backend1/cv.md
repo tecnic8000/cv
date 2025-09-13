@@ -45,7 +45,7 @@ x
 x
 [jp]
 x
-## DEV^
+## DEV$
 #[en]
 Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead.
 ### Objective|Mục tiêu nghề nghiệp|Objectifs de carrière|キャリア目標?
@@ -133,7 +133,7 @@ x
 x
 [jp]
 x
-## ART^
+## ART$
 ### Objective|Mục tiêu nghề nghiệp|Objectifs de carrière|キャリア目標?
 [en]
 Versatile 3D Artist with strong skills in modeling, texturing, lighting, and rendering for games, animation, and visualization. Proficient in industry-standard tools including Blender, Unreal Engine, and Godot, with a solid grasp of real-time workflows and asset optimization. Experienced in translating concepts into visually compelling assets while balancing creativity with technical precision. Collaborative team player with the ability to adapt to diverse pipelines, meet tight deadlines, and solve complex visual challenges. Passionate about creating immersive, high-quality visuals that enhance storytelling and user experience.
@@ -213,9 +213,55 @@ x
 [jp]
 x
 ### Project|Hoạt động phát triển|Career Development|Projets|プロジェクト?
+[en]
+x
 [vn]
 x
+[fr]
+x
+[jp]
+x
+## TRADE$
+### Objective|Mục tiêu nghề nghiệp|Objectifs de carrière|キャリア目標?
 [en]
+x
+[vn]
+x
+[fr]
+x
+[jp]
+x
+### Persona|Kỹ Năng|Compétence|熟練?
+[en]
+x
+[vn]
+x
+[fr]
+x
+[jp]
+x
+### Skill|chuyên môn kỹ thuật|expertise technique|技術的な専門知識?
+[en]
+x
+[vn]
+x
+[fr]
+x
+[jp]
+x
+### Experience|Kinh nghiệm Làm Việc|Expérience|経験?
+[en]
+x
+[vn]
+x
+[fr]
+x
+[jp]
+x
+### Project|Hoạt động phát triển|Career Development|Projets|プロジェクト?
+[en]
+x
+[vn]
 x
 [fr]
 x
