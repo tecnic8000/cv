@@ -76,7 +76,7 @@ func parseSection(filterType string, parts []string, target map[string]string) {
 	}
 	target["header"] = parts[0]
 	for _, m := range re.FindAllStringSubmatch(parts[1], -1) {
-		target[strings.Trim(m[1], "[]")] = m[2]
+		target[strings.Trim(m[1], "[]")] = m[2] //strings.TrimSpace(m[2])
 	}
 }
 

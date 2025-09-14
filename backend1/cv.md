@@ -1,12 +1,12 @@
 ## Contact|Liên hệ|Contact|接触$
 __name__
+Tran Minh Hoang
 Trần Minh Hoàng
 Hoang Minh Tran
 Hoang Minh Tran
-Tran Minh Hoang
 __address__
-Gia Định, TP.HCM, Việt Nam
 Gia Dinh, Ho Chi Minh City, Vietnam
+Gia Định, TP.HCM, Việt Nam
 Gia-Dinh, Ho-Chi-Minh-Ville, Vietnam
 Gia-Dinh, Hochimin-shi, Vietnam
 __link__
@@ -46,9 +46,9 @@ x
 [jp]
 x
 ## DEV$
-#[en]
-Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead.
 ### Objective|Mục tiêu nghề nghiệp|Objectifs de carrière|キャリア目標?
+[en]
+Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead.
 [vn]
 Hơn 1 năm kinh nghiệm trong freelance triển khai trực tiếp 5 dự án, tôi mong muốn vào vị trí Developer để có thể áp dụng kiến thức, kinh nghiệm lập trình và quản trị hệ thống. Mục tiêu trong 3 năm tới của tôi tiếp tục cải thiện an ninh mạng, chất lượng sản phẩm. 
 [fr]

@@ -1,6 +1,6 @@
 import "./style1.css";
 import { config } from "./config"
-import { BrowserRouter, Routes, Route, useParams} from "react-router-dom"
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -10,43 +10,15 @@ import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
 
-// interface Description {
-//   titleDesc: string;
-//   vn: string;
-//   en: string;
-//   fr: string;
-//   jp: string;
-// }
-// interface Profile {
-//   about: Description;
-//   skill: string[];
-//   experience: Description;
-//   project: Description;
-// }
-// interface contactDetail {
-//   TitleContact: string;
-//   name: string[];
-//   address: string[];
-//   link: string[];
-// }
-// interface CVData {
-//   contact: contactDetail;
-//   certificate: string[];
-//   education: string[];
-//   interest: Description;
-//   dev: Profile;
-//   art: Profile;
-// }
-
 interface CV {
-  contact: { [key: string]: string };
-  education: { [key: string]: string };
-  certificate: {[key: string]: string};
-  interest: {[key: string]: string};
-  job:{
+  Contact: { [key: string]: string };
+  Education: { [key: string]: string };
+  Certificate: { [key: string]: string };
+  Interest: { [key: string]: string };
+  Job: {
     [jobType: string]: {
-      [sectionType: string]: { 
-        [key: string]: string 
+      [sectionType: string]: {
+        [key: string]: string
       };
     }
   }
@@ -105,7 +77,7 @@ function GLBAnimation({
 //   const [jobMode, setJobMode] = useState <"dev" | "art" >("dev");
 //   const [titleIndex, setTitleIndex] = useState<number>(0);
 //   const { langParam } = useParams();
-  
+
 //   useEffect(()=>{
 //     switch (langParam){
 //       case "en": setLangMode("en"); break; 
@@ -393,28 +365,82 @@ function GLBAnimation({
 //    );
 // }
 
-function CVblock({URL}:{URL:string}){
+function CVblock({ URL }: { URL: string }) {
   const [cv, setCV] = useState<CV | null>(null);
-  useEffect(()=>{
-    async function getCV(){
+  const [langMode, setLangMode] = useState<"vn" | "en" | "fr" | "jp">("en");
+  const [langIndex, setLangIndex] = useState<0 | 1 | 2 | 3>(0);
+  const [jobMode, setJobMode] = useState<"dev" | "art" | "trade">("dev");
+  useEffect(() => {
+    async function getCV() {
       const res = await fetch(URL);
       if (!res.ok) throw Error("ERR--API FAILED--001");
       const cv = await res.json();
       setCV(cv);
     }
     getCV();
-  },[URL]);
-  console.log(cv)
-  return <div>CVBLOCK</div>
+  }, [URL]);
+  // console.log(cv)
+  switch (langMode) {
+    case "vn": setLangIndex(1); break;
+    case "fr": setLangIndex(2); break;
+    case "jp": setLangIndex(3); break;
+  }
+  // console.log(langMode, langParam, titleIndex);
+  if (!cv) return <div>LOADING...</div>
+  console.log(langIndex, langMode)
+  return (
+    <>
+      {/* <CardDescription>s</CardDescription> */}
+      <Card className="bg-amber-200 m-3 p-3">
+        <CardHeader>{cv.Contact["__name__"].split(/\n/).slice(1, -1)[langIndex]}</CardHeader>
+        <CardDescription className="bg-yellow-600">{cv.Job[jobMode].obj[langMode]}</CardDescription>
+        <div className="bg-pink-300">
+          <CardHeader>{cv.Education["header"].split("@")[0].split("|")[langIndex]}</CardHeader>
+          <CardHeader>
+            {cv.Education["header"].split("@")[1].split("_")[1]}
+            {cv.Education["header"].split("@")[1].split("_")[2]}
+          </CardHeader>
+          <CardDescription>{cv.Education[langMode]}</CardDescription>
+        </div>
+
+        <div className="bg-violet-600">
+          <CardHeader>{cv.Job[jobMode].skill["header"].split("|")[langIndex]}</CardHeader>
+          <CardDescription></CardDescription>
+        </div>
+
+        <div className="bg-green-300">
+          <CardHeader>{cv.Certificate[0].split("|")[langIndex]}</CardHeader>
+          <CardDescription>{cv.Certificate[1]}</CardDescription>
+        </div>
+
+        <div className="bg-cyan-200">
+          <CardHeader>{cv.Job[jobMode].exp["header"].split("|")[langIndex]}</CardHeader>
+          <CardDescription>{cv.Job[jobMode].exp[langMode]}</CardDescription>
+          {/* <CardDescription>{cv.Job[jobMode].skill["__backend__"]}</CardDescription> */}
+        </div>
+
+        <div className="bg-purple-300">
+          <CardHeader>{cv.Job[jobMode].proj["header"].split("|")[langIndex]}</CardHeader>
+          <CardDescription>{cv.Job[jobMode].proj[langMode]}</CardDescription>
+        </div>
+        {/* <CardDescription>{cv.Job[jobMode].persona[langMode]}</CardDescription> */}
+        <br />
+
+        <CardDescription>{cv.Contact["__link__"]}</CardDescription>
+        <CardDescription>{cv.Contact["__address__"].split(/\n/).slice(1, -1)[langIndex]}</CardDescription>
+      </Card>
+    </>
+
+  )
 }
 function App() {
- 
+
   return (
     <BrowserRouter>
       <Routes>
         {/* <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/> */}
         {/* <Route path="/" element={<CVdisplay URL={config.cvURL} /> }/> */}
-        <Route path="/test" element={<CVblock URL={config.cvURL} /> }/>
+        <Route path="/test" element={<CVblock URL={config.cvURL} />} />
         {/* <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/> */}
       </Routes>
     </BrowserRouter>
