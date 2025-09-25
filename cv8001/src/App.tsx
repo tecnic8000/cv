@@ -365,71 +365,132 @@ function GLBAnimation({
 //    );
 // }
 
-function CVblock({ URL }: { URL: string }) {
+function CVblock() {
   const [cv, setCV] = useState<CV | null>(null);
-  const [langMode, setLangMode] = useState<"vn" | "en" | "fr" | "jp">("en");
-  const [langIndex, setLangIndex] = useState<0 | 1 | 2 | 3>(0);
+  const [langMode, setLangMode] = useState<"vn" | "en" | "fr" | "jp">("vn");
+  // const [langIndex, setLangIndex] = useState<number>(0);
   const [jobMode, setJobMode] = useState<"dev" | "art" | "trade">("dev");
+
+  let langIndex: number = 0;
   useEffect(() => {
     async function getCV() {
-      const res = await fetch(URL);
+      const res = await fetch(config.cvURL);
       if (!res.ok) throw Error("ERR--API FAILED--001");
       const cv = await res.json();
       setCV(cv);
     }
     getCV();
-  }, [URL]);
+  }, []);
+
   // console.log(cv)
   switch (langMode) {
-    case "vn": setLangIndex(1); break;
-    case "fr": setLangIndex(2); break;
-    case "jp": setLangIndex(3); break;
+    case "vn": langIndex = 1; break;
+    case "fr": langIndex = 2; break;
+    case "jp": langIndex = 3; break;
   }
   // console.log(langMode, langParam, titleIndex);
   if (!cv) return <div>LOADING...</div>
-  console.log(langIndex, langMode)
-  return (
-    <>
-      {/* <CardDescription>s</CardDescription> */}
-      <Card className="bg-amber-200 m-3 p-3">
-        <CardHeader>{cv.Contact["__name__"].split(/\n/).slice(1, -1)[langIndex]}</CardHeader>
-        <CardDescription className="bg-yellow-600">{cv.Job[jobMode].obj[langMode]}</CardDescription>
-        <div className="bg-pink-300">
-          <CardHeader>{cv.Education["header"].split("@")[0].split("|")[langIndex]}</CardHeader>
-          <CardHeader>
-            {cv.Education["header"].split("@")[1].split("_")[1]}
-            {cv.Education["header"].split("@")[1].split("_")[2]}
-          </CardHeader>
-          <CardDescription>{cv.Education[langMode]}</CardDescription>
-        </div>
+  // console.log(langIndex, langMode)
 
-        <div className="bg-violet-600">
-          <CardHeader>{cv.Job[jobMode].skill["header"].split("|")[langIndex]}</CardHeader>
-          <CardDescription></CardDescription>
-        </div>
+  // console.log(cv.Contact["__name__"].split(/\n/).slice(1, -1)[1])
+  // console.log(cv.Job[jobMode].exp["vn"])
+  // console.log(cv.Job[jobMode].proj["vn"])
 
-        <div className="bg-green-300">
-          <CardHeader>{cv.Certificate[0].split("|")[langIndex]}</CardHeader>
-          <CardDescription>{cv.Certificate[1]}</CardDescription>
-        </div>
+  return (<>
 
-        <div className="bg-cyan-200">
-          <CardHeader>{cv.Job[jobMode].exp["header"].split("|")[langIndex]}</CardHeader>
-          <CardDescription>{cv.Job[jobMode].exp[langMode]}</CardDescription>
-          {/* <CardDescription>{cv.Job[jobMode].skill["__backend__"]}</CardDescription> */}
-        </div>
+    <Card className="bg-amber-200 m-3 p-3">
 
-        <div className="bg-purple-300">
-          <CardHeader>{cv.Job[jobMode].proj["header"].split("|")[langIndex]}</CardHeader>
-          <CardDescription>{cv.Job[jobMode].proj[langMode]}</CardDescription>
-        </div>
-        {/* <CardDescription>{cv.Job[jobMode].persona[langMode]}</CardDescription> */}
-        <br />
+      {/* PROFILE */}
+      <CardHeader className="bg-orange-500">
+        {cv.Contact["__name__"].split(/\n/).slice(1, -1)[langIndex]}
+      </CardHeader>
+      <CardDescription className="bg-teal-300">
+        {cv.Contact["__link__"].split("\n").map((link) => (<>{link}<br /></>))}
+      </CardDescription>
+      <CardDescription className="bg-pink-500">
+        {cv.Contact["__address__"].split(/\n/).slice(1, -1)[langIndex]}
+      </CardDescription>
+      <CardDescription className="bg-yellow-600">{cv.Job[jobMode].obj[langMode]}</CardDescription>
 
-        <CardDescription>{cv.Contact["__link__"]}</CardDescription>
-        <CardDescription>{cv.Contact["__address__"].split(/\n/).slice(1, -1)[langIndex]}</CardDescription>
-      </Card>
-    </>
+      {/* EXPERIENCE */}
+      <div className="border-t border-gray-600">
+        <CardHeader >{cv.Job[jobMode].exp["header"].split("|")[langIndex]}</CardHeader>
+        <CardDescription>
+          {cv.Job[jobMode].exp[langMode].split("@").map((item, index) => (
+            <div key={index}> {item.split("__").slice(1).map((detail, i) => {
+              switch (i) {
+                case 0: return (<div className="">{detail}</div>);
+                case 1: return detail.split("\n").slice(1).map((sub) => (<div>{sub}</div>));
+                default: return null;
+              }
+            })} </div>
+          ))
+          }
+        </CardDescription>
+
+      </div>
+      {/* <CardDescription>{cv.Job[jobMode].skill["__backend__"]}</CardDescription> */}
+
+      {/* PROJECT */}
+      <div className="">
+        <CardHeader>{cv.Job[jobMode].proj["header"].split("|")[langIndex]}</CardHeader>
+        <CardDescription>
+          {cv.Job[jobMode].proj[langMode].split("\n").slice(1, -1).map((item, index) => (
+            <div key={index}>{item}</div>
+          ))}
+
+        </CardDescription>
+      </div>
+
+      {/* SKILL */}
+      <div className="border-t border-gray-900">
+        <CardHeader>{cv.Job[jobMode].skill["header"].split("|")[langIndex]}</CardHeader>
+        <CardDescription>
+          {
+            (() => {
+              switch (jobMode) {
+                case "dev": return (
+                  <div>
+                    {cv.Job[jobMode].skill["__Language__"]}<br />
+                    {cv.Job[jobMode].skill["__Backend__"]}<br />
+                    {cv.Job[jobMode].skill["__Frontend__"]}<br />
+                    {cv.Job[jobMode].skill["__Database__"]}
+                  </div>
+                )
+                case "art": return "empty.."
+                case "trade": return "empty.."
+                default: return null
+              }
+            })
+              ()}
+        </CardDescription>
+      </div>
+
+      {/* CERTIFICATE */}
+      {/* <div className="bg-green-300">
+        <CardHeader>{cv.Certificate[0].split("|")[langIndex]}</CardHeader>
+        <CardDescription>{cv.Certificate[1]}</CardDescription>
+      </div> */}
+
+      {/* EDUCATION */}
+      <div className="border-t border-gray-900">
+        <CardHeader>{cv.Education["header"].split("@")[0].split("|")[langIndex]}</CardHeader>
+        <CardHeader>
+          {cv.Education["header"].split("@")[1].split("_")[1]}
+          {cv.Education["header"].split("@")[1].split("_")[2]}
+        </CardHeader>
+        <CardDescription>
+          {cv.Education[langMode].split("\n").slice(1, -1).map((item, index) => (
+            <div key={index}>{item}</div>
+          ))}
+        </CardDescription>
+      </div>
+
+      {/* PERSONA */}
+      {/* <CardDescription>{cv.Job[jobMode].persona[langMode]}</CardDescription> */}
+
+    </Card>
+  </>
 
   )
 }
@@ -440,10 +501,10 @@ function App() {
       <Routes>
         {/* <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/> */}
         {/* <Route path="/" element={<CVdisplay URL={config.cvURL} /> }/> */}
-        <Route path="/test" element={<CVblock URL={config.cvURL} />} />
+        <Route path="/test" element={<CVblock />} />
         {/* <Route path="/:langParam" element={<CVdisplay URL={config.cvURL} /> }/> */}
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 export default App;

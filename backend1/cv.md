@@ -57,17 +57,15 @@ x
 x
 ### Skill|Chuyên môn Kỹ thuật|Expertise Technique|技術的な専門知識?
 __Language__
-Java/Kotlin, Python, Go, C/C++, Bash, Elixir
-Javascipt/Typescript, HTML/HTMX, jQuery
+Java, Python, Go, C/C++, Bash
+Javascipt/Typescript, HTML/HTMX
 __Frontend__
-React (Redux, Axios, Shadcn, Motion, Three)
-CSS, Tailwind, ShadcnUI,  MaterialUI
+React (Redux, Axios, Three, Tailwind, ShadcnUI,  MaterialUI)
 __Backend__
-ExpressJS, Springboot, Django, Gin, Phoenix
-NextJS + Supabase
+Springboot, Django, Gin, NextJS + Supabase
 __Database__
 MySQL, PostgreSQL, SQLite
-MongoDB, Redis, MemCache
+MongoDB
 __Communication__
 HTTPS/TCP, Rest, GraphQL
 Nginx, Kafka, RabbitMQ, gRPC, Websocket
@@ -100,6 +98,8 @@ __Fullstack Developer_Cafe Tecnic_Binh Thanh_2024-2025__
 - Built a secure task management system with user authentication & CRUD tasks.  
 - Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
 - Implemented JWT-based authentication and custom error handling.
+- write and document CLI tools to assist sale operation => yields 30% more efficiency in daily operation
+@
 __Frontend Developer_COMPANY1_Locale5_TIMELINE3__
 - Designed a prototype to suggest job listings using GPT APIs.  
 - Integrated Telegram Bot for receiving real-time job recommendations.
@@ -107,7 +107,8 @@ __Frontend Developer_COMPANY1_Locale5_TIMELINE3__
 __Fullstack Developer_HKD Cafe Tecnic_Binh Thanh_2024-2025__
 - Thiết kế  UX/UI Dasboard quản lý vận hành hộ kinh doanh.
 - Xây dựng và vận hành backend trên AWS.
-- Áp dụng kiến trúc microservice ()
+- Áp dụng kiến trúc microservice
+@
 __Frontend Developer_COMPANY1_HKD _TIMELINE3__
 - Phối hợp với nhóm phát triển UX/UI qua Figma để dựng giao diện thay đổi theo từng sự kiện.
 - Khảo sát trải nghiệm, cập nhật và bảo trì các lỗi kỹ thuật trong lúc sử dụng. 
