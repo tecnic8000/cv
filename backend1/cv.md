@@ -20,10 +20,10 @@ behance.net/minhhoangtran
 [en]
 - Applied Unreal VR, asset and animation pipeline
 - Project management for student marketing campaign
+- Built Unreal enviroment, lighting and render configuration for student architecture projects.
 [vn]
-- dựng phong cảnh, ánh sáng và môi trường Unreal cho các dự án kiến trúc.
-- áp dụng python để tự động hóa chuyển giao dự liệu giữa các phần mềm sản xuất media (Blender, Unreal)
-- thiết kế website, forum cho sự kiện, hoạt động nhà trường (poster sự kiện, đăng kí thành viên,..) với PHP, Javascipt
+- Thiết kế website, forum cho sự kiện, hoạt động nhà trường (poster sự kiện, đăng kí thành viên,..)
+- Dựng phong cảnh, ánh sáng và cấu hình render Unreal cho các dự án kiến trúc.
 [fr]
 x
 [jp]
@@ -50,22 +50,24 @@ x
 [en]
 Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead.
 [vn]
-Hơn 1 năm kinh nghiệm trong freelance triển khai trực tiếp 5 dự án, tôi mong muốn vào vị trí Developer để có thể áp dụng kiến thức, kinh nghiệm lập trình và quản trị hệ thống. Mục tiêu trong 3 năm tới của tôi tiếp tục cải thiện an ninh mạng, chất lượng sản phẩm. 
+Hơn 1 năm kinh nghiệm trong freelance triển khai trực tiếp 5 dự án,  để có thể áp dụng kiến thức, kinh nghiệm lập trình và quản trị hệ thống. Mục tiêu trong 3 năm tới của tôi tiếp tục cải thiện an ninh mạng, chất lượng sản phẩm. 
 [fr]
 x
 [jp]
 x
 ### Skill|Chuyên môn Kỹ thuật|Expertise Technique|技術的な専門知識?
 __Language__
-Java, Python, Go, C/C++, Bash
-Javascipt/Typescript, HTML/HTMX
+Javascipt/Typescript, HTML/HTMX, 
+Java, Python, Go, C/C++, Bash, PHP.
 __Frontend__
-React (Redux, Axios, Three, Tailwind, ShadcnUI,  MaterialUI)
+React (Redux, Axios, Three, TailwindCSS, ShadcnUI,  MaterialUI)
 __Backend__
 Springboot, Django, Gin, NextJS + Supabase
 __Database__
 MySQL, PostgreSQL, SQLite
 MongoDB
+__Testing__
+Jest, React Testing Library, Cypress, Playwright
 __Communication__
 HTTPS/TCP, Rest, GraphQL
 Nginx, Kafka, RabbitMQ, gRPC, Websocket
@@ -84,7 +86,6 @@ __otherTools__
 - High self-organization and documentation.
 - Implement secure practices.
 [vn]
-- Luôn hoàn tất nhiệm vụ được giao đúng thời hạn.
 - Có kinh nghiệm làm việc nhóm và độc lập tốt.
 - Tính tổ chức cao, sắp xếp và báo cáo công việc rõ ràng.
 [fr]
@@ -93,25 +94,26 @@ x
 x
 ### Experience|Kinh nghiệm Làm Việc|Expérience|経験?
 [en]
-__Fullstack Developer_Cafe Tecnic_Binh Thanh_2024-2025__
-- React, Spring Boot, MySQL, JWT, AWS EC2
+__Fullstack Developer_Cafe Tecnic_Binh Thanh, TP.HCM_2024-2025__
+- Increased website engagement 
+-  Yielded 30% more efficiency in daily operation by writing CLI tools to assist sale operation.
+@
+__Pipeline Developer_Kend Animation Studio_Binh Thanh, HCMC_2023-2024__
 - Built a secure task management system with user authentication & CRUD tasks.  
-- Hosted backend on AWS EC2, deployed frontend using GitHub Pages.  
-- Implemented JWT-based authentication and custom error handling.
-- write and document CLI tools to assist sale operation => yields 30% more efficiency in daily operation
-@
-__Frontend Developer_COMPANY1_Locale5_TIMELINE3__
-- Designed a prototype to suggest job listings using GPT APIs.  
-- Integrated Telegram Bot for receiving real-time job recommendations.
 [vn]
-__Fullstack Developer_HKD Cafe Tecnic_Binh Thanh_2024-2025__
-- Thiết kế  UX/UI Dasboard quản lý vận hành hộ kinh doanh.
-- Xây dựng và vận hành backend trên AWS.
-- Áp dụng kiến trúc microservice
+__Fullstack Developer_HKD Cafe Tecnic_Bình Thạnh, TP.HCM_2024-2025__
+- Tăng lượng truy cập website, đăng kí khách hàng nhờ cải tiến UX/UI.
+- Đạt hơn 20% năng suát vân hành nhờ triển khai các công cụ tự dộng quy trình kinh doanh.
+- Xây dựng microservice quản lý khách hàng và vận hành trên AWS.
+- Cùng với Product Team xây dựng chién lược phát triển sản phẩm.
+- Khảo sát trải nghiệm, cập nhật và bảo trì kỹ thuật trong lúc sử dụng.
+- Kiểm tra định kỳ backup dự liệu, an ninh mạng.
 @
-__Frontend Developer_COMPANY1_HKD _TIMELINE3__
-- Phối hợp với nhóm phát triển UX/UI qua Figma để dựng giao diện thay đổi theo từng sự kiện.
-- Khảo sát trải nghiệm, cập nhật và bảo trì các lỗi kỹ thuật trong lúc sử dụng. 
+__Pipeline Developer_Kend Animation Studio_Bình Thạnh, TP.HCM_2023-2024__
+- Đạt hơn 15% lượng dự án vào studio trong 2 kỳ nhờ thiết kế mới website với đội UX/UI.
+- Tiến độ làm việc nhóm tăng cao nhờ xây dựng hệ thống quản lý và chuyển giao media.
+- Vận hành server, kiểm tra định kỳ an ninh và bảo mật tài sản điện tử .
+- Tăng hiệu suât làm việc cho animator nhờ triển khai công cụ hỗ trợ phần mềm (Blender, Maya, Unreal) với python.
 [fr]
 x
 [jp]
@@ -121,15 +123,14 @@ x
 - Shared bookmark server for business and logistics administration
 - Reservation booking system for local nail salons
 - Photoblogging webapp
-- Kubernetes, Terraform  
 - Building uber-clone with Kotlin Android
+- Experimentation in ROS machine learning (Pytorch, OpenCV) for business administration.
+- Cybersecurity Blue Team Level 1.
 [vn]
-- Cấu trúc dữ liệu và Thuật toán (DSA)
-- Xây dựng Android app uber clone với Kotlin
-- Thử nghiệm Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiiệp
-- Học an ninh mạng (Cybersecurity Blue Team Level 1)
-- Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời 
-- Viết công cụ chuyển giao dữ liệu vào Unreal Engine 5 (python)
+- Xây dựng ứng dụng định vị android với kotlin.
+- Nghiên cứu Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiệp.
+- An ninh mạng (Cybersecurity Blue Team Level 1).
+- Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời.
 [fr]
 x
 [jp]
