@@ -231,7 +231,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/test" element={<CVblock />} />
+        <Route path="/" element={<CVblock />} />
       </Routes>
     </BrowserRouter>
   )
