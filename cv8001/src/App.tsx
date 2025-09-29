@@ -106,7 +106,7 @@ function CVblock() {
 
   return (<>
 
-    <Card className="m-4 p-2">
+    <Card className="bg-white m-4 p-2">
 
       {/* PROFILE */}
       <div className="flex ">
@@ -208,6 +208,7 @@ function CVblock() {
       <div className="border-t border-gray-900 w-fit">
         <CardFooter className="pt-2">{cv.Education["header"].split("@")[0].split("|")[langIndex]}</CardFooter>
         <CardFooter>
+          {cv.Education["header"].split("@")[1].split("_")[0]}<br/>
           {cv.Education["header"].split("@")[1].split("_")[1]}&nbsp;
           {cv.Education["header"].split("@")[1].split("_")[2]}
         </CardFooter>
