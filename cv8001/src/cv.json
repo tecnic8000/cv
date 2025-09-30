@@ -1,0 +1,274 @@
+{
+   "contact": {
+      "header": "Contact|Liên hệ|Contact|接触",
+      "name": [
+         "Tran Minh Hoang",
+         "Trần Minh Hoàng",
+         "Hoang Minh Tran",
+         "Hoang Minh Tran"
+      ],
+      "address": [
+         "Gia Dinh, Ho Chi Minh City, Vietnam",
+         "Gia Định, TP.HCM, Việt Nam",
+         "Gia-Dinh, Ho-Chi-Minh-Ville, Vietnam",
+         "Gia-Dinh, Hochimin-shi, Vietnam"
+      ],
+      "link": [
+         "0903788216",
+         "tranhoangtd@gmail.com",
+         "github.com/tecnic8000",
+         "linkedin.com/minhhoangtran",
+         "artstation.com/minhhoangtran",
+         "behance.net/minhhoangtran"
+      ]
+   },
+   "education": {
+      "header": "Education|Học Vấn|Éducation|教育@University of Technology Sydney_Bachelor of Communication (Media Production)_2019",
+      "en": [
+         "- Applied Unreal VR, asset and animation pipeline",
+         "- Project management for student marketing campaign",
+         "- Built Unreal enviroment, lighting and render configuration for student architecture projects."
+      ],
+      "vn": [
+         "- Thiết kế website, forum cho sự kiện, hoạt động nhà trường (poster sự kiện, đăng kí thành viên,..)",
+         "- Dựng phong cảnh, ánh sáng và cấu hình render Unreal cho các dự án kiến trúc."
+      ],
+      "fr": [
+         "x"
+      ],
+      "jp": [
+         "x"
+      ]
+   },
+   "interest": {
+      "header": "Interest|Chủ đề quan tâm|Intérêt|興味",
+      "en": [
+         "- godot mobile game development",
+         "- unreal animation",
+         "- solar-powered agriculture AI and gardening robots",
+         "- Machine Learning Pytorch, OpenCV"
+      ],
+      "vn": [
+         "- học chuyên sâu AWS DevOps.",
+         "- dựng tương tác sản phẩm trên web với godot.",
+         "- Machine Learning Pytorch, OpenCV"
+      ],
+      "fr": [
+         "x"
+      ],
+      "jp": [
+         "x"
+      ]
+   },
+   "certificate": [
+      "Certificate|Chứng chỉ|Certificat|証明書",
+      "AWS Solution Architect - Associate SAA-C03\nCompTIA Sec+"
+   ],
+   "job": {
+      "dev": {
+         "exp": {
+            "header": "Experience|Kinh nghiệm Làm Việc|Expérience|経験",
+            "en": "__Fullstack Developer_Cafe Tecnic_Binh Thanh, TP.HCM_2024-2025__- Increased website engagement -  Yielded 30% more efficiency in daily operation by writing CLI tools to assist sale operation.@__Pipeline Developer_Kend Animation Studio_Binh Thanh, HCMC_2023-2024__- Built a secure task management system with user authentication & CRUD tasks.  ",
+            "vn": "__Fullstack Developer_HKD Cafe Tecnic_Bình Thạnh, TP.HCM_2024-2025__- Tăng lượng truy cập website, đăng kí khách hàng nhờ cải tiến UX/UI.- Đạt hơn 20% năng suát vân hành nhờ triển khai các công cụ tự dộng quy trình kinh doanh.- Xây dựng microservice quản lý khách hàng và vận hành trên AWS.- Cùng với Product Team xây dựng chién lược phát triển sản phẩm.- Khảo sát trải nghiệm, cập nhật và bảo trì kỹ thuật trong lúc sử dụng.- Kiểm tra định kỳ backup dự liệu, an ninh mạng.@__Pipeline Developer_Kend Animation Studio_Bình Thạnh, TP.HCM_2023-2024__- Đạt hơn 15% lượng dự án vào studio trong 2 kỳ nhờ thiết kế mới website với đội UX/UI.- Tiến độ làm việc nhóm tăng cao nhờ xây dựng hệ thống quản lý và chuyển giao media.- Vận hành server, kiểm tra định kỳ an ninh và bảo mật tài sản điện tử .- Tăng hiệu suât làm việc cho animator nhờ triển khai công cụ hỗ trợ phần mềm (Blender, Maya, Unreal) với python.",
+            "fr": "x",
+            "jp": "x"
+         },
+         "obj": {
+            "header": "Objective|Mục tiêu nghề nghiệp|Objectifs de carrière|キャリア目標",
+            "en": [
+               "Motivated and self-driven junior fullstack developer with hands-on experience in building web applications using **React**, **Spring Boot**, and **AWS Cloud Services**. I aim to automate and scale systems for future-proof business operations. Passionate about **DevOps**, **machine learning**, and **robotic automation**, I seek practical, scalable solutions that create real business value with minimal overhead."
+            ],
+            "vn": [
+               "Hơn 1 năm kinh nghiệm trong freelance triển khai trực tiếp 5 dự án,  để có thể áp dụng kiến thức, kinh nghiệm lập trình và quản trị hệ thống. Mục tiêu trong 3 năm tới của tôi tiếp tục cải thiện an ninh mạng, chất lượng sản phẩm."
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "persona": {
+            "header": "Persona|Kỹ Năng|Compétence|熟練",
+            "en": [
+               "- 1 year experience in mobile and Android architect.",
+               "- Fluent working teamwork with Agile/Scrum projects.",
+               "- Experienced in both indepence and teamwork.",
+               "- High self-organization and documentation."
+            ],
+            "vn": [
+               "- Có kinh nghiệm làm việc trong dự án Agile/Scrum.",
+               "- Làm việc nhóm và độc lập tốt.",
+               "- Tính tổ chức cao, sắp xếp và báo cáo công việc rõ ràng."
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "proj": {
+            "header": "Project|Hoạt động phát triển|Projets|プロジェクト",
+            "en": [
+               "- Shared bookmark server for business and logistics administration",
+               "- Reservation booking system for local nail salons",
+               "- Photoblogging webapp",
+               "- Building uber-clone with Kotlin Android",
+               "- Experimentation in ROS machine learning (Pytorch, OpenCV) for business administration.",
+               "- Cybersecurity Blue Team Level 1."
+            ],
+            "vn": [
+               "- Xây dựng ứng dụng định vị android với kotlin.",
+               "- Nghiên cứu Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiệp.",
+               "- An ninh mạng (Cybersecurity Blue Team Level 1).",
+               "- Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời."
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "skill": {
+            "header": "Skill|Chuyên môn Kỹ thuật|Expertise Technique|技術的な専門知識",
+            "Language": "Javascipt/Typescript, HTML/HTMX, Java, Python, Go, C/C++, Bash, PHP.",
+            "Frontend": "React (Redux, Axios, Three, TailwindCSS, ShadcnUI,  MaterialUI)",
+            "Backend": "Springboot, Django, Gin, NextJS + Supabase",
+            "Database": "MySQL, PostgreSQL, SQLiteMongoDB",
+            "Testing": "Jest, React Testing Library, Cypress, Playwright",
+            "Communication": "HTTPS/TCP, Rest, GraphQLNginx, Kafka, RabbitMQ, gRPC, WebsocketScrum/Agile project management",
+            "CI/CD": "AWS EC2, S3, RDS, Hetzner VPSGithub, Github Action, GitLabJest, Junit, A/B Testing, ExUnit, Phoenix.ConnTest, LiveViewTest, StreamDataDeploy: Render, Vercel, Netlify, AWS",
+            "otherTools": "- Flyway, Postman"
+         }
+      },
+      "art": {
+         "exp": {
+            "header": "Experience|Kinh nghiệm Làm Việc|Expérience|経験",
+            "en": "__3D Generalist_Tecnic Studio_Binh Thanh, Ho Chi Minh City_Th1 2024 - Present__- Design procedural textures- Design interior- Product Animation__2D/3D Motion Graphic Designer_Jio Health Clinic_Quận 1, TP. HCM._Th1 2022 - Th8 2023__- Infographic motion design.- Content creation",
+            "vn": "__3D Generalist_Tecnic Studio Bình Thạnh, TP. HCM._Th1 2024 - Hiện tại__- Thiết kế, tạo dựng procedural và texture PBR/vật lý các asset cho môi trường cho Unreal Engine 5.- Thiết kế nội thất theo bản vẽ xây dựng.- Thiết kế sản phẩm cho in ấn 3D print.- Model, rig và hoạt hoạ nhân vật.- Dựng ánh sáng, Niagara FX và render pass.- Tạo dựng 3D sản phẩm, chất liệu sản phẩm cho web qua ThreeJS.- Sáng tạo concept cho các chiến dịch marketing.- Trợ giúp trong quản lý lịch trình, tiến độ dự án, tài nguyên và đăng tải media theo yêu cầu Project Lead.__2D/3D Motion Graphic Designer_Jio Health Clinic_Quận 1, TP. HCM._Th1 2022 - Th8 2023__- Quay và edit nội dung tư vấn livestream y tế.Cắt dựng quảng cáo cho các gói sản phẩm dịch vụ.Hoạt hoạ infographic chủ để sức khoẻ, lower third các thông tin tư vấn, chú thích.Hỗ trợ đội content creator xây dựng nội dung phù hợp với budget và kỹ thuật.__3D Modeler/Animator_Beez Post-Production Quận 3, TP. HCM._Th5 - Th10 2020__- Thiết kế sản phẩm, vật dụng gia dùng 3D cho TVC.- Đảm nhiệm hoạt hoạ, mô phỏng sử dụng sản phẩm.- Hội thảo, xây dựng nội dung quảng cáo cho vào cảnh quay.- Đảm bảo linh hoạt khung thời gian với sản phẩm và khách hàng.__Motion Graphic Designer_Hazen Agency Sydney, Australia_Th1 - Th5 2019__- Tư vấn, đề xuất chủ đề và nội dung trong budget giới hạnÓ- Tạo dựng và hoạt hoạ infographic cho trẻ emÓ- Thiết kế quảng cáo dịch vụ cho các client địa phương.",
+            "fr": "x",
+            "jp": "x"
+         },
+         "obj": {
+            "header": "Objective|Mục tiêu nghề nghiệp|Objectifs de carrière|キャリア目標",
+            "en": [
+               "Versatile 3D Artist with strong skills in modeling, texturing, lighting, and rendering for games, animation, and visualization. Proficient in industry-standard tools including Blender, Unreal Engine, and Godot, with a solid grasp of real-time workflows and asset optimization. Experienced in translating concepts into visually compelling assets while balancing creativity with technical precision. Collaborative team player with the ability to adapt to diverse pipelines, meet tight deadlines, and solve complex visual challenges. Passionate about creating immersive, high-quality visuals that enhance storytelling and user experience."
+            ],
+            "vn": [
+               "x"
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "persona": {
+            "header": "Persona|Kỹ Năng|Compétence|熟練",
+            "en": [
+               "- Highest commitment and priority to all tasks assgined.",
+               "- Experienced in both indepence and teamwork.",
+               "- High self-organization and documentation.",
+               "- Implement secure practices."
+            ],
+            "vn": [
+               "- Luôn hoàn tất nhiệm vụ được giao đúng thời hạn.",
+               "- Có kinh nghiệm làm việc nhóm và độc lập tốt.",
+               "- Tính tổ chức cao, sắp xếp và báo cáo công việc rõ ràng."
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "proj": {
+            "header": "Project|Hoạt động phát triển|Career Development|Projets|プロジェクト",
+            "en": [
+               "x"
+            ],
+            "vn": [
+               "x"
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "skill": {
+            "header": "Skill|chuyên môn kỹ thuật|expertise technique|技術的な専門知識",
+            "en": "- Cross-Discipline Knowledge: Background in full-stack development and AI, enabling automation of repetitive asset workflows and integration with emerging technologies.- Game & Real-Time Assets: Knowledge of optimization techniques for low-poly and real-time engines (Unreal Engine, Unity, Godot).- Proficient in creating high-quality assets for characters, environments, and props using Blender, Maya, and ZBrush.- Skilled in PBR workflows, UV unwrapping, and texture painting with Substance Painter and Photoshop.",
+            "vn": "Modelling, Rigging và Animation.Lập trình workflow với maxscript, MELscript và Python.Prototype với UE5 Blueprint cho truyền thông tương tác (interactive media).Thảo luận nhóm cách tiếp cận và triển khai các vấn đề Pre-production.Hướng dẫn và hỗ trợ thành viên trong nhóm làm việc, đảm bảo lượng việc theo ngày/tuần.Quản lý tài nguyên và workflow - digital asset management.Tối ưu 3D animation lên FrontEnd web với ThreeJS.",
+            "fr": "x",
+            "jp": "x"
+         }
+      },
+      "trade": {
+         "exp": {
+            "header": "Experience|Kinh nghiệm Làm Việc|Expérience|経験",
+            "en": "x",
+            "vn": "x",
+            "fr": "x",
+            "jp": "x"
+         },
+         "obj": {
+            "header": "Objective|Mục tiêu nghề nghiệp|Objectifs de carrière|キャリア目標",
+            "en": [
+               "x"
+            ],
+            "vn": [
+               "x"
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "persona": {
+            "header": "Persona|Kỹ Năng|Compétence|熟練",
+            "en": [
+               "x"
+            ],
+            "vn": [
+               "x"
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "proj": {
+            "header": "Project|Hoạt động phát triển|Career Development|Projets|プロジェクト",
+            "en": [
+               "x"
+            ],
+            "vn": [
+               "x"
+            ],
+            "fr": [
+               "x"
+            ],
+            "jp": [
+               "x"
+            ]
+         },
+         "skill": {
+            "header": "Skill|chuyên môn kỹ thuật|expertise technique|技術的な専門知識",
+            "en": "x",
+            "vn": "x",
+            "fr": "x",
+            "jp": "x"
+         }
+      }
+   }
+}
