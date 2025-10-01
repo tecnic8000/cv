@@ -1,6 +1,6 @@
 import "./style1.css";
 import { config } from "./config"
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { Routes, Route, BrowserRouter } from "react-router-dom"
 // import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardDescription, CardFooter } from "@/components/ui/card";
 // import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
