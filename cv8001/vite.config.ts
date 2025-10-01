@@ -9,6 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: '/hoang/', // must match App.tsx routing
 
   resolve:{
     alias : {
