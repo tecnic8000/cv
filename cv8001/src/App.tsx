@@ -395,7 +395,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/hoang" element={<CV2 />} />  {/* must match vite.config.ts */}
+        <Route path="/cv/hoang" element={<CV2 />} />  {/* must match vite.config.ts */}
         <Route path="/v1" element={<CV1 />} />
       </Routes>
     </BrowserRouter>

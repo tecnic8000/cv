@@ -9,7 +9,7 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/', // must match App.tsx routing
+  base: '/cv/', // must match App.tsx routing and homepage of package.json
 
   resolve:{
     alias : {
