@@ -259,7 +259,7 @@ function CV2() {
   // console.log(cv.Job[jobMode].proj["vn"])
   return (<>
     <div className="flex items-center justify-center" >
-      <Card className="bg-[#f5f5f5] m-4 p-2 max-w-2xl w-full">
+      <Card className="bg-[url('./white.png')] m-4 p-2 max-w-2xl w-full">
 
         {/* PROFILE */}
         <div className="sm:flex ">

@@ -79,12 +79,3 @@
 :root {
   color-scheme: light; /* Explicitly set light mode */
 }
-
-@media (prefers-color-scheme: dark) {
-  .card {
-    background-color: #ffffff !important; /* Override dark mode for cards */
-  }
-}
-.card {
-  background-color: #ffffff !important; /* Force a white background for cards */
-}
