@@ -62,13 +62,20 @@
   --font-weight-base: 600;
   --font-weight-heading: 900;
 }
-  
+
 @layer base {
   body {
     @apply text-foreground font-base bg-background;
+    background-color: var(--background) !important; /* Prevent forced dark mode */
+    color: var(--foreground) !important; /* Ensure text color is correct */
   }
 
-  h1, h2, h3, h4, h5, h6{
+  h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
+}
+
+/* Prevent forced dark mode */
+:root {
+  color-scheme: light; /* Explicitly set light mode */
 }
