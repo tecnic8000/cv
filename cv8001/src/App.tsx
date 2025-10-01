@@ -259,12 +259,12 @@ function CV2() {
   // console.log(cv.Job[jobMode].proj["vn"])
   return (<>
     <div className="flex items-center justify-center" >
-      <Card className="bg-white m-4 p-2 max-w-2xl">
+      <Card className="bg-white m-4 p-2 max-w-2xl w-full">
 
         {/* PROFILE */}
-        <div className="flex ">
-          <CardHeader className="bg-blue-300 w-100 m-1 border-r-2 rounded-l-md" >
-            <div className="h-1 pt-2 text-2xl">{cv.contact["name"][langIndex]}</div><br />Frontend Developer
+        <div className="sm:flex ">
+          <CardHeader className="bg-blue-300 w-full min-w-[300px] sm:text-md lg:text-lg m-1 border-r-2 rounded-l-md" >
+            <div className="h-1 pt-2 text-xl">{cv.contact["name"][langIndex]}</div><br />Frontend Developer
           </CardHeader>
           <div>
             <CardDescription className="bg-teal-000">
