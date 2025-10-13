@@ -68,8 +68,8 @@
       "dev": {
          "exp": {
             "header": "Experience|Kinh nghiệm Làm Việc|Expérience|経験",
-            "en": "__Fullstack Developer_Cafe Tecnic_Binh Thanh, TP.HCM_2024-2025__- Increased website engagement -  Yielded 30% more efficiency in daily operation by writing CLI tools to assist sale operation.@__Pipeline Developer_Kend Animation Studio_Binh Thanh, HCMC_2023-2024__- Built a secure task management system with user authentication & CRUD tasks.  ",
-            "vn": "__Fullstack Developer_HKD Cafe Tecnic_Bình Thạnh, TP.HCM_2024-2025__- Tăng lượng truy cập website, đăng kí khách hàng nhờ cải tiến UX/UI.- Đạt hơn 20% năng suát vân hành nhờ triển khai các công cụ tự dộng quy trình kinh doanh.- Xây dựng microservice quản lý khách hàng và vận hành trên AWS.- Cùng với Product Team xây dựng chién lược phát triển sản phẩm.- Khảo sát trải nghiệm, cập nhật và bảo trì kỹ thuật trong lúc sử dụng.- Kiểm tra định kỳ backup dự liệu, an ninh mạng.@__Pipeline Developer_Kend Animation Studio_Bình Thạnh, TP.HCM_2023-2024__- Đạt hơn 15% lượng dự án vào studio trong 2 kỳ nhờ thiết kế mới website với đội UX/UI.- Tiến độ làm việc nhóm tăng cao nhờ xây dựng hệ thống quản lý và chuyển giao media.- Vận hành server, kiểm tra định kỳ an ninh và bảo mật tài sản điện tử .- Tăng hiệu suât làm việc cho animator nhờ triển khai công cụ hỗ trợ phần mềm (Blender, Maya, Unreal) với python.",
+            "en": "__Fullstack Developer_Cafe Tecnic_Binh Thanh, TP.HCM_2024-2025__- Increased website engagement -  Yielded 30% more efficiency in daily operation by writing CLI tools to assist sale operation.-  Optimize webapp data fetching and caching@__Pipeline Developer_Kend Animation Studio_Binh Thanh, HCMC_2023-2024__- Built a secure task management system with user authentication & CRUD tasks.  @__Fullstack Developer_Parsec Supply_Bình Thạnh, TP.HCM_2020-2022__-PHP developer",
+            "vn": "__Fullstack Developer_HKD Cafe Tecnic_Bình Thạnh, TP.HCM_2024-2025__- Tăng lượng truy cập website, đăng kí khách hàng nhờ cải tiến UX/UI.- Đạt hơn 20% năng suát vân hành nhờ triển khai các công cụ tự dộng quy trình kinh doanh.- Xây dựng microservice quản lý khách hàng và vận hành trên AWS.- Cùng với Product Team xây dựng chién lược phát triển sản phẩm.- Khảo sát trải nghiệm, cập nhật và bảo trì kỹ thuật trong lúc sử dụng.- Kiểm tra định kỳ backup dự liệu, an ninh mạng.@__Pipeline Developer_Kend Animation Studio_Bình Thạnh, TP.HCM_2023-2024__- Đạt hơn 15% lượng dự án vào studio trong 2 kỳ nhờ thiết kế mới website với đội UX/UI.- Tiến độ làm việc nhóm tăng cao nhờ xây dựng hệ thống quản lý và chuyển giao media.- Vận hành server, kiểm tra định kỳ an ninh và bảo mật tài sản điện tử .- Tăng hiệu suât làm việc cho animator nhờ triển khai công cụ hỗ trợ phần mềm (Blender, Maya, Unreal) với python.@__Fullstack Developer_Parsec Supply_Bình Thạnh, TP.HCM_2020-2022__- Thiết kế và tối ưu cơ sở dữ liệu MySQL nhằm nâng cao hiệu năng hệ thống.- Thực hiện kiểm thử, gỡ lỗi và tối ưu mã nguồn nhằm giảm thời gian phản hồi của hệ thống.- Quản lý mã nguồn với Git/GitHub, triển khai ứng dụng lên server Linux (Nginx/Apache).",
             "fr": "x",
             "jp": "x"
          },
@@ -92,13 +92,15 @@
             "header": "Persona|Kỹ Năng|Compétence|熟練",
             "en": [
                "- 1 year experience in mobile and Android architect.",
-               "- Fluent working teamwork with Agile/Scrum projects.",
+               "- Fluent teamworking in Scrum and Kanban for agile projects.",
+               "- Experienced in Jira, Figma, Bruno, Postman and Blender",
                "- Experienced in both indepence and teamwork.",
                "- High self-organization and documentation."
             ],
             "vn": [
-               "- Có kinh nghiệm làm việc trong dự án Agile/Scrum.",
-               "- Làm việc nhóm và độc lập tốt.",
+               "- Hơn 1 năm làm việc nhóm trong dự án agile, Scrum và Kanban.",
+               "- Chuyên lập trình tự  động với các thư viện Python và Bash.",
+               "- Sử dụng Jira, Figma, Bruno, Postman và Blender.",
                "- Tính tổ chức cao, sắp xếp và báo cáo công việc rõ ràng."
             ],
             "fr": [
@@ -111,18 +113,20 @@
          "proj": {
             "header": "Project|Hoạt động phát triển|Projets|プロジェクト",
             "en": [
-               "- Shared bookmark server for business and logistics administration",
-               "- Reservation booking system for local nail salons",
-               "- Photoblogging webapp",
-               "- Building uber-clone with Kotlin Android",
+               "- Build wifi-router with ESP32 in C++.",
+               "- Shared bookmark server for business and logistics administration.",
+               "- Reservation booking system for local nail salons.",
+               "- Photoblogging webapp.",
+               "- Building uber-clone with Kotlin Android.",
                "- Experimentation in ROS machine learning (Pytorch, OpenCV) for business administration.",
                "- Cybersecurity Blue Team Level 1."
             ],
             "vn": [
                "- Xây dựng ứng dụng định vị android với kotlin.",
                "- Nghiên cứu Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiệp.",
-               "- An ninh mạng (Cybersecurity Blue Team Level 1).",
-               "- Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời."
+               "- Xây dựng quản lý kho hàng với Tauri(rust)",
+               "- Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời.",
+               "- An ninh mạng (Cybersecurity Blue Team Level 1)."
             ],
             "fr": [
                "x"
@@ -134,13 +138,13 @@
          "skill": {
             "header": "Skill|Chuyên môn Kỹ thuật|Expertise Technique|技術的な専門知識",
             "Language": "Javascipt/Typescript, HTML/HTMX, Java, Python, Go, C/C++, Bash, PHP.",
-            "Frontend": "React (Redux, Axios, Three, TailwindCSS, ShadcnUI,  MaterialUI)",
-            "Backend": "Springboot, Django, Gin, NextJS + Supabase",
-            "Database": "MySQL, PostgreSQL, SQLiteMongoDB",
-            "Testing": "Jest, React Testing Library, Cypress, Playwright",
+            "Frontend": "React (Redux, React Query, Context API, TailwindCSS, ShadcnUI,  MaterialUI)",
+            "Backend": "Framework: NextJS + Supabase, Springboot, Django, Gin",
+            "Database": "Database: MongoDB, MySQL, PostgreSQL, SQLite",
+            "Testing": "A/B Test, Jest, Cypress, Playwright",
             "Communication": "HTTPS/TCP, Rest, GraphQLNginx, Kafka, RabbitMQ, gRPC, WebsocketScrum/Agile project management",
-            "CI/CD": "AWS EC2, S3, RDS, Hetzner VPSGithub, Github Action, GitLabJest, Junit, A/B Testing, ExUnit, Phoenix.ConnTest, LiveViewTest, StreamDataDeploy: Render, Vercel, Netlify, AWS",
-            "otherTools": "- Flyway, Postman"
+            "CI/CD": "AWS EC2, S3, RDS, Hetzner VPSGithub, Github Action, GitLabJunit, ExUnit, Phoenix.ConnTest, LiveViewTest, StreamDataDeploy: Render, Supabase, Vercel, Netlify, AWS",
+            "otherTools": "- Flyway, Postman, Bruno, Figma"
          }
       },
       "art": {
