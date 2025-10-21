@@ -273,7 +273,7 @@ function CV2() {
                   case "dev": return (
                     <div>
                       <span className="text-lg">{item[0]}</span><br />
-                      {item[1]}<br />{item[2]}<br />
+                      {item[1]}<br />e
                     </div>);
                 }
               })(cv.contact["link"])
