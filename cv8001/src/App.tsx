@@ -264,7 +264,7 @@ function CV2() {
         {/* PROFILE */}
         <div className="sm:flex ">
           <CardHeader className="bg-blue-300 w-full min-w-[300px] h-[77px] sm:text-md lg:text-lg m-1 border-r-2 rounded-l-md" >
-            <div className="h-1 pt-2 text-xl">{cv.contact["name"][langIndex]}</div><br />Frontend Developer
+            <div className="h-1 pt-2 text-xl">{cv.contact["name"][langIndex]}</div><br />Software Developer
           </CardHeader>
           <div>
             <CardDescription className="bg-teal-000">
@@ -273,7 +273,7 @@ function CV2() {
                   case "dev": return (
                     <div>
                       <span className="text-lg">{item[0]}</span><br />
-                      {item[1]}<br />e
+                      {item[1]}<br />
                     </div>);
                 }
               })(cv.contact["link"])
