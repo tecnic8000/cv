@@ -6,7 +6,7 @@ import re
 
 cvDict = {
       "contact": {}, "education": {}, "interest": {}, "certificate": [],
-      "job": {k: {s: {} for s in ["exp", "obj", "persona", "proj", "skill"]} for k in ["dev", "art", "trade"] }
+      "job": {k: {s: {} for s in ["exp", "obj", "persona", "proj", "skill"]} for k in ["dev", "art", "wage"] }
     }
 
 def parseContent(dict, sect, data, spec=False):
@@ -65,7 +65,7 @@ def getCV(filepath, start_marker, end_marker, jsonpath):
                 cvDict["certificate"].append(section[1].strip())
               case "DEV": parseJob(cvDict["job"]["dev"], section[1])
               case "ART":  parseJob(cvDict["job"]["art"], section[1])
-              case "TRADE": parseJob(cvDict["job"]["trade"], section[1])
+              case "WAGE": parseJob(cvDict["job"]["wage"], section[1])
               case _: print("default case hit")
           
     # Load existing JSON data if the file exists

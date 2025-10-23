@@ -1,12 +1,12 @@
 import "./style1.css";
-import { config } from "./config"
-import { Routes, Route, BrowserRouter } from "react-router-dom"
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom"
 // import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardDescription, CardFooter } from "@/components/ui/card";
 // import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 // import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import cv2 from "./cv.json"
+import CV1 from "./components/cv1";
 // import * as THREE from "three";
 // import { Canvas, useFrame } from "@react-three/fiber";
 // import { useGLTF, OrbitControls, Environment } from "@react-three/drei";
@@ -58,175 +58,29 @@ import cv2 from "./cv.json"
 //   );
 // }
 
-function CV1() {
-  interface CV {
-    Contact: { [key: string]: string };
-    Education: { [key: string]: string };
-    Certificate: { [key: string]: string };
-    Interest: { [key: string]: string };
-    Job: {
-      [jobType: string]: {
-        [sectionType: string]: {
-          [key: string]: string
-        };
-      }
-    }
-  }
-
-  const [cv, setCV] = useState<CV | null>(null);
-  // const [langMode, setLangMode] = useState<"vn" | "en" | "fr" | "jp">("vn");
-  const langMode: string = "vn";
-  // const [langIndex, setLangIndex] = useState<number>(0);
-  // const [jobMode, setJobMode] = useState<"dev" | "art" | "trade">("dev");
-  const jobMode: string = "dev";
-
-  let langIndex: number = 0;
-  useEffect(() => {
-    async function getCV() {
-      const res = await fetch(config.cvURL);
-      if (!res.ok) throw Error("ERR--API FAILED--001");
-      const cv = await res.json();
-      setCV(cv);
-    }
-    getCV();
-  }, []);
-
-  // console.log(cv)
-  switch (langMode) {
-    case "vn": langIndex = 1; break;
-    case "fr": langIndex = 2; break;
-    case "jp": langIndex = 3; break;
-  }
-
-  if (!cv) return <div>LOADING... goBackend seems offline</div>
-  // console.log(langIndex, langMode)
-  // console.log(cv.Job[jobMode].exp["vn"])
-  // console.log(cv.Job[jobMode].proj["vn"])
-  return (<>
-
-    <Card className="bg-white m-4 p-2">
-
-      {/* PROFILE */}
-      <div className="flex ">
-        <CardHeader className="bg-blue-300 w-100 m-1 border-r-2 rounded-l-md" >
-          <div className="h-1 pt-2 text-2xl">{cv.Contact["__name__"].split(/\n/).slice(1, -1)[langIndex]}</div><br />Fullstack Developer
-        </CardHeader>
-        <div>
-          <CardDescription className="bg-teal-000">
-            {((item) => {
-              switch (jobMode) {
-                case "dev": return (
-                  <div>
-                    <span className="text-lg">{item[0]}</span><br />
-                    {item[1]}<br />{item[2]}<br />
-                  </div>);
-              }
-            })(cv.Contact["__link__"].split("\n").slice(1, -1))
-            }
-
-          </CardDescription>
-          <CardDescription className="bg-pink-000">
-            {cv.Contact["__address__"].split(/\n/).slice(1, -1)[langIndex].slice(10)}
-          </CardDescription>
-        </div>
-      </div>
-
-      {/* <CardDescription className="">{cv.Job[jobMode].obj[langMode]}</CardDescription> */}
-
-      {/* EXPERIENCE */}
-      <div className="bg-blue-000">
-        <CardFooter className="border-t border-l ml-2 border-gray-950">{cv.Job[jobMode].exp["header"].split("|")[langIndex]}</CardFooter>
-        <CardDescription >
-          {cv.Job[jobMode].exp[langMode].split("@").map((item, index) => (
-            <div key={index}> {item.split("__").slice(1).map((detail, i) => {
-              switch (i) {
-                case 0: return (
-                  <div key={i} className="bg-blue-300 max-w-2xl px-3 py-1 mb-1 flex justify-between rounded-sm">
-                    <span >
-                      {detail.split("_")[0]}&nbsp;- {detail.split("_")[1]}
-                    </span>
-                    <span>
-                      {detail.split("_")[2]}&nbsp;{detail.split("_")[3]}
-                    </span>
-                  </div>);
-                case 1: return detail.split("\n").slice(1).map((sub, i) => (<div key={i}>{sub}</div>));
-                default: return null;
-              }
-            })} </div>
-          ))
-          }
-        </CardDescription>
-      </div>
-      {/* <CardDescription>{cv.Job[jobMode].skill["__backend__"]}</CardDescription> */}
-
-      {/* SKILL */}
-      <div >
-        <CardFooter className="border w-fit pt-1 mb-2 rounded-md">{cv.Job[jobMode].skill["header"].split("|")[langIndex]}</CardFooter>
-        <CardDescription >
-          {
-            (() => {
-              switch (jobMode) {
-                case "dev": return (
-                  <div>
-                    &middot;{cv.Job[jobMode].skill["__Language__"]}<br />
-                    &middot;{cv.Job[jobMode].skill["__Frontend__"]}<br />
-                    &middot;{cv.Job[jobMode].skill["__Backend__"]}<br />
-                    &middot;{cv.Job[jobMode].skill["__Database__"]}
-                  </div>
-                )
-                case "art": return "empty.."
-                case "trade": return "empty.."
-                default: return null
-              }
-            })
-              ()}
-        </CardDescription>
-      </div>
-
-
-      {/* PROJECT */}
-      <div className="bg-blue-000">
-        <CardFooter className="border-1 w-fit pt-1 mb-2 rounded-lg">{cv.Job[jobMode].proj["header"].split("|")[langIndex]}</CardFooter>
-        <CardDescription>
-          {cv.Job[jobMode].proj[langMode].split("\n").slice(1, -1).map((item, index) => (
-            <div key={index}>{item}</div>
-          ))}
-        </CardDescription>
-      </div>
-      {/* PERSONA */}
-      {/* <CardDescription>{cv.Job[jobMode].persona[langMode]}</CardDescription> */}
-
-      {/* CERTIFICATE */}
-      {/* <div className="bg-green-300">
-        <CardHeader>{cv.Certificate[0].split("|")[langIndex]}</CardHeader>
-        <CardDescription>{cv.Certificate[1]}</CardDescription>
-      </div> */}
-
-      {/* EDUCATION */}
-      <div className="border-t border-gray-900 w-fit">
-        <CardFooter className="pt-2">{cv.Education["header"].split("@")[0].split("|")[langIndex]}</CardFooter>
-        <CardFooter>
-          {cv.Education["header"].split("@")[1].split("_")[0]}<br />
-          {cv.Education["header"].split("@")[1].split("_")[1]}&nbsp;
-          {cv.Education["header"].split("@")[1].split("_")[2]}
-        </CardFooter>
-        <CardDescription>
-          {cv.Education[langMode].split("\n").slice(1, -1).map((item, index) => (
-            <div key={index}>{item}</div>
-          ))}
-        </CardDescription>
-      </div>
-
-      <div className="">
-        {/* v0.1 */}
-        <div className="bg-blue-400 w-[10px] h-[10px] flex float-end"></div>
-      </div>
-    </Card>
-  </>
-  )
-}
-
 function CV2() {
+  const [mode, setMode] = useState<"dev" | "art" | "wage">("dev")
+  const [lang, setLang] = useState<"en" | "vn" | "fr" | "jp">("en")
+  const [langIndex, setLangIndex] = useState<number>(0)
+  const link = useLocation()
+
+  useEffect(() => {
+    switch (link.pathname.split("/").slice(1)[1]) {
+      case "dev": setMode("dev"); break
+      case "art": setMode("art"); break
+      case "wage": setMode("wage"); break
+      default: console.log("!-missing mode ")
+    }
+    switch (link.pathname.split("/").slice(1)[2]) {
+      case "en": setLang("en"); setLangIndex(0); break
+      case "vn": setLang("vn"); setLangIndex(1); break
+      case "fr": setLang("fr"); setLangIndex(2); break
+      case "jp": setLang("jp"); setLangIndex(3); break
+      default: console.log("!-missing lang")
+    }
+  }, [link])
+
+  console.log("/cv/[mode]/[lang] to access cv. currently: " + mode + lang)
   interface CV {
     contact: { [key: string]: string | string[] },
     interest: { [key: string]: string | string[] },
@@ -241,35 +95,28 @@ function CV2() {
     }
   }
   const cv: CV = cv2 as CV
-  const langMode: string = "vn";
-  // const [langIndex, setLangIndex] = useState<number>(0);
-  // const [jobMode, setJobMode] = useState<"dev" | "art" | "trade">("dev");
-  const jobMode: string = "dev";
-
-  let langIndex: number = 0;
-  switch (langMode) {
-    case "vn": langIndex = 1; break;
-    case "fr": langIndex = 2; break;
-    case "jp": langIndex = 3; break;
-  }
 
   if (!cv2) return <div>LOADING JSON</div>
-  // console.log(langIndex, langMode)
-  // console.log(cv.Job[jobMode].exp["vn"])
-  // console.log(cv.Job[jobMode].proj["vn"])
+  if (mode == "dev") console.log("ok")
   return (<>
     <div className="flex items-center justify-center" >
       <Card className="bg-[url('./white.png')] m-4 p-2 max-w-2xl w-full">
 
         {/* PROFILE */}
         <div className="sm:flex ">
-          <CardHeader className="bg-blue-300 w-full min-w-[300px] h-[77px] sm:text-md lg:text-lg m-1 border-r-2 rounded-l-md" >
-            <div className="h-1 pt-2 text-xl">{cv.contact["name"][langIndex]}</div><br />Software Developer
+          <CardHeader className="bg-blue-300 w-full min-w-[300px] h-auto sm:text-md lg:text-lg m-1 border-r-2 rounded-l-md" >
+            <div className="h-1 pt-2 text-xl">{cv.contact["name"][langIndex]}</div><br />
+            {mode == "wage" && (
+              <div className="text-sm ">
+                {cv.contact["link"][0] + " " + cv.contact["link"][1]}
+                <br /> {cv.contact["address"][langIndex].slice(10)}
+              </div>
+            )}
           </CardHeader>
           <div>
             <CardDescription className="bg-teal-000">
               {((item) => {
-                switch (jobMode) {
+                switch (mode) {
                   case "dev": return (
                     <div>
                       <span className="text-lg">{item[0]}</span><br />
@@ -281,7 +128,7 @@ function CV2() {
 
             </CardDescription>
             <CardDescription className="bg-pink-000">
-              {cv.contact["address"][langIndex].slice(10)}
+              {mode == "dev" && cv.contact["address"][langIndex].slice(10)}
             </CardDescription>
           </div>
         </div>
@@ -291,10 +138,10 @@ function CV2() {
         {/* EXPERIENCE */}
         <div className="bg-blue-000">
           <CardFooter className="border-t border-l ml-2 rounded-tl-lg border-gray-950">
-            {(cv.job[jobMode].exp["header"] as string).split("|")[langIndex]}
+            {(cv.job[mode].exp["header"] as string).split("|")[langIndex]}
           </CardFooter>
           <CardDescription >
-            {(cv.job[jobMode].exp[langMode] as string).split("@").map((item, index) => (
+            {(cv.job[mode].exp[lang] as string).split("@").map((item, index) => (
               <div key={index}>{item.split("__").slice(1).map((detail, i) => {
                 switch (i) {
                   case 0: return (
@@ -320,28 +167,39 @@ function CV2() {
         {/* SKILL & PERSONA */}
         <div >
           <CardFooter className="border w-fit pt-1 mb-2 rounded-md">
-            {(cv.job[jobMode].skill["header"] as string).split("|")[langIndex]}
+            {(cv.job[mode].skill["header"] as string).split("|")[langIndex]}
           </CardFooter>
           <CardDescription >
             {
               (() => {
-                switch (jobMode) {
+                switch (mode) {
                   case "dev": return (
                     <div>
-                      &middot; {cv.job[jobMode].skill["Language"]}<br />
-                      &middot; {cv.job[jobMode].skill["Frontend"]}<br />
-                      &middot; {cv.job[jobMode].skill["Backend"]}<br />
-                      &middot; {cv.job[jobMode].skill["Database"]}
+                      &middot; {cv.job[mode].skill["Language"]}<br />
+                      &middot; {cv.job[mode].skill["Frontend"]}<br />
+                      &middot; {cv.job[mode].skill["Backend"]}<br />
+                      &middot; {cv.job[mode].skill["Database"]}
                     </div>
                   )
                   case "art": return "empty.."
-                  case "trade": return "empty.."
+                  case "wage": return (
+                    <>
+                      {(cv.job[mode].skill[lang] as string).split("-").slice(1)
+                        .map((item, index) => (<div key={index}>&middot;{item}</div>))
+                      }
+                    </>
+                  )
                   default: return null
                 }
               })
                 ()}
             {/* PERSONA */}
-            {(cv.job[jobMode].persona[langMode] as string[]).map((item, index) => (
+            {mode === "wage" && (
+              <CardFooter className="border w-fit py-1 my-2 rounded-md ">
+                {(cv.job[mode].persona["header"] as string).split("|")[langIndex]}
+              </CardFooter>
+            )}
+            {(cv.job[mode].persona[lang] as string[]).map((item, index) => (
               <div key={index}>{item}</div>
             ))}
           </CardDescription>
@@ -350,10 +208,10 @@ function CV2() {
         {/* PROJECT */}
         <div className="bg-blue-000">
           <CardFooter className="border-1 w-fit pt-1 mb-2 rounded-lg">
-            {(cv.job[jobMode].proj["header"] as string).split("|")[langIndex]}
+            {(cv.job[mode].proj["header"] as string).split("|")[langIndex]}
           </CardFooter>
           <CardDescription>
-            {(cv.job[jobMode].proj[langMode] as string[]).map((item, index) => (
+            {(cv.job[mode].proj[lang] as string[]).map((item, index) => (
               <div key={index}>{item}</div>
             ))}
           </CardDescription>
@@ -376,14 +234,14 @@ function CV2() {
             {(cv.education["header"] as string).split("@")[1].split("_")[2]}
           </CardFooter>
           <CardDescription>
-            {(cv.education[langMode] as string[]).map((item, index) => (
-              <div key={index}>{item}</div>
-            ))}
+            {(cv.education[lang] as string[]).map((item, index) => {
+              if (index === 1) return null;
+              return (<div key={index}>{item}</div>)
+            })}
           </CardDescription>
         </div>
 
         <div className="">
-          {/* v0.1 */}
           <div className="bg-blue-400 w-[10px] h-[10px] flex float-end"></div>
         </div>
       </Card>
@@ -396,7 +254,10 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/cv" element={<CV2 />} />  {/* must match vite.config.ts */}
+        <Route path="/cv/dev/vn" element={<CV2 />} />  {/* must match vite.config.ts */}
+        <Route path="/cv/dev/en" element={<CV2 />} />
+        <Route path="/cv/art/vn" element={<CV2 />} />
+        <Route path="/cv/wage/vn" element={<CV2 />} />
         <Route path="/v1" element={<CV1 />} />
       </Routes>
     </BrowserRouter>
