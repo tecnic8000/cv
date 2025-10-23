@@ -97,7 +97,7 @@ function CV2() {
   const cv: CV = cv2 as CV
 
   if (!cv2) return <div>LOADING JSON</div>
-  if (mode == "dev") console.log("ok")
+
   return (<>
     <div className="flex items-center justify-center" >
       <Card className="bg-[url('./white.png')] m-4 p-2 max-w-2xl w-full">
@@ -110,8 +110,9 @@ function CV2() {
               <div className="text-sm ">
                 {cv.contact["link"][0] + " " + cv.contact["link"][1]}
                 <br /> {cv.contact["address"][langIndex].slice(10)}
-              </div>
-            )}
+              </div>)}
+            {mode == "dev" && (
+              <div className="text-sm pb-2"> Software Developer </div>)}
           </CardHeader>
           <div>
             <CardDescription className="bg-teal-000">
@@ -235,7 +236,7 @@ function CV2() {
           </CardFooter>
           <CardDescription>
             {(cv.education[lang] as string[]).map((item, index) => {
-              if (index === 1) return null;
+              if (mode == "wage" && index === 1) return null;
               return (<div key={index}>{item}</div>)
             })}
           </CardDescription>
