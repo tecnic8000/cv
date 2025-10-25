@@ -78,7 +78,8 @@ function CV2() {
       case "jp": setLang("jp"); setLangIndex(3); break
       default: console.log("!-missing lang")
     }
-  }, [link])
+    document.title = "TranMinhHoang-" + mode[0] + lang[0]
+  }, [link, lang, mode])
 
   console.log("/cv/[mode]/[lang] to access cv. currently: " + mode + lang)
   interface CV {
@@ -167,7 +168,7 @@ function CV2() {
 
         {/* SKILL & PERSONA */}
         <div >
-          <CardFooter className="border w-fit pt-1 mb-2 rounded-md">
+          <CardFooter className="border-0 w-fit pt-1 mb-2 rounded-md bg-blue-300">
             {(cv.job[mode].skill["header"] as string).split("|")[langIndex]}
           </CardFooter>
           <CardDescription >
@@ -195,20 +196,22 @@ function CV2() {
               })
                 ()}
             {/* PERSONA */}
-            {mode === "wage" && (
-              <CardFooter className="border w-fit py-1 my-2 rounded-md ">
-                {(cv.job[mode].persona["header"] as string).split("|")[langIndex]}
-              </CardFooter>
-            )}
-            {(cv.job[mode].persona[lang] as string[]).map((item, index) => (
-              <div key={index}>{item}</div>
-            ))}
+            <div className="pt-2">
+              {mode === "wage" && (
+                <CardFooter className="border-0 bg-blue-300 w-fit py-1 my-2 rounded-md ">
+                  {(cv.job[mode].persona["header"] as string).split("|")[langIndex]}
+                </CardFooter>
+              )}
+              {(cv.job[mode].persona[lang] as string[]).map((item, index) => (
+                <div key={index}>{item}</div>
+              ))}
+            </div>
           </CardDescription>
         </div>
 
         {/* PROJECT */}
         <div className="bg-blue-000">
-          <CardFooter className="border-1 w-fit pt-1 mb-2 rounded-lg">
+          <CardFooter className="border-0 bg-blue-300 w-fit pt-1 mb-2 rounded-md">
             {(cv.job[mode].proj["header"] as string).split("|")[langIndex]}
           </CardFooter>
           <CardDescription>
@@ -226,7 +229,7 @@ function CV2() {
 
         {/* EDUCATION */}
         <div className="">
-          <CardFooter className="pt-0 border-t border-r rounded-tr-lg border-gray-900 w-fit">
+          <CardFooter className=" pb-0 mb-1 border-1 rounded-md border-gray-900 w-fit">
             {(cv.education["header"] as string).split("|")[langIndex]}
           </CardFooter>
           <CardFooter>
