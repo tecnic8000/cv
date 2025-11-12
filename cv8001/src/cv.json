@@ -69,7 +69,7 @@
          "exp": {
             "header": "Experience|Kinh nghiệm Làm Việc|Expérience|経験",
             "en": "__Fullstack Developer_Cafe Tecnic_Binh Thanh, TP.HCM_2024-2025__- Develop Spring boot backend with React frontend, authentication and authorization with Spring Security.- Yielded 30% more efficiency in daily operation by writing CLI tools to assist sale and marketing departments.- Improve web performance and user experience through caching, lazy loading, and image optimization.- Integrate and manage third party APIs (payment gateways, authentication providers, social platforms).- Increased website engagement with SEO optimization.@__Pipeline Developer_Kend Animation Studio_Binh Thanh, HCMC_2023-2024__- Build HR management system with user authentication and CRUD tasks. - Operate backend server on AWS , periodic security checks and media backup.- Increased team work progress thanks to the construction of a media management system.- Increased work efficiency for animators thanks to the implementation of software support tools (Blender, Maya, Unreal) with python.- Achieved over 15% of projects in the studio in 2 terms thanks to the new website design with the UX/UI team.@__Fullstack Developer_Parsec Supply_Bình Thạnh, TP.HCM_2020-2022__- Develop and maintain fullstack ecommerce PHP website.- Design and optimize MySQL database to improve system performance.- Perform testing, debugging and optimize source code to reduce system response time.- Manage source code with Git/GitHub, deploy applications to Linux server.",
-            "vn": "__Fullstack Developer_HKD Cafe Tecnic_Binh Thanh, TP.HCM_2024-2025__- Tăng lượng truy cập website, đăng kí khách hàng nhờ cải tiến UX/UI.- Đạt hơn 20% năng suát vân hành nhờ triển khai các công cụ tự dộng quy trình kinh doanh.- Xây dựng microservice quản lý khách hàng và vận hành trên AWS.- Cùng với Product Team xây dựng chién lược phát triển sản phẩm.- Khảo sát trải nghiệm, cập nhật và bảo trì kỹ thuật trong lúc sử dụng.- Kiểm tra định kỳ backup dự liệu, an ninh mạng.@__Pipeline Developer_Kend Animation Studio_Bình Thạnh, TP.HCM_2023-2024__- Đạt hơn 15% lượng dự án vào studio trong 2 kỳ nhờ thiết kế mới website với đội UX/UI.- Tiến độ làm việc nhóm tăng cao nhờ xây dựng hệ thống quản lý và chuyển giao media.- Vận hành server, kiểm tra định kỳ an ninh và bảo mật tài sản điện tử .- Tăng hiệu suât làm việc cho animator nhờ triển khai công cụ hỗ trợ phần mềm (Blender, Maya, Unreal) với python.@__Fullstack Developer_Parsec Supply_Bình Thạnh, TP.HCM_2020-2022__- Thiết kế và tối ưu cơ sở dữ liệu MySQL nhằm nâng cao hiệu năng hệ thống.- Thực hiện kiểm thử, gỡ lỗi và tối ưu mã nguồn nhằm giảm thời gian phản hồi của hệ thống.- Quản lý mã nguồn với Git/GitHub, triển khai ứng dụng lên server Linux.",
+            "vn": "__Fullstack Developer_HKD Cafe Tecnic_Binh Thanh, TP.HCM_2024-2025__- Tăng lượng truy cập website, đăng kí khách hàng nhờ cải tiến UX/UI.- Đạt hơn 20% năng suát vân hành nhờ triển khai các công cụ tự dộng quy trình kinh doanh.- Xây dựng microservice quản lý khách hàng và vận hành trên AWS.- Cùng với Product Team xây dựng chién lược phát triển sản phẩm.- Khảo sát trải nghiệm, cập nhật và bảo trì kỹ thuật trong lúc sử dụng.- Lắp ráp, cài đặt, khắc phục sự cố PC, mạng LAN, wifi, internet.- Kiểm tra định kỳ backup dự liệu, an ninh mạng.@__Pipeline Developer_Kend Animation Studio_Bình Thạnh, TP.HCM_2023-2024__- Đạt hơn 15% lượng dự án vào studio trong 2 kỳ nhờ thiết kế mới website với đội UX/UI.- Tiến độ làm việc nhóm tăng cao nhờ xây dựng hệ thống quản lý và chuyển giao media.- Vận hành server, kiểm tra định kỳ an ninh và bảo mật tài sản điện tử .- Tăng hiệu suât làm việc cho animator nhờ triển khai công cụ hỗ trợ phần mềm (Blender, Maya, Unreal) với python.@__Fullstack Developer_Parsec Supply_Bình Thạnh, TP.HCM_2020-2022__- Thiết kế và tối ưu cơ sở dữ liệu MySQL nhằm nâng cao hiệu năng hệ thống.- Thực hiện kiểm thử, gỡ lỗi và tối ưu mã nguồn nhằm giảm thời gian phản hồi của hệ thống.- Quản lý mã nguồn với Git/GitHub, triển khai ứng dụng lên server Linux.",
             "fr": "x",
             "jp": "x"
          },
@@ -120,7 +120,8 @@
                "- Nghiên cứu Machine Learning (Pytorch, OpenCV) cho vận hành doanh nghiệp.",
                "- Xây dựng quản lý kho hàng với Tauri(rust)",
                "- Thử nghiệm home-server tự vận hành bằng năng lượng mặt trời.",
-               "- An ninh mạng (Cybersecurity Blue Team Level 1)."
+               "- An ninh mạng (Cybersecurity Blue Team Level 1).",
+               "- Chạy chiến dịch quảng cáo Google Ads, Facebook Ads, Tiktok và Shopee."
             ],
             "fr": [
                "x"
@@ -131,10 +132,10 @@
          },
          "skill": {
             "header": "Skill|Chuyên môn Kỹ thuật|Expertise Technique|技術的な専門知識",
-            "Language": "Javascipt/Typescript, HTML/HTMX, Java, Python, Go, C/C++, Bash, PHP.",
+            "Language": "Javascipt/Typescript, Java, Python, Go, C/C++, Bash, PHP.",
             "Frontend": "React (Redux, Tanstack Query, Context , TailwindCSS, ShadcnUI,  MaterialUI)",
             "Backend": "Framework: NextJS + Supabase, Springboot, Django, Gin",
-            "Database": "Database: MongoDB, Redis, MySQL, PostgreSQL, SQLite",
+            "Database": "Database: PostgreSQL, MongoDB, Redis, MySQL, SQLite",
             "Testing": "A/B Test, Jest, Cypress, Playwright",
             "Communication": "HTTPS/TCP, Rest, GraphQLNginx, Kafka, RabbitMQ, gRPC, WebsocketScrum/Agile project management",
             "CI/CD": "AWS EC2, S3, RDS, Hetzner VPSGithub, Github Action, GitLabJunit, ExUnit, Phoenix.ConnTest, LiveViewTest, StreamDataDeploy: Render, Supabase, Vercel, Netlify, AWS"
