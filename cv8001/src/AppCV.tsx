@@ -234,8 +234,9 @@ function CV2() {
           </CardFooter>
           <CardFooter>
             {(cv.education["header"] as string).split("@")[1].split("_")[0]}<br />
-            {(cv.education["header"] as string).split("@")[1].split("_")[1]}&nbsp;
-            {(cv.education["header"] as string).split("@")[1].split("_")[2]}
+            {(cv.education["header"] as string).split("@")[1].split("_")[1]}
+            {mode !== "dev" && " - " + (cv.education["header"] as string).split("@")[1].split("_")[2]}&nbsp;
+            {(cv.education["header"] as string).split("@")[1].split("_")[3]}
           </CardFooter>
           <CardDescription>
             {(cv.education[lang] as string[]).map((item, index) => {
